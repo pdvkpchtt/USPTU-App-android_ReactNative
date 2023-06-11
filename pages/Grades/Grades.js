@@ -14,7 +14,7 @@ const Grades = ({ navigation }) => {
   return (
     <>
       <SearchBar placeholder="Название дисциплины и др." setSearchText={setFilter} navigation={navigation} />
-      <Layout>
+      <Layout forFlashList>
         <GradesList navigation={navigation} filter={filter} />
       </Layout>
     </>

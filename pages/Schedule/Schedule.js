@@ -73,12 +73,12 @@ const Schedule = ({ navigation }) => {
         cancelTextIOS="Отмена"
         confirmTextIOS="Перейти"
         buttonTextColorIOS={SwitchTheme(isTheme).textbutton1}
-        pickerContainerStyleIOS={{
-          backgroundColor: 'white',
-        }}
-        pickerStyleIOS={{
-          backgroundColor: 'white',
-        }}
+        // pickerContainerStyleIOS={{
+        //   backgroundColor: SwitchTheme(isTheme).bgItem,
+        // }}
+        // pickerStyleIOS={{
+        //   backgroundColor: SwitchTheme(isTheme).bgItem,
+        // }}
       />
       <View style={{ backgroundColor: SwitchTheme(isTheme).colorlineBottomNav, height: widthborder }} />
       <Pressable

@@ -14,7 +14,7 @@ const InstructionsEducators = ({ navigation }) => {
   return (
     <>
       <SearchBar placeholder="Предметы, преподаватели и др." setSearchText={setFilter} navigation={navigation} />
-      <Layout>
+      <Layout forFlashList>
         <SubjectList filter={filter} navigation={navigation} target={'info'} />
       </Layout>
     </>

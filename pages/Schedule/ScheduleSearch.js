@@ -35,7 +35,7 @@ const ScheduleSearch = ({ navigation }) => {
         navigation={navigation}
         isFocus={true}
       />
-      <Layout>
+      <Layout forFlashList>
         <SearchList navigation={navigation} filter={filter} />
       </Layout>
     </>

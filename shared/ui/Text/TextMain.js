@@ -8,10 +8,10 @@ export default function TextMain(props) {
     <Text
       style={{
         color: props.color || SwitchTheme(isTheme).textMain,
-        fontSize: 17,
-        fontFamily: props.secondary ? 'SF-Pro-Text-Medium' : 'SF-Pro-Text-Regular',
-        lineHeight: 22,
-        letterSpacing: -0.41,
+        fontSize: 16,
+        fontFamily: 'Roboto',
+        lineHeight: 24,
+        letterSpacing: 0.5,
         ...props,
       }}
       selectable={props?.selectable || false}

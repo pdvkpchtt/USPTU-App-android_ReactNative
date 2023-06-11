@@ -13,7 +13,7 @@ const Messages = ({ navigation }) => {
   return (
     <>
       <SearchBar placeholder="Предметы, преподаватели и др." setSearchText={setFilter} navigation={navigation} />
-      <Layout>
+      <Layout forFlashList>
         <SubjectList target="messages" filter={filter} navigation={navigation} />
       </Layout>
     </>

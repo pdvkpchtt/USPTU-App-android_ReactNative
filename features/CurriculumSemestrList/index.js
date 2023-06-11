@@ -18,7 +18,7 @@ const CurriculumSemestrList = ({ navigation, route }) => {
   return (
     <>
       <SearchBar placeholder="Предметы, кафедры и др." setSearchText={setFilter} navigation={navigation} />
-      <Layout>
+      <Layout forFlashist>
         <List
           filter={filter}
           navigation={navigation}

@@ -16,7 +16,7 @@ const navListConfig = (navigation) => {
   return [
     [
       {
-        name: 'Персональная информация',
+        name: 'Персональные данные',
         icon: <PersonalDataIcon />,
         onPress: () => {
           navigation.navigate('Персональная информация')

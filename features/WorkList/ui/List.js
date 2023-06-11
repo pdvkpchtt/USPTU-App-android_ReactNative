@@ -22,7 +22,7 @@ const List = ({ items, navigation, refreshing, isEmpty }) => {
 
   const stickyHeaderIndices = items
     .map((item, index) => {
-      if ('type' in item) {
+      if ('interval' in item) {
         return index
       } else {
         return null
@@ -31,7 +31,7 @@ const List = ({ items, navigation, refreshing, isEmpty }) => {
     .filter((item) => item !== null)
 
   const renderItem = ({ item, index }) => {
-    if ('type' in item) {
+    if ('interval' in item) {
       return (
         <View style={{ marginTop: 8, marginBottom: 24 }}>
           <TextSectionHeader color={SwitchTheme(isTheme).textHeader}>{item.interval}</TextSectionHeader>

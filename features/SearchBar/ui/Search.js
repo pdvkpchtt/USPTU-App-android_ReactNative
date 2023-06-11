@@ -25,7 +25,7 @@ const Search = ({ setSearchText, placeholder, search, isFocus = false }) => {
         backgroundColor: SwitchTheme(isTheme).bgTopNav,
         paddingHorizontal: 16,
         paddingVertical: 8,
-        borderBottomWidth: 0.3,
+        // borderBottomWidth: 0.3,
         borderColor: SwitchTheme(isTheme).borderSearch,
         zIndex: 3, // works on ios
         //   elevation: 3, // works on android

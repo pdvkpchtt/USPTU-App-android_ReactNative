@@ -11,6 +11,8 @@ import TextSectionHeader from '../../../shared/ui/Text/TextSectionHeader'
 import { useGeneralScheduleStore } from '../../../entities/generalSchedule'
 import { useEffect, useState } from 'react'
 import FAB from '../../../shared/ui/FAB'
+import moment from 'moment/moment'
+moment.locale('ru')
 
 const List = ({ items, navigation, refreshing, filtering }) => {
   const scheme = useColorScheme()
@@ -23,6 +25,8 @@ const List = ({ items, navigation, refreshing, filtering }) => {
       setSchemeState(scheme)
     }
   }, [scheme])
+
+  const today = moment()
 
   const { loadNextWeek, updateSchedule, setShowingWeekNumber } = useGeneralScheduleStore((state) => ({
     loadNextWeek: state.loadNextWeek,

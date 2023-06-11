@@ -61,7 +61,7 @@ const Tabbar = () => {
                     height: 0, // for iOS
                   },
                 },
-                backgroundColor: SwitchTheme(isTheme).bgBottomNav,
+                backgroundColor: SwitchTheme(isTheme).bgFon,
                 borderTopWidth: 0,
                 elevation: 0,
                 // borderTopColor: SwitchTheme(isTheme).colorlineBottomNav,
@@ -70,10 +70,10 @@ const Tabbar = () => {
                 height: 83,
               },
               tabBarLabelStyle: {
-                fontFamily: 'SF-Pro-Text-Medium',
-                fontSize: 9.5,
+                fontFamily: 'Roboto',
+                // fontWeight: 'medium',  не работаeт(((((
                 lineHeight: 14,
-                letterSpacing: -0.24,
+                letterSpacing: 0.1,
                 marginTop: 4,
               },
               tabBarActiveTintColor: isTheme.includes('theme_epsh')
@@ -85,44 +85,71 @@ const Tabbar = () => {
               tabBarIcon: ({ focused, color, size }) => {
                 if (route.name === 'TabGrades') {
                   return (
-                    <GradeIcon
-                      size={6}
-                      color={
-                        isTheme.includes('theme_epsh')
-                          ? focused
-                            ? SwitchTheme(isTheme).tabBarActiveTintColorLeft
+                    <View
+                      style={{
+                        backgroundColor: focused ? '#DCE3EB' : 'transparent',
+                        borderRadius: 32,
+                        paddingHorizontal: 20,
+                        paddingVertical: 4,
+                      }}
+                    >
+                      <GradeIcon
+                        size={6}
+                        color={
+                          isTheme.includes('theme_epsh')
+                            ? focused
+                              ? SwitchTheme(isTheme).tabBarActiveTintColorLeft
+                              : SwitchTheme(isTheme).tabBarInactiveTintColor
+                            : focused
+                            ? SwitchTheme(isTheme).tabBarActiveTintColor
                             : SwitchTheme(isTheme).tabBarInactiveTintColor
-                          : focused
-                          ? SwitchTheme(isTheme).tabBarActiveTintColor
-                          : SwitchTheme(isTheme).tabBarInactiveTintColor
-                      }
-                    />
+                        }
+                      />
+                    </View>
                   )
                 } else if (route.name === 'TabSchedule') {
                   return (
-                    <ScheduleIcon
-                      size={6}
-                      color={
-                        focused
-                          ? SwitchTheme(isTheme).tabBarActiveTintColor
-                          : SwitchTheme(isTheme).tabBarInactiveTintColor
-                      }
-                    />
+                    <View
+                      style={{
+                        backgroundColor: focused ? '#DCE3EB' : 'transparent',
+                        borderRadius: 32,
+                        paddingHorizontal: 20,
+                        paddingVertical: 4,
+                      }}
+                    >
+                      <ScheduleIcon
+                        size={6}
+                        color={
+                          focused
+                            ? SwitchTheme(isTheme).tabBarActiveTintColor
+                            : SwitchTheme(isTheme).tabBarInactiveTintColor
+                        }
+                      />
+                    </View>
                   )
                 } else if (route.name === 'TabProfile') {
                   return (
-                    <ProfileIcon
-                      size={8}
-                      color={
-                        isTheme.includes('theme_epsh')
-                          ? focused
-                            ? SwitchTheme(isTheme).tabBarActiveTintColorRight
+                    <View
+                      style={{
+                        backgroundColor: focused ? '#DCE3EB' : 'transparent',
+                        borderRadius: 32,
+                        paddingHorizontal: 20,
+                        paddingVertical: 4,
+                      }}
+                    >
+                      <ProfileIcon
+                        size={8}
+                        color={
+                          isTheme.includes('theme_epsh')
+                            ? focused
+                              ? SwitchTheme(isTheme).tabBarActiveTintColorRight
+                              : SwitchTheme(isTheme).tabBarInactiveTintColor
+                            : focused
+                            ? SwitchTheme(isTheme).tabBarActiveTintColor
                             : SwitchTheme(isTheme).tabBarInactiveTintColor
-                          : focused
-                          ? SwitchTheme(isTheme).tabBarActiveTintColor
-                          : SwitchTheme(isTheme).tabBarInactiveTintColor
-                      }
-                    />
+                        }
+                      />
+                    </View>
                   )
                 }
               },

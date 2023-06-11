@@ -10,21 +10,30 @@ export const BoxComponent = ({ name, department, speciality }) => {
     <View
       style={{
         paddingHorizontal: 16,
-        paddingVertical: 10,
+        paddingVertical: 16,
         backgroundColor: SwitchTheme(isTheme).bgItem,
-        borderRadius: 13,
+        borderRadius: 20,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
-        marginTop: 24,
+        marginTop: 40,
+        marginBottom: -4,
       }}
     >
       <TextLarge>{name}</TextLarge>
-      <TextLarge marginTop={8} color={SwitchTheme(isTheme).textSec} secondary={true}>
+      <Text
+        style={{
+          marginTop: 16,
+          color: SwitchTheme(isTheme).textSec,
+          fontSize: 22,
+          fontFamily: 'Roboto',
+          lineHeight: 28,
+        }}
+      >
         {department}
-      </TextLarge>
-      <TextSmall fontSize={17} marginTop={8} color={SwitchTheme(isTheme).textSec}>
+      </Text>
+      <TextSmall fontSize={14} marginTop={16} color={SwitchTheme(isTheme).textSec}>
         {speciality}
       </TextSmall>
     </View>

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "lk-ios",
-    "slug": "lk-ios",
+    "name": "lk-android",
+    "slug": "lk-android",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -28,6 +28,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3d400a5f-cc22-4897-8865-bbd0b2d200d8"
+      }
+    },
+    "owner": "pdvkpchtt"
   }
 }

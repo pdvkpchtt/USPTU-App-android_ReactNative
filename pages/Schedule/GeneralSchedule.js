@@ -94,12 +94,12 @@ const GeneralSchedule = ({ navigation, route }) => {
         cancelTextIOS="Отмена"
         confirmTextIOS="Перейти"
         buttonTextColorIOS={SwitchTheme(isTheme).textbutton1}
-        pickerContainerStyleIOS={{
-          backgroundColor: 'white',
-        }}
-        pickerStyleIOS={{
-          backgroundColor: 'white',
-        }}
+        // pickerContainerStyleIOS={{
+        //   backgroundColor: 'white',
+        // }}
+        // pickerStyleIOS={{
+        //   backgroundColor: 'white',
+        // }}
       />
     </>
   )

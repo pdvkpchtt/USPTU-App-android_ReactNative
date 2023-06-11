@@ -10,7 +10,7 @@ const FileDiscipline = ({ navigation, route }) => {
   }, [navigation])
 
   return (
-    <Layout>
+    <Layout forFlashList>
       <FileList navigation={navigation} route={route} />
     </Layout>
   )

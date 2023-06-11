@@ -15,7 +15,7 @@ import SwitchTheme from '../theme/SwitchTheme'
 
 const Layout = (props) => {
   const [refreshing, setRefreshing] = useState(false)
-  const { width, height } = Dimensions.get('window')
+  const { width, height } = Dimensions.get('screen')
 
   const onRefreshCallback = useCallback(async () => {
     setRefreshing(true)
@@ -32,10 +32,10 @@ const Layout = (props) => {
       <View
         style={{
           position: 'absolute',
-          height: height,
+          height,
           width,
           bottom: 0,
-          top: -70, // danil костыль/фикс полоски смешной серху
+          top: -71, // danil костыль/фикс полоски смешной серху
           right: 0,
           left: 0,
           zIndex: -1,
@@ -50,25 +50,29 @@ const Layout = (props) => {
       {/* <ImageBackground source={require('../images/ftt.png')} style={styles.image}> */}
       <View style={{ backgroundColor: SwitchTheme(isTheme).colorlineBottomNav, height: widthborder }} />
 
-      <ScrollView
-        contentContainerStyle={{
-          paddingHorizontal: 16,
-          paddingBottom: 24,
-          backgroundColor: 'transparent',
-          //minHeight: height - (83 + 24 + 64),
-          ...props,
-        }}
-        refreshControl={
-          <RefreshControl
-            refreshing={props?.refreshing || false}
-            onRefresh={props?.onRefresh ? onRefreshCallback : null}
-          />
-        }
-        onScrollBeginDrag={Keyboard.dismiss}
-      >
-        {props?.children}
-      </ScrollView>
-      <View style={{ backgroundColor: SwitchTheme(isTheme).colorlineBottomNav, height: widthborder }} />
+      {props.forFlashList ? (
+        <View style={{ flex: 1, paddingHorizontal: 16 }}>{props?.children}</View>
+      ) : (
+        <ScrollView
+          contentContainerStyle={{
+            paddingHorizontal: 16,
+            // paddingBottom: 24,
+            backgroundColor: 'transparent',
+            //minHeight: height - (83 + 24 + 64),
+            ...props,
+          }}
+          refreshControl={
+            <RefreshControl
+              refreshing={props?.refreshing || false}
+              onRefresh={props?.onRefresh ? onRefreshCallback : null}
+            />
+          }
+          onScrollBeginDrag={Keyboard.dismiss}
+        >
+          {props?.children}
+        </ScrollView>
+      )}
+      {/* <View style={{ backgroundColor: SwitchTheme(isTheme).colorlineBottomNav, height: widthborder }} /> */}
     </>
   )
 }

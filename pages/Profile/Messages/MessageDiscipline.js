@@ -10,7 +10,7 @@ const MessageDiscipline = ({ navigation, route }) => {
     })
   }, [navigation])
   return (
-    <Layout>
+    <Layout forFlashList>
       <MessageList navigation={navigation} route={route} />
     </Layout>
   )

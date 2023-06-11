@@ -8,10 +8,9 @@ export default function TextLarge(props) {
     <Text
       style={{
         color: props.color || SwitchTheme(isTheme).textMain,
-        fontSize: 24,
-        fontFamily: props.secondary ? 'SF-Pro-Text-Regular' : 'SF-Pro-Text-Medium',
-        lineHeight: 28,
-        letterSpacing: -0.41,
+        fontSize: 28,
+        fontFamily: 'Roboto',
+        lineHeight: 32,
         ...props,
       }}
     >

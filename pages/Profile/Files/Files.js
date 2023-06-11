@@ -13,7 +13,7 @@ const Files = ({ navigation }) => {
   return (
     <>
       <SearchBar placeholder="Предметы, преподаватели и др." setSearchText={setFilter} navigation={navigation} />
-      <Layout>
+      <Layout forFlashList>
         <SubjectList target={'files'} filter={filter} navigation={navigation} />
       </Layout>
     </>

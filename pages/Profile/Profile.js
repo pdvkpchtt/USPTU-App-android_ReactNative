@@ -22,7 +22,7 @@ const Profile = ({ navigation }) => {
     <Layout onRefresh={getProfileInformation}>
       <NameBlock navigation={navigation} />
       <NavList navigation={navigation} />
-      <SecondaryButton color={SwitchTheme(isTheme).textButtonExit} marginTop={24} onPress={logout}>
+      <SecondaryButton color={SwitchTheme(isTheme).textButtonExit} marginTop={16} marginBottom={16} onPress={logout}>
         Выйти
       </SecondaryButton>
     </Layout>

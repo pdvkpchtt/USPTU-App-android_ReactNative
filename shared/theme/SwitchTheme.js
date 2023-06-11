@@ -29,13 +29,13 @@ const SwitchTheme = (theme) => {
   const { width, height } = Dimensions.get('screen')
 
   const defaultThemeLight = {
-    textMain: '#000000',
-    textSec: '#8A8A8E',
+    textMain: '#333333',
+    textSec: '#979797',
     textHeader: '#7A7A7C',
     bgItem: 'white',
     pressedItem: '#E4E4ED',
     runicon: '#c7c7cc',
-    divider: '#F0F0F0',
+    divider: '#DFDFDF',
     bgSection: '#FCFCFC99', //bginterval
     textbuttondate: '#000000',
     bgMesEducator: '#ffffff',
@@ -74,7 +74,7 @@ const SwitchTheme = (theme) => {
     typeColorproch: '#5856D6',
     typeColorprochpressed: '#4A49B8',
     textButtonExit: '#FF3B30',
-    tabBarInactiveTintColor: '#AEAEB2',
+    tabBarInactiveTintColor: '#45474A',
   }
 
   const defaultThemeDark = {
@@ -158,7 +158,7 @@ const SwitchTheme = (theme) => {
         textHeaderButton: '#007AFF', //color
         textHeaderButtonpressed: 'black', //color pressed
 
-        tabBarActiveTintColor: '#007AFF', //color
+        tabBarActiveTintColor: '#151C22', //color
         textdecoration: 'Стандартное оформление',
         textlozungdecoration: 'Для консерваторов',
       }

@@ -34,14 +34,14 @@ const Movements = ({}) => {
     </View>
   )
   return (
-    <Layout>
+    <Layout forFlashList>
       <FlashList
         data={data.slice().reverse()}
         renderItem={renderItem}
         estimatedItemSize={76}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{ backgroundColor: 'transparent' }}
+        contentContainerStyle={{ backgroundColor: 'transparent', paddingBottom: 24 }}
       />
     </Layout>
   )

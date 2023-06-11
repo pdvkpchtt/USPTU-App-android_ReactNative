@@ -62,7 +62,7 @@ const List = ({ items, navigation, refreshing }) => {
       data={items}
       renderItem={renderItem}
       contentContainerStyle={{
-        paddingVertical: 24,
+        paddingTop: 24,
       }}
       estimatedItemSize={283}
       onScrollBeginDrag={Keyboard.dismiss}

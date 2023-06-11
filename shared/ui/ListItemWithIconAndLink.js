@@ -18,10 +18,10 @@ const ListItemWithIconAndLink = ({ children, text, onPress = null, position = 'm
             justifyContent: 'flex-start',
             alignContent: 'flex-start',
             backgroundColor: pressed ? SwitchTheme(isTheme).pressedItem : bg ? bg : null,
-            borderTopRightRadius: position === 'top' || position === 'all' ? 13 : 0,
-            borderTopLeftRadius: position === 'top' || position === 'all' ? 13 : 0,
-            borderBottomRightRadius: position === 'bottom' || position === 'all' ? 13 : 0,
-            borderBottomLeftRadius: position === 'bottom' || position === 'all' ? 13 : 0,
+            borderTopRightRadius: position === 'top' || position === 'all' ? 20 : 0,
+            borderTopLeftRadius: position === 'top' || position === 'all' ? 20 : 0,
+            borderBottomRightRadius: position === 'bottom' || position === 'all' ? 20 : 0,
+            borderBottomLeftRadius: position === 'bottom' || position === 'all' ? 20 : 0,
             paddingHorizontal: 16,
           }}
         >
@@ -30,9 +30,8 @@ const ListItemWithIconAndLink = ({ children, text, onPress = null, position = 'm
               <View style={{ marginRight: 16 }}>{children}</View>
               <TextMain flexShrink={1}>{text}</TextMain>
             </View>
-            <RunIcon />
           </View>
-          {position === 'middle' || position === 'top' ? <Divider ml={45} /> : null}
+          {position === 'middle' || position === 'top' ? <Divider ml={-16} /> : null}
         </View>
       )}
     </Pressable>

@@ -8,10 +8,10 @@ export default function TextSmall(props) {
     <Text
       style={{
         color: props.color || SwitchTheme(isTheme).textMain,
-        fontSize: 13,
-        fontFamily: props.secondary ? 'SF-Pro-Text-Medium' : 'SF-Pro-Text-Regular',
+        fontSize: 14,
+        fontFamily: 'Roboto',
         lineHeight: 18,
-        letterSpacing: -0.41,
+        letterSpacing: 0.15,
         ...props,
       }}
     >

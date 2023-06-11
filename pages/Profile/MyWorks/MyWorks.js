@@ -25,7 +25,7 @@ const MyWorks = ({ navigation }) => {
         search={filter}
         navigation={navigation}
       />
-      <Layout>
+      <Layout forFlashList>
         <WorkList navigation={navigation} filter={filter} />
       </Layout>
     </>
