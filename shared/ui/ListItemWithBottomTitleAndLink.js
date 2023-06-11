@@ -1,0 +1,70 @@
+import { Pressable, StyleSheet, Text, View } from 'react-native'
+import useThemeStore from '../theme/store/store'
+import SwitchTheme from '../theme/SwitchTheme'
+import Divider from './Divider'
+import RunIcon from './Icons/RunIcon'
+import TextMain from './Text/TextMain'
+import TextSmall from './Text/TextSmall'
+
+const ListItemWithBottomTitleAndLink = ({
+  title,
+  bottomTitle,
+  onPress = null,
+  isDividerNeed,
+  position = 'middle',
+  bg = '',
+}) => {
+  const isTheme = useThemeStore((state) => state.theme)
+
+  return (
+    <Pressable onPress={onPress}>
+      {({ pressed }) => (
+        <View
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-start',
+            alignContent: 'flex-start',
+            backgroundColor: pressed ? SwitchTheme(isTheme).pressedItem : bg ? bg : null,
+            paddingHorizontal: 16,
+            borderTopRightRadius: position === 'top' || position === 'all' ? 13 : 0,
+            borderTopLeftRadius: position === 'top' || position === 'all' ? 13 : 0,
+            borderBottomRightRadius: position === 'bottom' || position === 'all' ? 13 : 0,
+            borderBottomLeftRadius: position === 'bottom' || position === 'all' ? 13 : 0,
+          }}
+        >
+          <View style={styles.rows1}>
+            <View style={styles.rows2}>
+              <TextMain>{title}</TextMain>
+              <TextSmall color={SwitchTheme(isTheme).textSec}>{bottomTitle}</TextSmall>
+            </View>
+            <View style={{ flexShrink: 0 }}>
+              <RunIcon />
+            </View>
+          </View>
+          {isDividerNeed || position === 'middle' || position === 'top' ? <Divider ml={0} /> : null}
+        </View>
+      )}
+    </Pressable>
+  )
+}
+
+const styles = StyleSheet.create({
+  rows1: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 10,
+  },
+
+  rows2: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    flexShrink: 1,
+    marginRight: 8,
+  },
+})
+
+export default ListItemWithBottomTitleAndLink
