@@ -70,8 +70,7 @@ const Tabbar = () => {
                 height: 83,
               },
               tabBarLabelStyle: {
-                fontFamily: 'Roboto',
-                // fontWeight: 'medium',  не работаeт(((((
+                fontFamily: 'Roboto-Medium',
                 lineHeight: 14,
                 letterSpacing: 0.1,
                 marginTop: 4,
@@ -80,7 +79,7 @@ const Tabbar = () => {
                 ? (route.name === 'TabGrades' && SwitchTheme(isTheme).tabBarActiveTintColorLeft) ||
                   (route.name === 'TabSchedule' && SwitchTheme(isTheme).tabBarActiveTintColor) ||
                   (route.name === 'TabProfile' && SwitchTheme(isTheme).tabBarActiveTintColorRight)
-                : SwitchTheme(isTheme).tabBarActiveTintColor,
+                : SwitchTheme(isTheme).tabBarInactiveTintColor,
               tabBarInactiveTintColor: SwitchTheme(isTheme).tabBarInactiveTintColor,
               tabBarIcon: ({ focused, color, size }) => {
                 if (route.name === 'TabGrades') {

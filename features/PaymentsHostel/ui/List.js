@@ -49,6 +49,7 @@ const List = ({ items, navigation }) => {
         // backgroundColor: SwitchTheme(isTheme).bgFon,
         paddingVertical: 24,
       }}
+      overScrollMode="never"
     />
   )
 }

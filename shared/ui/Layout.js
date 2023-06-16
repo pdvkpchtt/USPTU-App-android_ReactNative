@@ -68,6 +68,7 @@ const Layout = (props) => {
             />
           }
           onScrollBeginDrag={Keyboard.dismiss}
+          overScrollMode="never"
         >
           {props?.children}
         </ScrollView>

@@ -19,17 +19,17 @@ const ListItemWithRightIcon = ({ children, text, onPress = null, isDividerNeed =
             alignContent: 'flex-start',
             backgroundColor: pressed ? SwitchTheme(isTheme).pressedItem : null,
             paddingHorizontal: 16,
-            borderTopRightRadius: position === 'top' || position === 'all' ? 13 : 0,
-            borderTopLeftRadius: position === 'top' || position === 'all' ? 13 : 0,
-            borderBottomRightRadius: position === 'bottom' || position === 'all' ? 13 : 0,
-            borderBottomLeftRadius: position === 'bottom' || position === 'all' ? 13 : 0,
+            borderTopRightRadius: position === 'top' || position === 'all' ? 20 : 0,
+            borderTopLeftRadius: position === 'top' || position === 'all' ? 20 : 0,
+            borderBottomRightRadius: position === 'bottom' || position === 'all' ? 20 : 0,
+            borderBottomLeftRadius: position === 'bottom' || position === 'all' ? 20 : 0,
           }}
         >
           <View style={styles.rows1}>
             <TextMain flexShrink={1}>{text}</TextMain>
             <View>{children}</View>
           </View>
-          {position === 'top' || position === 'middle' ? <Divider ml={0} /> : null}
+          {position === 'top' || position === 'middle' ? <Divider ml={-16} /> : null}
         </View>
       )}
     </Pressable>
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 10,
+    paddingVertical: 15.5,
   },
 })
 

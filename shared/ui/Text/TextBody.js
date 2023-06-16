@@ -9,7 +9,7 @@ export default function TextBody(props) {
       style={{
         color: props.color || SwitchTheme(isTheme).textMain,
         fontSize: 17,
-        fontFamily: props.medium ? 'SF-Pro-Text-Medium' : 'SF-Pro-Text-Regular',
+        fontFamily: props.medium ? 'Roboto-Medium' : 'Roboto-Regular',
         lineHeight: 22,
         textAlign: 'center',
         letterSpacing: -0.41,

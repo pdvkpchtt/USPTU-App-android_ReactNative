@@ -30,11 +30,11 @@ const SwitchTheme = (theme) => {
 
   const defaultThemeLight = {
     textMain: '#333333',
-    textSec: '#979797',
+    textSec: '#898989',
     textHeader: '#7A7A7C',
     bgItem: 'white',
     pressedItem: '#E4E4ED',
-    runicon: '#c7c7cc',
+    runicon: '#1D1B20',
     divider: '#DFDFDF',
     bgSection: '#FCFCFC99', //bginterval
     textbuttondate: '#000000',
@@ -46,6 +46,7 @@ const SwitchTheme = (theme) => {
     bgTopNav: '#F9F9F9',
     bgBottomNav: '#F9F9F9',
 
+    checkBox: '#898989',
     textSearch: '#000000',
 
     FAB: '#FFFFFF',
@@ -96,6 +97,7 @@ const SwitchTheme = (theme) => {
     bgTopNav: '#1D1D1D',
     bgBottomNav: '#1D1D1D',
 
+    checkBox: '#fff',
     textSearch: '#FFFFFF',
 
     FAB: '#1D1D1D',

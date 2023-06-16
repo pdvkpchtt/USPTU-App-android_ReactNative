@@ -119,6 +119,7 @@ const ListSearch = ({ navigation, items, refreshing, isEmpty }) => {
       refreshing={refreshing}
       refreshControl={<RefreshControl refreshing={refreshing} />}
       extraData={itemState}
+      overScrollMode="never"
     />
   )
 }

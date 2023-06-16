@@ -47,6 +47,7 @@ const List = ({ items, navigation }) => {
       showsVerticalScrollIndicator={false}
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={{ paddingVertical: 24 }}
+      overScrollMode="never"
     />
   )
 }

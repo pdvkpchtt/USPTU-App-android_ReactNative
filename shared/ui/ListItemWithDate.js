@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 12.5,
-    fontFamily: 'SF-Pro-Text-Bold',
+    fontFamily: 'Roboto-Bold',
     lineHeight: 16,
     textAlign: 'center',
     letterSpacing: -0.6,

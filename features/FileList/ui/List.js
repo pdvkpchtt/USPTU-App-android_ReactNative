@@ -102,6 +102,7 @@ const List = ({ items, navigation, refreshing }) => {
       showsVerticalScrollIndicator={false}
       showsHorizontalScrollIndicator={false}
       refreshControl={<RefreshControl refreshing={refreshing} />}
+      overScrollMode="never"
     />
   )
 }

@@ -68,6 +68,7 @@ const List = ({ items, navigation, refreshing }) => {
       onScrollBeginDrag={Keyboard.dismiss}
       showsVerticalScrollIndicator={false}
       showsHorizontalScrollIndicator={false}
+      overScrollMode="never"
     />
   )
 }

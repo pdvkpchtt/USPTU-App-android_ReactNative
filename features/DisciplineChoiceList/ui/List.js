@@ -88,6 +88,7 @@ const List = ({ items, navigation }) => {
       ListEmptyComponent={getListEmptyComponent}
       showsVerticalScrollIndicator={false}
       showsHorizontalScrollIndicator={false}
+      overScrollMode="never"
     />
   )
 }

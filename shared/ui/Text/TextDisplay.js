@@ -9,7 +9,7 @@ export default function TextDisplay(props) {
       style={{
         color: props.color || SwitchTheme(isTheme).textMain,
         fontSize: 16,
-        fontFamily: 'SF-Pro-Display-Regular',
+        fontFamily: 'Roboto-Regular',
         lineHeight: 18,
         letterSpacing: -0.078,
         ...props,

@@ -9,7 +9,7 @@ export default function TextMiddle(props) {
       style={{
         color: props.color || SwitchTheme(isTheme).textMain,
         fontSize: 15,
-        fontFamily: props.secondary ? 'SF-Pro-Text-Medium' : 'SF-Pro-Text-Regular',
+        fontFamily: props.secondary ? 'Roboto-Medium' : 'Roboto-Regular',
         lineHeight: 20,
         letterSpacing: -0.24,
         ...props,

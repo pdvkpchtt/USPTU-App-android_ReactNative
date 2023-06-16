@@ -9,7 +9,7 @@ export default function TextCaption(props) {
       style={{
         color: props.color || SwitchTheme(isTheme).textMain,
         fontSize: 12,
-        fontFamily: 'SF-Pro-Text-Regular',
+        fontFamily: 'Roboto-Regular',
         lineHeight: 16,
         ...props,
       }}

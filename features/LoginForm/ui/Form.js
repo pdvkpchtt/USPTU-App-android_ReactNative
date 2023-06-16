@@ -43,12 +43,8 @@ const Form = ({ logIn }) => {
         }}
       >
         <Animated.View style={animatedStyle}>
-          <Text style={{ fontFamily: 'SF-Compact-Rounded-Medium', fontSize: 56, lineHeight: 56, color: 'black' }}>
-            USPTU
-          </Text>
-          <Text style={{ fontFamily: 'SF-Compact-Rounded-Medium', fontSize: 56, lineHeight: 56, color: 'black' }}>
-            App
-          </Text>
+          <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 56, lineHeight: 56, color: 'black' }}>USPTU</Text>
+          <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 56, lineHeight: 56, color: 'black' }}>App</Text>
         </Animated.View>
       </View>
       <View
@@ -86,7 +82,7 @@ const Form = ({ logIn }) => {
         <Animated.View style={[animatedStyle, { top: 10 }]}>
           <Text
             style={{
-              fontFamily: 'SF-Pro-Display-Regular',
+              fontFamily: 'Roboto-Regular',
               fontSize: 10,
               lineHeight: 10,
               textAlign: 'center',
@@ -97,7 +93,7 @@ const Form = ({ logIn }) => {
           </Text>
           <Text
             style={{
-              fontFamily: 'SF-Pro-Display-Regular',
+              fontFamily: 'Roboto-Regular',
               fontSize: 10,
               lineHeight: 10,
               textAlign: 'center',

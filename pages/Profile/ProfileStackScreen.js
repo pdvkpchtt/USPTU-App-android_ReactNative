@@ -78,7 +78,7 @@ const ProfileStackScreen = ({ navigation }) => {
   return (
     <ProfileStack.Navigator screenOptions={NavigationOptions()}>
       <ProfileStack.Screen name="Профиль" component={Profile} options={{ headerShown: false }} />
-      <ProfileStack.Screen name="Персональная информация" component={PersonalInfo} options={CardOptions} />
+      <ProfileStack.Screen name="Персональные данные" component={PersonalInfo} options={CardOptions} />
       <ProfileStack.Screen
         name="Смена группы"
         component={ChangeGroup}

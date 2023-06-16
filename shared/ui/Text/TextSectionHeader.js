@@ -19,7 +19,7 @@ export default function TextSectionHeader(props) {
         style={{
           color: props.color || SwitchTheme(isTheme).textMain,
           fontSize: 13,
-          fontFamily: 'SF-Pro-Text-Semibold',
+          fontFamily: 'Roboto-Regular',
           letterSpacing: -0.078,
           ...props,
         }}

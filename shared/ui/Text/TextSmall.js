@@ -10,8 +10,8 @@ export default function TextSmall(props) {
         color: props.color || SwitchTheme(isTheme).textMain,
         fontSize: 14,
         fontFamily: 'Roboto',
-        lineHeight: 18,
-        letterSpacing: 0.15,
+        lineHeight: 20,
+        letterSpacing: 0.25,
         ...props,
       }}
     >

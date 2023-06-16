@@ -18,7 +18,6 @@ export const BoxComponent = ({ name, department, speciality }) => {
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
         marginTop: 40,
-        marginBottom: -4,
       }}
     >
       <TextLarge>{name}</TextLarge>
@@ -33,7 +32,7 @@ export const BoxComponent = ({ name, department, speciality }) => {
       >
         {department}
       </Text>
-      <TextSmall fontSize={14} marginTop={16} color={SwitchTheme(isTheme).textSec}>
+      <TextSmall fontSize={14} marginTop={4} color={SwitchTheme(isTheme).textSec}>
         {speciality}
       </TextSmall>
     </View>

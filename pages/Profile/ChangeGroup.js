@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { View } from 'react-native'
+import Checkbox from 'expo-checkbox'
 import { useUserStore } from '../../entities/user'
 import useThemeStore from '../../shared/theme/store/store'
 import SwitchTheme from '../../shared/theme/SwitchTheme'
-import CheckIcon from '../../shared/ui/Icons/CheckIcon'
 import Layout from '../../shared/ui/Layout'
 import ListItemWithBottomTitle from '../../shared/ui/ListItemWithBottomTitle'
 import ListItemWithRightIcon from '../../shared/ui/ListItemWithRightIcon'
@@ -27,7 +27,7 @@ const ChangeGroup = ({ navigation }) => {
 
   return (
     <Layout>
-      <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 13, marginTop: 24 }}>
+      <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 20, marginTop: 16 }}>
         {groups.map((group, index, arr) => (
           // console.log(index === 0),
           <ListItemWithRightIcon
@@ -38,12 +38,16 @@ const ChangeGroup = ({ navigation }) => {
               useUserStore.setState({ dataIdSelected: index })
             }}
           >
-            <CheckIcon color={index == dataIdSelected ? SwitchTheme(isTheme).checkIcon : 'transparent'} />
+            <Checkbox
+              value={index == dataIdSelected}
+              style={{ width: 18, height: 18 }}
+              color={index == dataIdSelected ? SwitchTheme(isTheme).checkIcon : SwitchTheme(isTheme).checkBox}
+            />
           </ListItemWithRightIcon>
         ))}
       </View>
       <TextCaption marginTop={8} marginHorizontal={16} color={SwitchTheme(isTheme).textOuterSec}>
-        При выборе группы поменяются все данные, включая расписание.
+        Выбрав группу, поменяются все данные, включая расписание.
       </TextCaption>
     </Layout>
   )

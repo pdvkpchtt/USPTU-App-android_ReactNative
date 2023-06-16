@@ -19,7 +19,7 @@ const navListConfig = (navigation) => {
         name: 'Персональные данные',
         icon: <PersonalDataIcon />,
         onPress: () => {
-          navigation.navigate('Персональная информация')
+          navigation.navigate('Персональные данные')
         },
       },
       {

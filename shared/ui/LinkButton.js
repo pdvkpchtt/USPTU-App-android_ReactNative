@@ -17,12 +17,7 @@ export default function LinkButton(props) {
               ...props,
             }}
           >
-            <TextSmall
-              secondary
-              color={props.color || 'white'}
-              letterSpacing={-0.078}
-              fontFamily={'SF-Pro-Text-Semibold'}
-            >
+            <TextSmall secondary color={props.color || 'white'} letterSpacing={-0.078} fontFamily={'Roboto-Regular'}>
               {props.children}
             </TextSmall>
           </View>

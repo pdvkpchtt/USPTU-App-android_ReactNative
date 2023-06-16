@@ -57,6 +57,7 @@ const List = ({ items, navigation }) => {
         paddingTop: 24,
       }}
       extraData={itemState}
+      overScrollMode="never"
     />
   )
 }

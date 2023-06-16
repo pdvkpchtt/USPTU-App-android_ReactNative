@@ -26,6 +26,7 @@ export default function SecondaryButton(props) {
               fontSize={14}
               lineHeight={20}
               letterSpacing={0.1}
+              fontFamily={'Roboto-Medium'}
             >
               {props.children}
             </TextBody>

@@ -42,6 +42,7 @@ const Movements = ({}) => {
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{ backgroundColor: 'transparent', paddingBottom: 24 }}
+        overScrollMode="never"
       />
     </Layout>
   )

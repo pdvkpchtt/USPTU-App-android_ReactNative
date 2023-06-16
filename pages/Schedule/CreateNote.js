@@ -51,7 +51,7 @@ const CreateNote = ({ navigation }) => {
               // marginTop: 8,
               borderRadius: 13,
               fontSize: 17,
-              fontFamily: 'SF-Pro-Text-Regular',
+              fontFamily: 'Roboto-Regular',
               lineHeight: 22,
               textAlign: 'left',
               letterSpacing: -0.41,

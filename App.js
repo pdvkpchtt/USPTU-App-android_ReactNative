@@ -44,17 +44,12 @@ export default function App() {
     ),
   }
   let [fontsLoaded] = useFonts({
-    'SF-Pro-Display-Light': require('./assets/fonts/SF-Pro-Display-Light.ttf'),
-    'SF-Pro-Display-Medium': require('./assets/fonts/SF-Pro-Display-Medium.ttf'),
-    'SF-Pro-Display-Regular': require('./assets/fonts/SF-Pro-Display-Regular.ttf'),
-    'SF-Pro-Display-Semibold': require('./assets/fonts/SF-Pro-Display-Semibold.ttf'),
-    'SF-Pro-Text-Light': require('./assets/fonts/SF-Pro-Text-Light.ttf'),
-    'SF-Pro-Text-Medium': require('./assets/fonts/SF-Pro-Text-Medium.ttf'),
-    'SF-Pro-Text-Regular': require('./assets/fonts/SF-Pro-Text-Regular.ttf'),
-    'SF-Pro-Text-Regular-Italic': require('./assets/fonts/SF-Pro-Text-Regular-Italic.ttf'),
-    'SF-Pro-Text-Semibold': require('./assets/fonts/SF-Pro-Text-Semibold.ttf'),
-    'SF-Pro-Text-Bold': require('./assets/fonts/SF-Pro-Text-Bold.ttf'),
-    'SF-Compact-Rounded-Medium': require('./assets/fonts/SF-Compact-Rounded-Medium.ttf'),
+    'Roboto-Black': require('./assets/fonts/Roboto-Black.ttf'),
+    'Roboto-Bold': require('./assets/fonts/Roboto-Bold.ttf'),
+    'Roboto-Light': require('./assets/fonts/Roboto-Light.ttf'),
+    'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf'),
+    'Roboto-Regular': require('./assets/fonts/Roboto-Regular.ttf'),
+    'Roboto-Thin': require('./assets/fonts/Roboto-Thin.ttf'),
   })
   if (!fontsLoaded) {
     return null

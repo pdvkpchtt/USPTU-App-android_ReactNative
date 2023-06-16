@@ -104,7 +104,7 @@ const Schedule = ({ navigation }) => {
                 >
                   <Text
                     style={{
-                      fontFamily: 'SF-Pro-Text-Regular',
+                      fontFamily: 'Roboto-Regular',
                       fontSize: 17,
                       lineHeight: 22,
 
@@ -130,7 +130,7 @@ const Schedule = ({ navigation }) => {
                 >
                   <Text
                     style={{
-                      fontFamily: 'SF-Pro-Text-Regular',
+                      fontFamily: 'Roboto-Regular',
                       fontSize: 17,
                       lineHeight: 22,
                       letterSpacing: -0.408,

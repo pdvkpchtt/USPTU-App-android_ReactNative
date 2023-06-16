@@ -28,6 +28,7 @@ const List = ({ files, accessToken }) => {
         estimatedItemSize={63}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
+        overScrollMode="never"
       />
     </View>
   )

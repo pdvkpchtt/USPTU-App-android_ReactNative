@@ -21,12 +21,12 @@ const ListItemWithBottomTitle = ({ title, bottomTitle, onPress = null, isDivider
         <View style={styles.rows1}>
           <View style={styles.rows2}>
             <TextMain color={SwitchTheme(isTheme).textMain}>{title}</TextMain>
-            <TextSmall color={SwitchTheme(isTheme).textSec} marginTop={2}>
+            <TextSmall color={SwitchTheme(isTheme).textSec} marginTop={0}>
               {bottomTitle}
             </TextSmall>
           </View>
         </View>
-        {isDividerNeed && <Divider ml={0} />}
+        {isDividerNeed && <Divider ml={-16} />}
       </View>
     </Pressable>
   )
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 10,
+    paddingVertical: 12,
   },
 
   rows2: {

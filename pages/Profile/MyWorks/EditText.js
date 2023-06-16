@@ -54,7 +54,7 @@ const EditText = ({ navigation, route }) => {
           marginTop: 24,
           borderRadius: 13,
           fontSize: 17,
-          fontFamily: 'SF-Pro-Text-Regular',
+          fontFamily: 'Roboto-Regular',
           lineHeight: 22,
           textAlign: 'left',
           letterSpacing: -0.41,
@@ -92,7 +92,6 @@ const EditText = ({ navigation, route }) => {
         // }}
         // borderRadius="13px"
         // fontSize="17px"
-        // fontFamily="SF-Pro-Text-Regular"
         // lineHeight="22px"
         // textAlign={'left'}
         // fontStyle="normal"

@@ -9,9 +9,9 @@ export default function TextTime(props) {
       style={{
         color: props.color || SwitchTheme(isTheme).textMain,
         fontSize: 13,
-        fontFamily: props.secondary ? 'SF-Pro-Text-Medium' : 'SF-Pro-Text-Regular',
+        fontFamily: props.secondary ? 'Roboto-Medium' : 'Roboto-Regular',
         fontStyle: 'italic',
-        fontFamily: 'SF-Pro-Text-Regular',
+        fontFamily: 'Roboto-Regular',
         lineHeight: 18,
         letterSpacing: -0.078,
         ...props,

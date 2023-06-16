@@ -95,6 +95,7 @@ const ListSubject = ({ items, navigation, refreshing, target_action, filter }) =
       showsVerticalScrollIndicator={false}
       showsHorizontalScrollIndicator={false}
       refreshControl={<RefreshControl refreshing={refreshing} />}
+      overScrollMode="never"
     />
   )
 }

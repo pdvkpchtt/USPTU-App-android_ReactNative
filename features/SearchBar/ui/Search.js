@@ -38,7 +38,7 @@ const Search = ({ setSearchText, placeholder, search, isFocus = false }) => {
           color: SwitchTheme(isTheme).textMain,
           borderRadius: 13,
           fontSize: 17,
-          fontFamily: 'SF-Pro-Text-Regular',
+          fontFamily: 'Roboto-Regular',
           textAlign: 'left',
           fontStyle: 'normal',
           letterSpacing: -0.41,

@@ -155,6 +155,7 @@ const List = ({ items, navigation, refreshing, filtering }) => {
           ) : null
         }
         onViewableItemsChanged={checkViewableItems}
+        overScrollMode="never"
       />
       {!HIDE_STATE ? (
         <FAB

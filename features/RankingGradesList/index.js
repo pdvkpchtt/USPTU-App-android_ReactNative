@@ -32,6 +32,7 @@ const RankingGradesList = ({ items, navigation }) => {
       estimatedItemSize={120}
       showsVerticalScrollIndicator={false}
       showsHorizontalScrollIndicator={false}
+      overScrollMode="never"
     />
   )
 }
