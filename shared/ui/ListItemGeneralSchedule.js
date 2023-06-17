@@ -301,10 +301,10 @@ const ListItemGeneralSchedule = ({ item }) => {
     <View
       style={{
         backgroundColor: SwitchTheme(isTheme).bgItem,
-        borderRadius: 13,
-        paddingHorizontal: 16,
-        marginTop: -12,
-        paddingVertical: 11,
+        borderRadius: 20,
+        paddingHorizontal: 12,
+        marginTop: 0,
+        paddingVertical: 12,
       }}
     >
       {lessonsValidator(item)}

@@ -48,14 +48,14 @@ const List = ({ items, navigation, refreshing, filtering }) => {
   const renderItem = ({ item, index }) => {
     if ('shownDate' in item) {
       return (
-        <View style={{ marginTop: 8, marginBottom: 36 }}>
+        <View style={{ marginTop: 12, marginBottom: 8 }}>
           <TextSectionHeader color={SwitchTheme(isTheme).textHeader}>{item.shownDate}</TextSectionHeader>
         </View>
       )
     }
     return (
       // не срабатывает isLast
-      <View style={{ marginBottom: 16, paddingHorizontal: 16 }}>
+      <View style={{ marginTop: 4, paddingHorizontal: 12 }}>
         {/* <ListItemSchedule subject={item.discipline_name} /> */}
         {/* <Text>{JSON.stringify(item[0]?.lessons)}</Text> */}
         {item.lessons.length ? (
@@ -64,10 +64,9 @@ const List = ({ items, navigation, refreshing, filtering }) => {
           <View
             style={{
               backgroundColor: SwitchTheme(isTheme).bgItem,
-              borderRadius: 13,
-              paddingHorizontal: 16,
-              marginTop: -12,
-              paddingVertical: 11,
+              borderRadius: 20,
+              paddingHorizontal: 12,
+              paddingVertical: 12,
             }}
           >
             <TextBody textAlign="left">Нет занятий</TextBody>
