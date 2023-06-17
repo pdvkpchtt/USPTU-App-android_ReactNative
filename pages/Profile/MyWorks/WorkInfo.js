@@ -19,7 +19,7 @@ const WorkInfo = ({ route, navigation }) => {
   return (
     <Layout>
       <WorkInfoCard item={route.params} />
-      <View style={{ marginVertical: 24, flexGrow: 1 }}>
+      <View style={{ marginVertical: 16, flexGrow: 1 }}>
         <WorkFiles id={route.params.id} />
       </View>
       {route.params.status_of_work === 'Черновик' ? (

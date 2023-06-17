@@ -51,11 +51,11 @@ const Layout = (props) => {
       <View style={{ backgroundColor: SwitchTheme(isTheme).colorlineBottomNav, height: widthborder }} />
 
       {props.forFlashList ? (
-        <View style={{ flex: 1, paddingHorizontal: 16 }}>{props?.children}</View>
+        <View style={{ flex: 1, paddingHorizontal: 12 }}>{props?.children}</View>
       ) : (
         <ScrollView
           contentContainerStyle={{
-            paddingHorizontal: 16,
+            paddingHorizontal: 12,
             // paddingBottom: 24,
             backgroundColor: 'transparent',
             //minHeight: height - (83 + 24 + 64),

@@ -3,7 +3,7 @@ import Layout from '../../../shared/ui/Layout'
 
 const DisciplineChoice = ({ navigation }) => {
   return (
-    <Layout>
+    <Layout forFlashList>
       <DisciplineChoiceList navigation={navigation} />
     </Layout>
   )

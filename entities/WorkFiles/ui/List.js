@@ -11,7 +11,7 @@ const List = ({ files, accessToken }) => {
     return (
       <ListItemWithButton
         title={item.name}
-        buttonTitle="СКАЧАТЬ"
+        buttonTitle="Скачать"
         position={index == files.length - 1 ? 'bottom' : 'middle'}
         onPress={() => {
           Linking.openURL(`https://ams.rusoil.net/pcs3/${item.link}&access_token=${accessToken}`)
@@ -21,7 +21,7 @@ const List = ({ files, accessToken }) => {
   }
 
   return (
-    <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 13 }}>
+    <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 20 }}>
       <FlashList
         data={files}
         renderItem={renderItem}

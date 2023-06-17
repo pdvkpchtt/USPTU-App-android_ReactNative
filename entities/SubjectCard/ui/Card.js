@@ -12,14 +12,12 @@ const Card = ({ item, onPress, isShowBadge }) => {
   const isTheme = useThemeStore((state) => state.theme)
   return (
     <>
-      <TextCaption paddingHorizontal={16} color={SwitchTheme(isTheme).textOuterSec}>
-        {item.ranking.toUpperCase()}
-      </TextCaption>
-      <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 13, marginTop: 8 }}>
+      <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 20, marginTop: 0 }}>
         {item.educator_name ? (
           <>
             {isShowBadge && item.unreadMessagesCount > 0 ? (
               <ListItemWithRightTitleAndLinkAndBadge
+                header={item.ranking}
                 title={item.educator_name}
                 rightTitle={item.unreadMessagesCount}
                 onPress={onPress}
@@ -28,7 +26,7 @@ const Card = ({ item, onPress, isShowBadge }) => {
             ) : (
               <ListItemWithLink title={item.educator_name} onPress={onPress} position="top" />
             )}
-            <ListItemWithBottomTitle title={item.discipline_name} bottomTitle={item.group} />
+            <ListItemWithBottomTitle title={item.discipline_name} header={item.group} />
           </>
         ) : isShowBadge && item.unreadMessagesCount > 0 ? (
           <ListItemWithRightTitleAndLinkAndBadge

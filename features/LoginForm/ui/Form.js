@@ -39,7 +39,7 @@ const Form = ({ logIn }) => {
           alignItems: 'center',
           marginTop: -70,
           marginLeft: -50,
-          backgroundColor: SwitchTheme(isTheme).bgItem,
+          backgroundColor: 'white',
         }}
       >
         <Animated.View style={animatedStyle}>

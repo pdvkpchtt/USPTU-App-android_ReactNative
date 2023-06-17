@@ -24,13 +24,13 @@ const List = ({ items, navigation }) => {
         style={{
           marginBottom: 16,
           // marginHorizontal: 16,
-          borderRadius: 13,
+          borderRadius: 20,
           backgroundColor: SwitchTheme(isTheme).bgItem,
         }}
       >
         <ListItemWithBottomTitleAndLink
           title={item.amount + ' ₽'}
-          bottomTitle={item.name}
+          header={item.name}
           position="all"
           onPress={() => {
             navigation.navigate('Информация о выплате', { item: item })
@@ -54,7 +54,7 @@ const List = ({ items, navigation }) => {
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={{
         // backgroundColor: SwitchTheme(isTheme).bgFon,
-        paddingTop: 24,
+        paddingTop: 12,
       }}
       extraData={itemState}
       overScrollMode="never"

@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import useThemeStore from '../theme/store/store'
 import SwitchTheme from '../theme/SwitchTheme'
 import Divider from './Divider'
+import TextHead from './Text/TextHead'
 import TextMain from './Text/TextMain'
 
 const ListItemWithRightTitle = ({ title, rightTitle, isDividerNeed }) => {
@@ -19,19 +20,19 @@ const ListItemWithRightTitle = ({ title, rightTitle, isDividerNeed }) => {
       <View
         style={{
           backgroundColor: SwitchTheme(isTheme).bgItem,
-          borderRadius: 13,
+          borderRadius: 20,
           display: 'flex',
           flexWrap: 'wrap',
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
-          paddingVertical: 10,
+          paddingVertical: 12,
         }}
       >
         <View style={styles.rows2}>
-          <TextMain>{title}</TextMain>
+          <TextHead text={title} />
+          <TextMain>{rightTitle}</TextMain>
         </View>
-        <TextMain color={SwitchTheme(isTheme).textSec}>{rightTitle}</TextMain>
       </View>
       {isDividerNeed && <Divider ml={0} />}
     </View>
@@ -41,9 +42,8 @@ const ListItemWithRightTitle = ({ title, rightTitle, isDividerNeed }) => {
 const styles = StyleSheet.create({
   rows2: {
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'flex-start',
-    alignItems: 'center',
   },
 })
 

@@ -31,13 +31,13 @@ const ListSubject = ({ items, navigation, refreshing, target_action, filter }) =
   const renderItem = ({ item, index }) => {
     if ('interval' in item) {
       return (
-        <View style={{ marginTop: 8, marginBottom: 24 }}>
+        <View style={{ marginTop: 12, marginBottom: 12 }}>
           <TextSectionHeader color={SwitchTheme(isTheme).textHeader}>{item.interval}</TextSectionHeader>
         </View>
       )
     }
     return (
-      <View style={{ marginBottom: item?.isLast ? 16 : 24 }}>
+      <View style={{ marginBottom: items[index + 1]?.type == 'header' ? 0 : 16 }}>
         <SubjectCard
           target_action={target_action}
           item={item}
@@ -62,11 +62,11 @@ const ListSubject = ({ items, navigation, refreshing, target_action, filter }) =
         {refreshing ? null : (
           <View
             style={{
-              marginTop: 24,
+              marginTop: 12,
               // marginHorizontal: 16,
               backgroundColor: SwitchTheme(isTheme).bgItem,
-              borderRadius: 13,
-              paddingHorizontal: 16,
+              borderRadius: 20,
+              paddingHorizontal: 12,
               paddingVertical: 10,
             }}
           >

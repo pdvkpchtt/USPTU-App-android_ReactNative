@@ -36,7 +36,7 @@ const CurriculumList = ({ navigation, filter }) => {
   return (
     <>
       {!loading ? (
-        <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 13, marginTop: 24 }}>
+        <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 20, marginTop: 12 }}>
           {data.length ? (
             data.map((item, index, arr) => (
               <ListItemWithLink

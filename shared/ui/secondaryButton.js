@@ -1,4 +1,4 @@
-import { Pressable, View } from 'react-native'
+import { Pressable, Text, View } from 'react-native'
 import TextBody from './Text/TextBody'
 import useThemeStore from '../../shared/theme/store/store'
 import SwitchTheme from '../../shared/theme/SwitchTheme'

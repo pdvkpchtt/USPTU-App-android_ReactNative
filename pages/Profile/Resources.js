@@ -9,7 +9,7 @@ const Resources = () => {
   const isTheme = useThemeStore((state) => state.theme)
   return (
     <Layout>
-      <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 13, marginTop: 24 }}>
+      <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 20, marginTop: 12 }}>
         <ListItemWithLink
           title="Библиотека"
           position="top"

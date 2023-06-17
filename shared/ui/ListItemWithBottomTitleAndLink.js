@@ -3,11 +3,13 @@ import useThemeStore from '../theme/store/store'
 import SwitchTheme from '../theme/SwitchTheme'
 import Divider from './Divider'
 import RunIcon from './Icons/RunIcon'
+import TextHead from './Text/TextHead'
 import TextMain from './Text/TextMain'
 import TextSmall from './Text/TextSmall'
 
 const ListItemWithBottomTitleAndLink = ({
   title,
+  header,
   bottomTitle,
   onPress = null,
   isDividerNeed,
@@ -35,8 +37,9 @@ const ListItemWithBottomTitleAndLink = ({
         >
           <View style={styles.rows1}>
             <View style={styles.rows2}>
+              {header ? <TextHead text={header} /> : null}
               <TextMain>{title}</TextMain>
-              <TextSmall color={SwitchTheme(isTheme).textSec}>{bottomTitle}</TextSmall>
+              {bottomTitle ? <TextSmall color={SwitchTheme(isTheme).textSec}>{bottomTitle}</TextSmall> : null}
             </View>
             <View style={{ flexShrink: 0, marginRight: 8 }}>
               <RunIcon />

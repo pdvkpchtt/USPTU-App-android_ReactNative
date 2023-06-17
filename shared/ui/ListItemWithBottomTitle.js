@@ -2,10 +2,11 @@ import { Pressable, StyleSheet, Text, View } from 'react-native'
 import useThemeStore from '../theme/store/store'
 import SwitchTheme from '../theme/SwitchTheme'
 import Divider from './Divider'
+import TextHead from './Text/TextHead'
 import TextMain from './Text/TextMain'
 import TextSmall from './Text/TextSmall'
 
-const ListItemWithBottomTitle = ({ title, bottomTitle, onPress = null, isDividerNeed = false }) => {
+const ListItemWithBottomTitle = ({ title, bottomTitle, header, onPress = null, isDividerNeed = false }) => {
   const isTheme = useThemeStore((state) => state.theme)
   return (
     <Pressable onPress={onPress}>
@@ -20,10 +21,9 @@ const ListItemWithBottomTitle = ({ title, bottomTitle, onPress = null, isDivider
       >
         <View style={styles.rows1}>
           <View style={styles.rows2}>
-            <TextMain color={SwitchTheme(isTheme).textMain}>{title}</TextMain>
-            <TextSmall color={SwitchTheme(isTheme).textSec} marginTop={0}>
-              {bottomTitle}
-            </TextSmall>
+            {header ? <TextHead text={header} /> : null}
+            <TextMain>{title}</TextMain>
+            {bottomTitle ? <TextSmall color={SwitchTheme(isTheme).textSec}>{bottomTitle}</TextSmall> : null}
           </View>
         </View>
         {isDividerNeed && <Divider ml={-16} />}

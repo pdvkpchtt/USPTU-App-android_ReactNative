@@ -8,7 +8,7 @@ const FilesList = () => {
   const { files, deleteFile } = useStore((state) => ({ files: state.files, deleteFile: state.deleteFile }))
 
   return files.length ? (
-    <ListBox paddingHorizontal={0} paddingVertical={0} marginTop={24}>
+    <ListBox paddingHorizontal={0} paddingVertical={0} marginTop={16}>
       {files.map((file, index, arr) => (
         <ListItemWithButton
           title={file.name}

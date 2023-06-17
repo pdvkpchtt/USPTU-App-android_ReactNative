@@ -27,7 +27,7 @@ const ChangeGroup = ({ navigation }) => {
 
   return (
     <Layout>
-      <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 20, marginTop: 16 }}>
+      <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 20, marginTop: 12 }}>
         {groups.map((group, index, arr) => (
           // console.log(index === 0),
           <ListItemWithRightIcon

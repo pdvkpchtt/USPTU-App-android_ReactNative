@@ -17,20 +17,20 @@ const ListItemWithLink = ({ title, onPress = null, position = 'middle', bg = nul
             justifyContent: 'flex-start',
             alignContent: 'flex-start',
             backgroundColor: pressed ? SwitchTheme(isTheme).pressedItem : bg ? bg : null,
-            borderTopRightRadius: position === 'top' || position === 'all' ? 13 : 0,
-            borderTopLeftRadius: position === 'top' || position === 'all' ? 13 : 0,
-            borderBottomRightRadius: position === 'bottom' || position === 'all' ? 13 : 0,
-            borderBottomLeftRadius: position === 'bottom' || position === 'all' ? 13 : 0,
+            borderTopRightRadius: position === 'top' || position === 'all' ? 20 : 0,
+            borderTopLeftRadius: position === 'top' || position === 'all' ? 20 : 0,
+            borderBottomRightRadius: position === 'bottom' || position === 'all' ? 20 : 0,
+            borderBottomLeftRadius: position === 'bottom' || position === 'all' ? 20 : 0,
             paddingHorizontal: 16,
           }}
         >
           <View style={styles.rows1}>
             <TextMain flexShrink={1}>{title}</TextMain>
-            <View style={{ marginLeft: 8 }}>
+            <View style={{ marginLeft: 8, marginRight: 8 }}>
               <RunIcon />
             </View>
           </View>
-          {position === 'middle' || position === 'top' ? <Divider /> : null}
+          {position === 'middle' || position === 'top' ? <Divider ml={-16} /> : null}
         </View>
       )}
     </Pressable>
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 10,
+    paddingVertical: 15.5,
     paddingRight: 0,
   },
 

@@ -5,7 +5,7 @@ import ListItemWithBottomTitle from './../../../shared/ui/ListItemWithBottomTitl
 const Card = ({ item }) => {
   const isTheme = useThemeStore((state) => state.theme)
   return (
-    <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 13, marginTop: 24 }}>
+    <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 20, marginTop: 12 }}>
       <ListItemWithBottomTitle title={item.discipline_name} bottomTitle={'Дисциплина'} isDividerNeed />
       <ListItemWithBottomTitle title={item.type_of_work} bottomTitle={'Вид работы'} isDividerNeed />
       <ListItemWithBottomTitle title={item.group} bottomTitle={'Группа'} isDividerNeed />
@@ -24,9 +24,7 @@ const Card = ({ item }) => {
         <ListItemWithBottomTitle title={item.comment} bottomTitle={'Комментарий преподавателя'} isDividerNeed />
       )}
 
-      {item.dataUpload && (
-        <ListItemWithBottomTitle title={item.dataUpload} bottomTitle={'Дата изменения'} isDividerNeed />
-      )}
+      {item.dataUpload && <ListItemWithBottomTitle title={item.dataUpload} bottomTitle={'Дата изменения'} />}
     </View>
   )
 }

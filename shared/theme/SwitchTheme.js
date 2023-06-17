@@ -53,7 +53,7 @@ const SwitchTheme = (theme) => {
     FABStroke: '#e7e7ec',
     FABIcon: '#C7C7CC',
 
-    bgSearch: '#E5E5E6',
+    bgSearch: '#fff',
     placeholderSearch: '#808084',
 
     placeholderSearchpressed: '#C7C7CC',
@@ -135,29 +135,29 @@ const SwitchTheme = (theme) => {
         bgFon: '#F2F2F7', // цвет под фон картинки
         fonImage: <UsualFon width={width} height={height} />,
 
-        placeselectionSearch: '#007AFF', //color
+        placeselectionSearch: '#4A90E0', //color
 
         bgBadgeMes: '#FF3B30', //под вопросом, оттеннок ли?
         bgBadgeMesGrade: '#7A7A7C',
         textBadgeMesGrade: '#ffffff',
 
-        checkIcon: '#007AFF', //color
+        checkIcon: '#4A90E0', //color
         bgbutton1: '#F2F2F2', //оттенок по-хорошему придать
         bgbutton1pressed: '#BDBDBD', //оттенок по-хорошему придать press
-        textbutton1: '#007AFF', //color
+        textbutton1: '#4A90E0', //color
 
         textbutton1pressed: 'black', //color pressed
-        bgbuttondefault: '#007AFF', //color
-        bgbuttondefaultpressed: '#1877DF',
+        bgbuttondefault: '#4A90E0', //color
+        bgbuttondefaultpressed: '#4A90E0',
         textbuttondefault: 'white',
 
-        textlink: '#007AFF', //color
-        bgMesStudent: '#007AFF', //color
+        textlink: '#4A90E0', //color
+        bgMesStudent: '#4A90E0', //color
 
-        textMesStudent: '#007AFF', //color
-        textTimeMesStudent: '#007AFF', //color
-        colorIndicator: '#007AFF', //color
-        textHeaderButton: '#007AFF', //color
+        textMesStudent: '#4A90E0', //color
+        textTimeMesStudent: '#4A90E0', //color
+        colorIndicator: '#4A90E0', //color
+        textHeaderButton: '#4A90E0', //color
         textHeaderButtonpressed: 'black', //color pressed
 
         tabBarActiveTintColor: '#151C22', //color

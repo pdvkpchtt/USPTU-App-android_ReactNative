@@ -52,10 +52,10 @@ const Decoration = ({ navigation, route }) => {
       <Layout>
         <View
           style={{
-            marginTop: 24,
+            marginTop: 12,
             backgroundColor: SwitchTheme(isTheme).bgItem,
-            paddingVertical: 11,
-            borderRadius: 13,
+            paddingVertical: 12,
+            borderRadius: 20,
           }}
         >
           <ScrollView style={styles.scrollView} horizontal={true} showsHorizontalScrollIndicator={false}>

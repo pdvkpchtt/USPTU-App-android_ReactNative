@@ -3,6 +3,7 @@ import useThemeStore from '../theme/store/store'
 import SwitchTheme from '../theme/SwitchTheme'
 import Divider from './Divider'
 import RunIcon from './Icons/RunIcon'
+import TextHead from './Text/TextHead'
 import TextMain from './Text/TextMain'
 
 const ListItemWithRightTitleAndLinkAndBadge = ({
@@ -11,6 +12,7 @@ const ListItemWithRightTitleAndLinkAndBadge = ({
   onPress = null,
   isDividerNeed,
   position = 'middle',
+  header,
   bg = null,
 }) => {
   const isTheme = useThemeStore((state) => state.theme)
@@ -32,23 +34,11 @@ const ListItemWithRightTitleAndLinkAndBadge = ({
           }}
         >
           <View style={styles.rows1}>
-            <TextMain flexShrink={1}>{title}</TextMain>
+            <View style={{ flexShrink: 1 }}>
+              {header ? <TextHead text={header} /> : null}
+              <TextMain flexShrink={1}>{title}</TextMain>
+            </View>
             <View style={styles.rows2}>
-              <View
-                style={{
-                  paddingHorizontal: 6,
-                  paddingVertical: 0.5,
-                  borderRadius: 100,
-                  minWidth: 23,
-                  display: 'flex',
-                  flexDirection: 'row',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  textAlign: 'center',
-                }}
-              >
-                <TextMain color={SwitchTheme(isTheme).textSec}>{rightTitle}</TextMain>
-              </View>
               <View
                 style={{
                   marginLeft: 8,
@@ -58,7 +48,7 @@ const ListItemWithRightTitleAndLinkAndBadge = ({
               </View>
             </View>
           </View>
-          {isDividerNeed || position === 'middle' || position === 'top' ? <Divider ml={0} /> : null}
+          {isDividerNeed || position === 'middle' || position === 'top' ? <Divider ml={-16} /> : null}
         </View>
       )}
     </Pressable>

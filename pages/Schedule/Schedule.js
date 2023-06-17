@@ -10,6 +10,7 @@ import { useScheduleStore } from '../../entities/schedule'
 
 const Schedule = ({ navigation }) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false)
+
   const showingWeekNumber = useScheduleStore((state) => state.showingWeekNumber)
   const loadWeekFromCalendar = useScheduleStore((state) => state.loadWeekFromCalendar)
   const isTheme = useThemeStore((state) => state.theme)
@@ -63,7 +64,7 @@ const Schedule = ({ navigation }) => {
   return (
     <>
       <View style={{ backgroundColor: SwitchTheme(isTheme).colorlineBottomNav, height: widthborder }} />
-      <ScheduleList />
+      <ScheduleList navigation={navigation} />
 
       <DateTimePickerModal
         isVisible={isDatePickerVisible}
@@ -80,71 +81,7 @@ const Schedule = ({ navigation }) => {
         //   backgroundColor: SwitchTheme(isTheme).bgItem,
         // }}
       />
-      <View style={{ backgroundColor: SwitchTheme(isTheme).colorlineBottomNav, height: widthborder }} />
-      <Pressable
-        onPress={() => {
-          navigation.navigate('Поиск по расписанию')
-        }}
-      >
-        {({ pressed }) => {
-          return (
-            <View style={{ backgroundColor: SwitchTheme(isTheme).bgBottomNav }}>
-              {pressed ? (
-                <View
-                  style={{
-                    backgroundColor: SwitchTheme(isTheme).bgSearchpressed,
-                    borderRadius: 13,
-                    paddingVertical: 9,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginHorizontal: 28,
-                    marginTop: 9,
-                    marginBottom: 10,
-                  }}
-                >
-                  <Text
-                    style={{
-                      fontFamily: 'Roboto-Regular',
-                      fontSize: 17,
-                      lineHeight: 22,
-
-                      letterSpacing: -0.408,
-                      color: SwitchTheme(isTheme).placeholderSearchpressed,
-                    }}
-                  >
-                    Поиск
-                  </Text>
-                </View>
-              ) : (
-                <View
-                  style={{
-                    backgroundColor: SwitchTheme(isTheme).bgSearch,
-                    borderRadius: 13,
-                    paddingVertical: 9,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginHorizontal: 28,
-                    marginTop: 9,
-                    marginBottom: 10,
-                  }}
-                >
-                  <Text
-                    style={{
-                      fontFamily: 'Roboto-Regular',
-                      fontSize: 17,
-                      lineHeight: 22,
-                      letterSpacing: -0.408,
-                      color: SwitchTheme(isTheme).placeholderSearch,
-                    }}
-                  >
-                    Поиск
-                  </Text>
-                </View>
-              )}
-            </View>
-          )
-        }}
-      </Pressable>
+      {/* <View style={{ backgroundColor: SwitchTheme(isTheme).colorlineBottomNav, height: widthborder }} /> */}
     </>
   )
 }

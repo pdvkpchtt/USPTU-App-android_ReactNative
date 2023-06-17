@@ -7,75 +7,69 @@ import RunIcon from './Icons/RunIcon'
 import TextBody from './Text/TextBody'
 import TextMain from './Text/TextMain'
 import TextSmall from './Text/TextSmall'
+import DatePicerIcon from '../../shared/ui/Icons/DatePicerIcon'
 
 const ListItemWithDate = ({ title, buttonTitle, onPress = null, position = 'all', backgroundIsNeed = false }) => {
   const isTheme = useThemeStore((state) => state.theme)
   return (
-    <View
+    <Pressable
+      onPress={onPress}
       style={{
+        borderWidth: 2,
+        borderColor: SwitchTheme(isTheme).placeselectionSearch,
         display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-start',
-        alignContent: 'flex-start',
-        paddingHorizontal: 16,
-        borderTopRightRadius: position === 'top' || position === 'all' ? 13 : 0,
-        borderTopLeftRadius: position === 'top' || position === 'all' ? 13 : 0,
-        borderBottomRightRadius: position === 'bottom' || position === 'all' ? 13 : 0,
-        borderBottomLeftRadius: position === 'bottom' || position === 'all' ? 13 : 0,
-        backgroundColor: backgroundIsNeed ? SwitchTheme(isTheme).bgItem : 'transparent',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginVertical: 16,
+        paddingVertical: 6,
+        paddingHorizontal: 2,
+        borderTopRightRadius: position === 'top' || position === 'all' ? 20 : 0,
+        borderTopLeftRadius: position === 'top' || position === 'all' ? 20 : 0,
+        borderBottomRightRadius: position === 'bottom' || position === 'all' ? 20 : 0,
+        borderBottomLeftRadius: position === 'bottom' || position === 'all' ? 20 : 0,
       }}
     >
-      <View style={styles.rows1}>
-        <TextMain flex={1}>{title}</TextMain>
-        <Pressable onPress={onPress}>
-          {({ pressed }) => (
-            <View
-              style={{
-                flex: 0,
-                marginLeft: 8,
-                backgroundColor: pressed ? SwitchTheme(isTheme).bgbutton1pressed : SwitchTheme(isTheme).bgbutton1,
-                borderRadius: 8,
-                paddingHorizontal: 12,
-                paddingVertical: 6,
-              }}
+      {({ pressed }) => (
+        <>
+          <Text
+            style={{
+              flex: 1,
+              position: 'absolute',
+              top: -10,
+              left: 12,
+              fontSize: 12,
+              fontFamily: 'Roboto-Medium',
+              lineHeight: 16,
+              color: SwitchTheme(isTheme).bgMesStudent,
+              backgroundColor: SwitchTheme(isTheme).bgFon,
+              paddingHorizontal: 4,
+            }}
+          >
+            {title}
+          </Text>
+          <View
+            style={
+              {
+                // backgroundColor: pressed ? SwitchTheme(isTheme).bgbutton1pressed : SwitchTheme(isTheme).bgbutton1,
+              }
+            }
+          >
+            <TextBody
+              marginRight={8}
+              marginLeft={13}
+              color={pressed ? SwitchTheme(isTheme).textbutton1pressed : SwitchTheme(isTheme).textbuttondate}
             >
-              <TextBody color={pressed ? SwitchTheme(isTheme).textbutton1pressed : SwitchTheme(isTheme).textbuttondate}>
-                {buttonTitle}
-              </TextBody>
-            </View>
-          )}
-        </Pressable>
-      </View>
-      {position === 'middle' || position === 'top' ? <Divider ml={0} /> : null}
-    </View>
+              {buttonTitle}
+            </TextBody>
+          </View>
+          <View style={{ backgroundColor: SwitchTheme(isTheme).bgSearch, padding: 8, borderRadius: 99 }}>
+            <DatePicerIcon />
+          </View>
+        </>
+      )}
+    </Pressable>
   )
 }
-
-const styles = StyleSheet.create({
-  rows1: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 10,
-  },
-
-  rows2: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    flexShrink: 1,
-    marginRight: 8,
-  },
-  buttonText: {
-    fontSize: 12.5,
-    fontFamily: 'Roboto-Bold',
-    lineHeight: 16,
-    textAlign: 'center',
-    letterSpacing: -0.6,
-    paddingVertical: 4,
-    paddingHorizontal: 20,
-  },
-})
 
 export default ListItemWithDate

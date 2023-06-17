@@ -3,7 +3,6 @@ import { Keyboard, RefreshControl, View, useColorScheme } from 'react-native'
 import useThemeStore from '../../../shared/theme/store/store'
 import SwitchTheme from '../../../shared/theme/SwitchTheme'
 import ListItemWithBottomTitle from '../../../shared/ui/ListItemWithBottomTitle'
-import ListItemWithRightTitle from '../../../shared/ui/ListItemWithRightTitle'
 import { useEffect, useState } from 'react'
 
 const List = ({ items, navigation, refreshing }) => {
@@ -23,9 +22,9 @@ const List = ({ items, navigation, refreshing }) => {
     return (
       <View
         style={{
-          marginBottom: item?.isLast ? 16 : 24,
+          marginBottom: item?.isLast ? 12 : 16,
           backgroundColor: SwitchTheme(isTheme).bgItem,
-          borderRadius: 13,
+          borderRadius: 20,
         }}
       >
         <ListItemWithBottomTitle
@@ -33,21 +32,29 @@ const List = ({ items, navigation, refreshing }) => {
           bottomTitle={item.ranking}
           isDividerNeed
         ></ListItemWithBottomTitle>
-        <ListItemWithRightTitle title="Кафедра" rightTitle={item.department} isDividerNeed></ListItemWithRightTitle>
+        <ListItemWithBottomTitle
+          bottomTitle="Кафедра"
+          title={item.department}
+          isDividerNeed={item.hours !== '' && true}
+        ></ListItemWithBottomTitle>
         {item.hours !== '' ? (
-          <ListItemWithRightTitle title="Всего часов" rightTitle={item.hours} isDividerNeed></ListItemWithRightTitle>
+          <ListItemWithBottomTitle
+            bottomTitle="Всего часов"
+            title={item.hours}
+            isDividerNeed={item.aud_hours !== '' && true}
+          ></ListItemWithBottomTitle>
         ) : null}
 
         {item.aud_hours !== '' ? (
-          <ListItemWithRightTitle
-            title="Аудиторных часов"
-            rightTitle={item.aud_hours}
-            isDividerNeed
-          ></ListItemWithRightTitle>
+          <ListItemWithBottomTitle
+            bottomTitle="Аудиторных часов"
+            title={item.aud_hours}
+            isDividerNeed={item.credits !== '' && true}
+          ></ListItemWithBottomTitle>
         ) : null}
 
         {item.credits !== '' ? (
-          <ListItemWithRightTitle title="Зачётных единиц" rightTitle={item.credits}></ListItemWithRightTitle>
+          <ListItemWithBottomTitle bottomTitle="Зачётных единиц" title={item.credits}></ListItemWithBottomTitle>
         ) : null}
       </View>
     )
@@ -62,7 +69,7 @@ const List = ({ items, navigation, refreshing }) => {
       data={items}
       renderItem={renderItem}
       contentContainerStyle={{
-        paddingTop: 24,
+        paddingTop: 12,
       }}
       estimatedItemSize={283}
       onScrollBeginDrag={Keyboard.dismiss}

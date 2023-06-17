@@ -19,7 +19,7 @@ const List = ({ list }) => {
   return (
     <View>
       {list.map((item, index) => (
-        <View style={{ marginTop: 16, backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 20 }} key={index}>
+        <View style={{ marginTop: 12, backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 20 }} key={index}>
           {getBox(item)}
         </View>
       ))}

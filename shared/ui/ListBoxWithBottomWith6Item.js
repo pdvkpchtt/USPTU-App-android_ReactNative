@@ -24,7 +24,7 @@ const ListBoxWithBottomWith6Item = ({
   const isTheme = useThemeStore((state) => state.theme)
   return (
     <>
-      <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 13, marginTop: 24 }}>
+      <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 20, marginTop: 12 }}>
         <ListItemWithBottomTitle title={title1} bottomTitle={bottomTitle1} isDividerNeed></ListItemWithBottomTitle>
         <ListItemWithBottomTitle title={title2} bottomTitle={bottomTitle2} isDividerNeed></ListItemWithBottomTitle>
         <ListItemWithBottomTitle title={title3} bottomTitle={bottomTitle3} isDividerNeed></ListItemWithBottomTitle>

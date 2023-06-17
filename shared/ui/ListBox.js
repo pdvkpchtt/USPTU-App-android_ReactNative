@@ -12,9 +12,9 @@ const ListBox = (props) => {
         justifyContent: 'flex-start',
         alignContent: 'flex-start',
         backgroundColor: SwitchTheme(isTheme).bgItem,
-        borderRadius: 13,
+        borderRadius: 20,
         paddingHorizontal: 16,
-        paddingVertical: 9,
+        paddingVertical: 12,
         ...props,
       }}
     >

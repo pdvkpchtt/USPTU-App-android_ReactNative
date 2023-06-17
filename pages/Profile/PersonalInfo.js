@@ -24,7 +24,7 @@ const PersonalInfo = ({ navigation, route }) => {
 
   return (
     <Layout marginBottom={16}>
-      <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 20, marginTop: 16 }}>
+      <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 20, marginTop: 12 }}>
         {data.qualification !== '' ? (
           <>
             <ListItemWithBottomTitleAndLink
@@ -36,6 +36,7 @@ const PersonalInfo = ({ navigation, route }) => {
               }}
               isDividerNeed
             />
+            <ListItemWithBottomTitle bottomTitle={'Факультет'} title={capitalize(data.department)} isDividerNeed />
             <ListItemWithBottomTitle
               bottomTitle={'Курс, семестр'}
               title={`${data.year}, ${data.semester}`}
@@ -61,7 +62,7 @@ const PersonalInfo = ({ navigation, route }) => {
       </View>
 
       {data.qualification !== '' ? (
-        <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 20, marginVertical: 16 }}>
+        <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 20, marginVertical: 12 }}>
           <ListItemWithBottomTitle bottomTitle={'Код специальности'} title={data.speciality_code} isDividerNeed />
           <ListItemWithBottomTitle
             bottomTitle={'Номер зачётной книжки'}

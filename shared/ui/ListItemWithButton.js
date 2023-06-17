@@ -16,10 +16,10 @@ const ListItemWithButton = ({ title, buttonTitle, onPress = null, position = 'al
         justifyContent: 'flex-start',
         alignContent: 'flex-start',
         paddingHorizontal: 16,
-        borderTopRightRadius: position === 'top' || position === 'all' ? 13 : 0,
-        borderTopLeftRadius: position === 'top' || position === 'all' ? 13 : 0,
-        borderBottomRightRadius: position === 'bottom' || position === 'all' ? 13 : 0,
-        borderBottomLeftRadius: position === 'bottom' || position === 'all' ? 13 : 0,
+        borderTopRightRadius: position === 'top' || position === 'all' ? 20 : 0,
+        borderTopLeftRadius: position === 'top' || position === 'all' ? 20 : 0,
+        borderBottomRightRadius: position === 'bottom' || position === 'all' ? 20 : 0,
+        borderBottomLeftRadius: position === 'bottom' || position === 'all' ? 20 : 0,
         backgroundColor: backgroundIsNeed ? SwitchTheme(isTheme).bgItem : 'transparent',
       }}
     >
@@ -27,27 +27,22 @@ const ListItemWithButton = ({ title, buttonTitle, onPress = null, position = 'al
         <TextMain flex={1}>{title}</TextMain>
         <Pressable onPress={onPress}>
           {({ pressed }) => (
-            <View
+            <Text
               style={{
-                flex: 0,
+                fontSize: 14,
+                fontFamily: 'Roboto-Medium',
+                lineHeight: 20,
+                letterSpacing: 0.1,
                 marginLeft: 8,
-                backgroundColor: pressed ? SwitchTheme(isTheme).bgbutton1pressed : SwitchTheme(isTheme).bgbutton1,
-                borderRadius: 24,
+                color: pressed ? SwitchTheme(isTheme).textbutton1pressed : SwitchTheme(isTheme).textbutton1,
               }}
             >
-              <Text
-                style={{
-                  ...styles.buttonText,
-                  color: pressed ? SwitchTheme(isTheme).textbutton1pressed : SwitchTheme(isTheme).textbutton1,
-                }}
-              >
-                {buttonTitle}
-              </Text>
-            </View>
+              {buttonTitle}
+            </Text>
           )}
         </Pressable>
       </View>
-      {position === 'middle' || position === 'top' ? <Divider ml={0} /> : null}
+      {position === 'middle' || position === 'top' ? <Divider ml={-16} /> : null}
     </View>
   )
 }
@@ -58,7 +53,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 10,
+    paddingVertical: 15.5,
   },
 
   rows2: {
@@ -69,13 +64,11 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   buttonText: {
-    fontSize: 12.5,
+    fontSize: 14,
     fontFamily: 'Roboto-Bold',
-    lineHeight: 16,
-    textAlign: 'center',
-    letterSpacing: -0.6,
-    paddingVertical: 4,
-    paddingHorizontal: 20,
+    lineHeight: 20,
+    letterSpacing: 0.1,
+    paddingRight: 4,
   },
 })
 

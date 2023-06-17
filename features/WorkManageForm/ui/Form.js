@@ -4,7 +4,7 @@ import SecondaryButton from '../../../shared/ui/secondaryButton'
 
 const Form = ({ draftSend, workSend }) => {
   return (
-    <View style={{ marginTop: 24 }}>
+    <View style={{ marginTop: 12 }}>
       <SecondaryButton
         marginTop={0}
         onPress={draftSend}

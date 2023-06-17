@@ -1,6 +1,6 @@
 import { StackActions } from '@react-navigation/native'
 import { FlashList } from '@shopify/flash-list'
-import { Keyboard, RefreshControl, Text, View } from 'react-native'
+import { FlatList, Keyboard, RefreshControl, Text, View } from 'react-native'
 import SubjectCard from '../../../entities/SubjectCard'
 import ListItemWithButton from '../../../shared/ui/ListItemWithButton'
 import { LoadingBox } from '../../../shared/ui/LoadingBox'
@@ -11,6 +11,7 @@ import useTokenStore from '../../../shared/apiClient/store/store'
 import MessageItem from './MessageItem'
 import SwitchTheme from '../../../shared/theme/SwitchTheme'
 import useThemeStore from '../../../shared/theme/store/store'
+import InputForMessenger from './InputForMessenger'
 
 const List = ({ items, navigation, refreshing }) => {
   const isTheme = useThemeStore((state) => state.theme)
@@ -27,7 +28,7 @@ const List = ({ items, navigation, refreshing }) => {
   const renderItem = ({ item, index, arr }) => {
     if ('interval' in item) {
       return (
-        <View style={{ marginTop: 8, marginBottom: 4 }}>
+        <View style={{ marginTop: 12, marginBottom: 12 }}>
           <TextSectionHeader color={SwitchTheme(isTheme).textHeader}>{item.interval}</TextSectionHeader>
         </View>
       )
@@ -50,11 +51,11 @@ const List = ({ items, navigation, refreshing }) => {
         ) : (
           <View
             style={{
-              marginTop: 24,
+              marginTop: 12,
               // marginHorizontal: 16,
               backgroundColor: SwitchTheme(isTheme).bgItem,
-              borderRadius: 13,
-              paddingHorizontal: 16,
+              borderRadius: 20,
+              paddingHorizontal: 12,
               paddingVertical: 10,
             }}
           >
@@ -66,25 +67,28 @@ const List = ({ items, navigation, refreshing }) => {
   }
 
   return (
-    <FlashList
-      data={items}
-      estimatedItemSize={55}
-      renderItem={renderItem}
-      stickyHeaderIndices={refreshing ? [] : stickyHeaderIndices}
-      getItemType={(item) => {
-        // To achieve better performance, specify the type based on the item
-        return 'interval' in item ? 'sectionHeader' : 'row'
-      }}
-      keyExtractor={keyExtractor}
-      contentContainerStyle={{ paddingBottom: 24 }}
-      onScroll={Keyboard.dismiss}
-      ListEmptyComponent={getListEmptyComponent}
-      refreshing={refreshing}
-      showsVerticalScrollIndicator={false}
-      showsHorizontalScrollIndicator={false}
-      refreshControl={<RefreshControl refreshing={refreshing} />}
-      overScrollMode="never"
-    />
+    <>
+      <FlashList
+        data={items}
+        estimatedItemSize={55}
+        renderItem={renderItem}
+        stickyHeaderIndices={refreshing ? [] : stickyHeaderIndices}
+        getItemType={(item) => {
+          // To achieve better performance, specify the type based on the item
+          return 'interval' in item ? 'sectionHeader' : 'row'
+        }}
+        keyExtractor={keyExtractor}
+        onScroll={Keyboard.dismiss}
+        ListEmptyComponent={getListEmptyComponent}
+        refreshing={refreshing}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+        refreshControl={<RefreshControl refreshing={refreshing} />}
+        overScrollMode="never"
+        // ListFooterComponent={}
+      />
+      <InputForMessenger />
+    </>
   )
 }
 

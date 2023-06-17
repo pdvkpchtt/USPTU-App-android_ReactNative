@@ -8,8 +8,12 @@ import * as FileSystem from 'expo-file-system'
 import useStore from '../store/store'
 import formatBytes from './../../../shared/utils/formatBytes'
 import * as mime from 'mime'
+import useThemeStore from '../../../shared/theme/store/store'
+import SwitchTheme from '../../../shared/theme/SwitchTheme'
 
 const FilesUploadForm = ({ navigation }) => {
+  const isTheme = useThemeStore((state) => state.theme)
+
   const { files, addFile } = useStore((state) => ({ files: state.files, addFile: state.addFile }))
 
   const addFileFromStorage = async () => {
@@ -89,12 +93,24 @@ const FilesUploadForm = ({ navigation }) => {
 
   return (
     <>
-      <SecondaryButton marginTop={24} onPress={addFileFromStorage}>
+      <SecondaryButton marginTop={16} onPress={addFileFromStorage}>
         Добавить файл
       </SecondaryButton>
-      <SecondaryButton marginTop={12} onPress={addImageFromStorage}>
+      <SecondaryButton marginTop={8} marginBottom={8} onPress={addImageFromStorage}>
         Добавить изображение
       </SecondaryButton>
+      <Text
+        style={{
+          marginBottom: 16,
+          fontFamily: 'Roboto',
+          fontSize: 12,
+          lineHeight: 16,
+          color: SwitchTheme(isTheme).textOuterSec,
+          paddingHorizontal: 12,
+        }}
+      >
+        Размер файла не более 8 МБ.
+      </Text>
     </>
   )
 }

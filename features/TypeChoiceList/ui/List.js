@@ -17,7 +17,7 @@ const List = ({ items, navigation }) => {
   const setType = useWorkAddStore((state) => state.setType)
   const renderItem = ({ item, index }) => {
     return (
-      <View style={{ marginBottom: item?.isLast ? 16 : 0, paddingHorizontal: 16 }}>
+      <View style={{ marginBottom: item?.isLast ? 12 : 0, paddingHorizontal: 12 }}>
         <ListItemWithLink
           bg={SwitchTheme(isTheme).bgItem}
           title={item.value}
@@ -46,7 +46,7 @@ const List = ({ items, navigation }) => {
       keyExtractor={keyExtractor}
       showsVerticalScrollIndicator={false}
       showsHorizontalScrollIndicator={false}
-      contentContainerStyle={{ paddingVertical: 24 }}
+      contentContainerStyle={{ paddingVertical: 12 }}
       overScrollMode="never"
     />
   )

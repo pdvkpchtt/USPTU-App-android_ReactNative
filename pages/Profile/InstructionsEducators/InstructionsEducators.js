@@ -1,22 +1,135 @@
-import { useEffect, useState } from 'react'
-import { Pressable, Text, View } from 'react-native'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { Pressable, Text, Animated } from 'react-native'
+import { useDisciplinesStore } from '../../../entities/disciplines'
+import { useUserStore } from '../../../entities/user'
 import SearchBar from '../../../features/SearchBar'
 import SubjectList from '../../../features/SubjectList'
+import FABSearch from '../../../shared/ui/FABSearch'
 import Layout from '../../../shared/ui/Layout'
+import { AntDesign, Entypo, Feather, MaterialIcons } from '@expo/vector-icons'
+import SwitchTheme from '../../../shared/theme/SwitchTheme'
+import useThemeStore from '../../../shared/theme/store/store'
 
 const InstructionsEducators = ({ navigation }) => {
+  const { getDisciplines } = useDisciplinesStore((state) => ({
+    getDisciplines: state.getDisciplines,
+  }))
+  const getPotok = useUserStore((state) => state.getPotok)
+  const isTheme = useThemeStore((state) => state.theme)
+
   const [filter, setFilter] = useState('')
+  const [visibleSearch, setVisibleSearch] = useState(false)
+
   useEffect(() => {
     navigation.setOptions({
       headerShadowVisible: false,
     })
-  }, [navigation])
+
+    if (filter.length === 1) {
+      AnimIn2(1)
+    } else if (filter.length === 0) {
+      AnimIn2(0)
+    }
+  }, [navigation, filter.length])
+
+  const Anim = useRef(new Animated.Value(0)).current
+  const Anim2 = useRef(new Animated.Value(0)).current
+
+  const AnimOut = (value) => {
+    Animated.timing(Anim, {
+      toValue: value,
+      duration: 100,
+      useNativeDriver: false,
+    }).start()
+  }
+
+  const AnimIn2 = (value) => {
+    Animated.timing(Anim2, {
+      toValue: value,
+      duration: 200,
+      useNativeDriver: false,
+    }).start()
+  }
+
+  // for search in header
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <Animated.View
+          style={{
+            transform: [
+              {
+                rotateZ: Anim2.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: ['0deg', '-270deg'],
+                }),
+              },
+            ],
+          }}
+        >
+          {visibleSearch ? (
+            <>
+              {filter.length ? (
+                <Pressable
+                  onPress={() => {
+                    setFilter('')
+                    getDisciplines('', getPotok())
+                  }}
+                >
+                  {({ isPressed }) => {
+                    return <MaterialIcons name="close" size={24} color={SwitchTheme(isTheme).tabBarInactiveTintColor} />
+                  }}
+                </Pressable>
+              ) : (
+                <Pressable
+                  onPress={() => {
+                    setTimeout(() => setVisibleSearch(false), 200)
+                    AnimOut(0)
+                  }}
+                >
+                  {({ isPressed }) => {
+                    return (
+                      <MaterialIcons name="cancel" size={24} color={SwitchTheme(isTheme).tabBarInactiveTintColor} />
+                    )
+                  }}
+                </Pressable>
+              )}
+            </>
+          ) : null}
+        </Animated.View>
+      ),
+      headerTitle: () =>
+        visibleSearch ? (
+          <SearchBar
+            placeholder="Предметы, преподаватели и др."
+            setSearchText={setFilter}
+            search={filter}
+            navigation={navigation}
+          />
+        ) : (
+          <Text
+            style={{ fontSize: 20, lineHeight: 24, color: SwitchTheme(isTheme).textMain, fontFamily: 'Roboto-Medium' }}
+          >
+            Указания
+          </Text>
+        ),
+    })
+  }, [visibleSearch, navigation, filter])
+  // for search in header
+
   return (
     <>
-      <SearchBar placeholder="Предметы, преподаватели и др." setSearchText={setFilter} navigation={navigation} />
       <Layout forFlashList>
         <SubjectList filter={filter} navigation={navigation} target={'info'} />
       </Layout>
+
+      {!visibleSearch ? (
+        <FABSearch
+          onPress={() => {
+            setVisibleSearch(true)
+          }}
+        />
+      ) : null}
     </>
   )
 }

@@ -26,11 +26,11 @@ const Payments = ({ navigation }) => {
       ) : (
         <>
           {activePayments.length === 0 && inActivePayments.length === 0 ? (
-            <ListBox marginTop={24}>
+            <ListBox marginTop={12}>
               <TextMain>Нет выплат :(</TextMain>
             </ListBox>
           ) : null}
-          <ListBox paddingHorizontal={0} paddingVertical={0} marginTop={24}>
+          <ListBox paddingHorizontal={0} paddingVertical={0} marginTop={12}>
             {activePayments.length > 0 ? (
               <ListItemWithLink
                 title="Активные выплаты"

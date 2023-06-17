@@ -51,7 +51,6 @@ const Tabbar = () => {
           id="Tabbar"
           initialRouteName="TabSchedule"
           screenOptions={({ route }) => {
-            //console.log(getFocusedRouteNameFromRoute(route))
             return {
               tabBarStyle: {
                 style: {
@@ -61,7 +60,7 @@ const Tabbar = () => {
                     height: 0, // for iOS
                   },
                 },
-                backgroundColor: SwitchTheme(isTheme).bgFon,
+                backgroundColor: isTheme == 'theme_usual' ? SwitchTheme(isTheme).bgFon : SwitchTheme(isTheme).bgItem,
                 borderTopWidth: 0,
                 elevation: 0,
                 // borderTopColor: SwitchTheme(isTheme).colorlineBottomNav,
@@ -75,6 +74,7 @@ const Tabbar = () => {
                 letterSpacing: 0.1,
                 marginTop: 4,
               },
+
               tabBarActiveTintColor: isTheme.includes('theme_epsh')
                 ? (route.name === 'TabGrades' && SwitchTheme(isTheme).tabBarActiveTintColorLeft) ||
                   (route.name === 'TabSchedule' && SwitchTheme(isTheme).tabBarActiveTintColor) ||

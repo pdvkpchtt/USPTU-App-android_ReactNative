@@ -14,7 +14,7 @@ const Movements = ({}) => {
   // console.log(data)
 
   const renderItem = ({ item }) => (
-    <View style={{ borderRadius: 13, backgroundColor: SwitchTheme(isTheme).bgItem, marginTop: 24 }}>
+    <View style={{ borderRadius: 20, backgroundColor: SwitchTheme(isTheme).bgItem, marginTop: 12 }}>
       <ListItemWithBottomTitle bottomTitle="Специальность" title={item.speciality} isDividerNeed />
       {item.speciality_code !== '-' ? (
         <ListItemWithBottomTitle bottomTitle="Код специальности" title={item.speciality_code} isDividerNeed />
@@ -41,7 +41,7 @@ const Movements = ({}) => {
         estimatedItemSize={76}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{ backgroundColor: 'transparent', paddingBottom: 24 }}
+        contentContainerStyle={{ backgroundColor: 'transparent', paddingBottom: 12 }}
         overScrollMode="never"
       />
     </Layout>

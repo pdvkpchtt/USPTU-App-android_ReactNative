@@ -10,7 +10,7 @@ export default function TextTime(props) {
         color: props.color || SwitchTheme(isTheme).textMain,
         fontSize: 13,
         fontFamily: props.secondary ? 'Roboto-Medium' : 'Roboto-Regular',
-        fontStyle: 'italic',
+        // fontStyle: 'italic',
         fontFamily: 'Roboto-Regular',
         lineHeight: 18,
         letterSpacing: -0.078,

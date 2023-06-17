@@ -29,7 +29,7 @@ const List = ({ items, navigation }) => {
   const renderItem = ({ item, index }) => {
     if ('interval' in item) {
       return (
-        <View style={{ marginTop: 8, marginBottom: 8 }}>
+        <View style={{ marginTop: 12, marginBottom: 12 }}>
           <TextSectionHeader color={SwitchTheme(isTheme).textHeader}>{item.interval}</TextSectionHeader>
         </View>
       )
@@ -39,7 +39,7 @@ const List = ({ items, navigation }) => {
     const ranking = splittedValue[splittedValue.length - 2].trim()
 
     return (
-      <View style={{ marginBottom: item?.isLast ? 16 : 0 }}>
+      <View style={{ marginBottom: index == items.length - 1 ? 16 : 0 }}>
         <ListItemWithBottomTitleAndLink
           title={disciplineName}
           bottomTitle={`${item.gruppa} \u00B7 ${ranking}`}
@@ -67,7 +67,7 @@ const List = ({ items, navigation }) => {
 
   const getListEmptyComponent = () => {
     return (
-      <ListBox marginTop={24}>
+      <ListBox marginTop={16}>
         <TextBody textAlign="left">Нет дисциплин для выбора. Выберите другую группу</TextBody>
       </ListBox>
     )
@@ -84,7 +84,6 @@ const List = ({ items, navigation }) => {
         return 'type' in item ? 'sectionHeader' : 'row'
       }}
       keyExtractor={keyExtractor}
-      contentContainerStyle={{}}
       ListEmptyComponent={getListEmptyComponent}
       showsVerticalScrollIndicator={false}
       showsHorizontalScrollIndicator={false}

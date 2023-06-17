@@ -93,9 +93,9 @@ const ListSearch = ({ navigation, items, refreshing, isEmpty }) => {
           <View
             style={{
               backgroundColor: SwitchTheme(isTheme).bgItem,
-              borderRadius: 13,
-              paddingHorizontal: 16,
-              paddingVertical: 10,
+              borderRadius: 20,
+              paddingHorizontal: 12,
+              paddingVertical: 12,
             }}
           >
             <TextBody textAlign="left">Ничего не найдено</TextBody>
@@ -113,7 +113,7 @@ const ListSearch = ({ navigation, items, refreshing, isEmpty }) => {
       estimatedItemSize={100}
       onScrollBeginDrag={Keyboard.dismiss}
       contentContainerStyle={{
-        paddingVertical: 24,
+        paddingVertical: 12,
       }}
       ListEmptyComponent={getListEmptyComponent}
       refreshing={refreshing}

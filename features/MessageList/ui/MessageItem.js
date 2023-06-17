@@ -32,11 +32,10 @@ const MessageItem = ({ message }) => {
           justifyContent: 'flex-start',
           alignItems: 'flex-start',
           backgroundColor: SwitchTheme(isTheme).bgItem,
-          borderRadius: 13,
+          borderRadius: 20,
           padding: 12,
           // marginLeft: 16,
-          marginRight: 8,
-          marginTop: 4,
+          marginRight: '15%',
         }}
       >
         <Hyperlink

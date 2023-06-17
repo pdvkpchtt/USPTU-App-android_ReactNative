@@ -19,8 +19,9 @@ export default function TextSectionHeader(props) {
         style={{
           color: props.color || SwitchTheme(isTheme).textMain,
           fontSize: 13,
-          fontFamily: 'Roboto-Regular',
-          letterSpacing: -0.078,
+          fontFamily: 'Roboto-Medium',
+          lineHeight: 15.23,
+          letterSpacing: -0.1,
           ...props,
         }}
       >

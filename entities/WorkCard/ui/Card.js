@@ -10,11 +10,9 @@ const Card = ({ item, onPress }) => {
 
   return (
     <>
-      <TextCaption paddingHorizontal={16} color={SwitchTheme(isTheme).textOuterSec}>
-        {item.type_of_work.toUpperCase()}
-      </TextCaption>
-      <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 13, marginTop: 8 }}>
+      <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 20 }}>
         <ListItemWithBottomTitleAndLink
+          header={item.type_of_work}
           position="top"
           title={item.work_name}
           bottomTitle={item.discipline_name}

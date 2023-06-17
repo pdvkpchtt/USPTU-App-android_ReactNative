@@ -37,7 +37,7 @@ const List = ({ items, navigation, refreshing }) => {
   const renderItem = ({ item, index, arr }) => {
     if ('interval' in item) {
       return (
-        <View style={{ marginTop: 8, marginBottom: 8 }}>
+        <View style={{ marginTop: 12, marginBottom: 12 }}>
           <TextSectionHeader color={SwitchTheme(isTheme).textHeader}>{item.interval}</TextSectionHeader>
         </View>
       )
@@ -47,7 +47,7 @@ const List = ({ items, navigation, refreshing }) => {
         backgroundIsNeed
         position={item?.position || 'middle'}
         title={item.name}
-        buttonTitle="СКАЧАТЬ"
+        buttonTitle="Скачать"
         isDividerNeed={index !== items.length - 1}
         onPress={() => {
           Linking.openURL(`https://ams.rusoil.net/pcs3/${item.link.slice(2)}&access_token=${accessToken}`)
@@ -69,10 +69,10 @@ const List = ({ items, navigation, refreshing }) => {
         {refreshing ? null : ( // <LoadingBox />
           <View
             style={{
-              marginTop: 24,
-              marginHorizontal: 16,
+              marginTop: 12,
+              marginHorizontal: 12,
               backgroundColor: SwitchTheme(isTheme).bgItem,
-              borderRadius: 13,
+              borderRadius: 20,
               paddingHorizontal: 16,
               paddingVertical: 10,
             }}
@@ -95,7 +95,7 @@ const List = ({ items, navigation, refreshing }) => {
         return 'interval' in item ? 'sectionHeader' : 'row'
       }}
       keyExtractor={keyExtractor}
-      contentContainerStyle={{ paddingBottom: 24 }}
+      // contentContainerStyle={{ paddingBottom: 24 }}
       onScroll={Keyboard.dismiss}
       ListEmptyComponent={getListEmptyComponent}
       refreshing={refreshing}
