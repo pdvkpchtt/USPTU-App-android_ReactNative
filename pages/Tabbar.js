@@ -64,15 +64,15 @@ const Tabbar = () => {
                 borderTopWidth: 0,
                 elevation: 0,
                 // borderTopColor: SwitchTheme(isTheme).colorlineBottomNav,
-                paddingBottom: 36,
-                paddingTop: 6,
-                height: 83,
+                paddingBottom: 12,
+                paddingTop: 10,
+                height: 80,
               },
               tabBarLabelStyle: {
                 fontFamily: 'Roboto-Medium',
-                lineHeight: 14,
+                fontSize: 13,
+                lineHeight: 20,
                 letterSpacing: 0.1,
-                marginTop: 4,
               },
 
               tabBarActiveTintColor: isTheme.includes('theme_epsh')

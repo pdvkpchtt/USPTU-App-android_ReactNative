@@ -37,7 +37,7 @@ const SemesterList = ({ items, navigation, refreshing, filtering }) => {
   const renderItem = ({ item, index }) => {
     if ('interval' in item) {
       return (
-        <View style={{ marginTop: 8, marginBottom: 8 }}>
+        <View style={{ marginTop: 12, marginBottom: 12 }}>
           <TextSectionHeader color={SwitchTheme(isTheme).textHeader}>{item.interval}</TextSectionHeader>
         </View>
       )
@@ -72,12 +72,12 @@ const SemesterList = ({ items, navigation, refreshing, filtering }) => {
         ) : (
           <View
             style={{
-              marginTop: 24,
+              marginTop: 12,
               // marginHorizontal: 16,
               backgroundColor: SwitchTheme(isTheme).bgItem,
-              borderRadius: 13,
+              borderRadius: 20,
               paddingHorizontal: 16,
-              paddingVertical: 10,
+              paddingVertical: 16,
             }}
           >
             <TextBody textAlign="left">Ничего не найдено</TextBody>
@@ -99,7 +99,7 @@ const SemesterList = ({ items, navigation, refreshing, filtering }) => {
       estimatedItemSize={41}
       keyExtractor={keyExtractor}
       contentContainerStyle={{
-        paddingBottom: 24,
+        paddingBottom: 12,
       }}
       onScrollBeginDrag={Keyboard.dismiss}
       ListEmptyComponent={getListEmptyComponent}

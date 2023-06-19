@@ -165,6 +165,8 @@ const List = ({ items, navigation, refreshing, filtering }) => {
           }}
           title="Add"
           arrowDirection={ARROW_DIRECTION}
+          bottom={20}
+          right={20}
         />
       ) : null}
     </>

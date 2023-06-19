@@ -8,7 +8,7 @@ const GradeInfo = ({ route }) => {
   const isTheme = useThemeStore((state) => state.theme)
   return (
     <Layout>
-      <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 13, marginTop: 24 }}>
+      <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 20, marginTop: 12, marginBottom: 12 }}>
         <ListItemWithBottomTitle title={route.params.discipline_name} bottomTitle={'Название предмета'} isDividerNeed />
         <ListItemWithBottomTitle title={route.params.department} bottomTitle={'Кафедра'} isDividerNeed />
         <ListItemWithBottomTitle title={route.params.educator_name} bottomTitle={'Преподаватель'} isDividerNeed />

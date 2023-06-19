@@ -51,8 +51,8 @@ const EditText = ({ navigation, route }) => {
       </View> */}
       <TextInput
         style={{
-          marginTop: 24,
-          borderRadius: 13,
+          marginTop: 12,
+          borderRadius: 20,
           fontSize: 17,
           fontFamily: 'Roboto-Regular',
           lineHeight: 22,

@@ -7,6 +7,7 @@ import DateTimePickerModal from 'react-native-modal-datetime-picker'
 import SwitchTheme from '../../shared/theme/SwitchTheme'
 import useThemeStore from '../../shared/theme/store/store'
 import { useScheduleStore } from '../../entities/schedule'
+import DatePicerIcon from '../../shared/ui/Icons/DatePicerIcon'
 
 const Schedule = ({ navigation }) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false)
@@ -49,9 +50,9 @@ const Schedule = ({ navigation }) => {
         <Pressable onPress={showDatePicker}>
           {({ pressed }) => {
             return (
-              <TextBody color={SwitchTheme(isTheme).textHeaderButton} textAlign="left">
-                Календарь
-              </TextBody>
+              <View>
+                <DatePicerIcon />
+              </View>
             )
           }}
         </Pressable>

@@ -27,10 +27,10 @@ const ListItemWithRightTitleAndLinkAndBadge = ({
             alignContent: 'flex-start',
             backgroundColor: pressed ? SwitchTheme(isTheme).pressedItem : bg ? bg : null,
             paddingHorizontal: 16,
-            borderTopRightRadius: position === 'top' || position === 'all' ? 13 : 0,
-            borderTopLeftRadius: position === 'top' || position === 'all' ? 13 : 0,
-            borderBottomRightRadius: position === 'bottom' || position === 'all' ? 13 : 0,
-            borderBottomLeftRadius: position === 'bottom' || position === 'all' ? 13 : 0,
+            borderTopRightRadius: position === 'top' || position === 'all' ? 20 : 0,
+            borderTopLeftRadius: position === 'top' || position === 'all' ? 20 : 0,
+            borderBottomRightRadius: position === 'bottom' || position === 'all' ? 20 : 0,
+            borderBottomLeftRadius: position === 'bottom' || position === 'all' ? 20 : 0,
           }}
         >
           <View style={styles.rows1}>
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 10,
+    paddingVertical: 12,
   },
 
   rows2: {

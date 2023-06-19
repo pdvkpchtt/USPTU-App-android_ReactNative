@@ -15,8 +15,7 @@ export default function DefaultButton(props) {
                 : SwitchTheme(isTheme).bgbuttondefault,
               paddingVertical: 10,
               width: '100%',
-              borderRadius: 13,
-              marginTop: 32,
+              borderRadius: 20,
               ...props,
             }}
           >

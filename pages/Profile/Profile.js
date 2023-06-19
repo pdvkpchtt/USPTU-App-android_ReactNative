@@ -3,11 +3,12 @@ import { useUserStore } from '../../entities/user'
 import Layout from '../../shared/ui/Layout'
 import { NameBlock } from '../../entities/NameBlock'
 import NavList from '../../features/NavList'
-import { useEffect } from 'react'
+import { useEffect, useLayoutEffect } from 'react'
 import SecondaryButton from '../../shared/ui/secondaryButton'
 import useTokenStore from '../../shared/apiClient/store/store'
 import SwitchTheme from '../../shared/theme/SwitchTheme'
 import useThemeStore from '../../shared/theme/store/store'
+import { useRoute } from '@react-navigation/native'
 
 const Profile = ({ navigation }) => {
   const getProfileInformation = useUserStore((state) => state.getProfileInformation)
@@ -16,6 +17,23 @@ const Profile = ({ navigation }) => {
 
   useEffect(() => {
     getProfileInformation()
+  }, [])
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerTitle: () => (
+        <Text
+          style={{
+            fontSize: 20,
+            lineHeight: 24,
+            color: SwitchTheme(isTheme).textMain,
+            fontFamily: 'Roboto-Medium',
+          }}
+        >
+          Профиль
+        </Text>
+      ),
+    })
   }, [])
 
   return (

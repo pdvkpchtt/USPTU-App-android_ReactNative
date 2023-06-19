@@ -17,13 +17,13 @@ export const BoxComponent = ({ name, department, speciality }) => {
         flexDirection: 'column',
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
-        marginTop: 40,
+        marginTop: 12,
       }}
     >
       <TextLarge>{name}</TextLarge>
       <Text
         style={{
-          marginTop: 16,
+          marginTop: 8,
           color: SwitchTheme(isTheme).textSec,
           fontSize: 22,
           fontFamily: 'Roboto',
@@ -32,7 +32,7 @@ export const BoxComponent = ({ name, department, speciality }) => {
       >
         {department}
       </Text>
-      <TextSmall fontSize={14} marginTop={4} color={SwitchTheme(isTheme).textSec}>
+      <TextSmall fontSize={14} marginTop={8} color={SwitchTheme(isTheme).textSec}>
         {speciality}
       </TextSmall>
     </View>

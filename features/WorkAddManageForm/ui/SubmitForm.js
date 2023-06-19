@@ -68,11 +68,12 @@ const SubmitForm = ({ navigation }) => {
 
   return (
     <>
-      <SecondaryButton marginTop={24} onPress={saveDraft}>
+      <SecondaryButton marginTop={0} onPress={saveDraft}>
         Сохранить как черновик
       </SecondaryButton>
       <DefaultButton
-        marginTop={12}
+        marginTop={8}
+        marginBottom={12}
         onPress={() => {
           Alert.alert(
             'Отправка на проверку',

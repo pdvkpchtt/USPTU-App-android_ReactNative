@@ -3,9 +3,10 @@ import useThemeStore from '../theme/store/store'
 import SwitchTheme from '../theme/SwitchTheme'
 import Divider from './Divider'
 import RunIcon from './Icons/RunIcon'
+import TextHead from './Text/TextHead'
 import TextMain from './Text/TextMain'
 
-const ListItemWithLink = ({ title, onPress = null, position = 'middle', bg = null }) => {
+const ListItemWithLink = ({ title, onPress = null, header, position = 'middle', bg = null }) => {
   const isTheme = useThemeStore((state) => state.theme)
   return (
     <Pressable onPress={onPress}>
@@ -25,7 +26,10 @@ const ListItemWithLink = ({ title, onPress = null, position = 'middle', bg = nul
           }}
         >
           <View style={styles.rows1}>
-            <TextMain flexShrink={1}>{title}</TextMain>
+            <View style={{ flexShrink: 1 }}>
+              {header ? <TextHead text={header} /> : null}
+              <TextMain flexShrink={1}>{title}</TextMain>
+            </View>
             <View style={{ marginLeft: 8, marginRight: 8 }}>
               <RunIcon />
             </View>

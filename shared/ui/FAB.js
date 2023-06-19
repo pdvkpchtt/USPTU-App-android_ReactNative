@@ -4,7 +4,7 @@ import SwitchTheme from '../theme/SwitchTheme'
 import useThemeStore from '../theme/store/store'
 import FabIcons from './Icons/FabIcons'
 
-const FAB = (props) => {
+const FAB = ({ bottom = 89, right = 27, arrowDirection, onPress }) => {
   const isTheme = useThemeStore((state) => state.theme)
 
   return (
@@ -12,19 +12,17 @@ const FAB = (props) => {
       style={{
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 999,
+        borderRadius: 12,
         position: 'absolute',
-        height: 41,
-        width: 41,
-        bottom: 80,
-        right: 20,
+        height: 40,
+        width: 40,
+        bottom: bottom,
+        right: right,
         backgroundColor: SwitchTheme(isTheme).FAB,
-        opacity: 0.95,
-        borderWidth: 1,
-        borderColor: SwitchTheme(isTheme).FABStroke,
-        transform: [{ rotate: props.arrowDirection == 'chevron-down' ? '180deg' : '0deg' }],
+        transform: [{ rotate: arrowDirection == 'chevron-down' ? '180deg' : '0deg' }],
+        elevation: 3,
       }}
-      onPress={props.onPress}
+      onPress={onPress}
     >
       <FabIcons />
     </Pressable>

@@ -8,11 +8,11 @@ export default function TextBody(props) {
     <Text
       style={{
         color: props.color || SwitchTheme(isTheme).textMain,
-        fontSize: 17,
+        fontSize: 14,
         fontFamily: props.medium ? 'Roboto-Medium' : 'Roboto-Regular',
-        lineHeight: 22,
+        lineHeight: 20,
         textAlign: 'center',
-        letterSpacing: -0.41,
+        letterSpacing: -0.1,
         ...props,
       }}
     >

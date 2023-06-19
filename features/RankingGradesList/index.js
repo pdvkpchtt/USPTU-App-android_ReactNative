@@ -5,7 +5,7 @@ import GradeCard from '../../entities/GradeCard'
 const RankingGradesList = ({ items, navigation }) => {
   const renderItem = ({ item }) => {
     return (
-      <View style={{ marginTop: 24 }}>
+      <View style={{ marginTop: 12 }}>
         <GradeCard
           item={item}
           onPress={() => {
@@ -26,7 +26,7 @@ const RankingGradesList = ({ items, navigation }) => {
       keyExtractor={keyExtractor}
       renderItem={renderItem}
       contentContainerStyle={{
-        paddingBottom: 24,
+        paddingBottom: 12,
       }}
       onScrollBeginDrag={Keyboard.dismiss}
       estimatedItemSize={120}

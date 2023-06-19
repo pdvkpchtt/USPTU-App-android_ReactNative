@@ -55,13 +55,13 @@ const ListItemWithDate = ({ title, buttonTitle, onPress = null, position = 'all'
               }
             }
           >
-            <TextBody
+            <TextMain
               marginRight={8}
               marginLeft={13}
               color={pressed ? SwitchTheme(isTheme).textbutton1pressed : SwitchTheme(isTheme).textbuttondate}
             >
               {buttonTitle}
-            </TextBody>
+            </TextMain>
           </View>
           <View style={{ backgroundColor: SwitchTheme(isTheme).bgSearch, padding: 8, borderRadius: 99 }}>
             <DatePicerIcon />
