@@ -10,6 +10,7 @@ import { useScheduleStore } from '../../entities/schedule'
 import { useGeneralScheduleStore } from '../../entities/generalSchedule'
 import GeneralScheduleList from '../../features/GeneralScheduleList'
 import Layout from '../../shared/ui/Layout'
+import { GeneralScheduleCalendarIcon } from '../../shared/ui/Icons/GeneralScheduleCalendarIcon'
 
 const GeneralSchedule = ({ navigation, route }) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false)
@@ -51,9 +52,12 @@ const GeneralSchedule = ({ navigation, route }) => {
         <Pressable onPress={showDatePicker}>
           {({ pressed }) => {
             return (
-              <TextBody color={SwitchTheme(isTheme).textHeaderButton} textAlign="left">
-                {`${showingWeekNumber} нед.`}
-              </TextBody>
+              <>
+                <GeneralScheduleCalendarIcon />
+                <TextBody color={SwitchTheme(isTheme).textHeaderButton} textAlign="left">
+                  {`${showingWeekNumber}`}
+                </TextBody>
+              </>
             )
           }}
         </Pressable>

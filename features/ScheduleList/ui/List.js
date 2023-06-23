@@ -35,7 +35,7 @@ const List = ({ items, navigation, refreshing, filtering }) => {
       updateSchedule()
       setSchemeState(scheme)
     }
-  }, [scheme])
+  }, [scheme, schemeState])
 
   const isTheme = useThemeStore((state) => state.theme)
   const stickyHeaderIndices = items
