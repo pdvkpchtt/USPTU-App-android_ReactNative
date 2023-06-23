@@ -11,7 +11,7 @@ export default function TextMain(props) {
         fontSize: 16,
         fontFamily: 'Roboto',
         lineHeight: 24,
-        letterSpacing: 0.5,
+        letterSpacing: 0.3,
         ...props,
       }}
       selectable={props?.selectable || false}

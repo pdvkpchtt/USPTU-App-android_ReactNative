@@ -29,6 +29,8 @@ const SwitchTheme = (theme) => {
   const { width, height } = Dimensions.get('screen')
 
   const defaultThemeLight = {
+    dateInDatePicker: '#000',
+    usualIconOreol: '#DCE3EB',
     textMain: '#333333',
     textSec: '#898989',
     textHeader: '#7A7A7C',
@@ -79,8 +81,10 @@ const SwitchTheme = (theme) => {
   }
 
   const defaultThemeDark = {
+    dateInDatePicker: '#fff',
     bgItem: '#1D1D1D',
     textMain: '#FFFFFF',
+    usualIconOreol: '#444444',
     textSec: '#8A8A8E',
     textHeader: '#636366', //textinterval
     pressedItem: '#4F4F4F',
@@ -125,7 +129,7 @@ const SwitchTheme = (theme) => {
     typeColorkonspressed: '#9C4BC5',
     typeColorproch: '#5856D6',
     typeColorprochpressed: '#4A49B8',
-    tabBarInactiveTintColor: '#636366',
+    tabBarInactiveTintColor: '#dddddd',
   }
 
   switch (theme) {
@@ -611,7 +615,7 @@ const SwitchTheme = (theme) => {
         textHeaderButton: '#007AFF', //color
         textHeaderButtonpressed: 'black', //color pressed
 
-        tabBarActiveTintColor: '#007AFF', //color
+        tabBarActiveTintColor: '#fff', //color
         textdecoration: 'Стандартное оформление',
         textlozungdecoration: 'Для консерваторов',
       }

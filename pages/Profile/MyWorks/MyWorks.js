@@ -99,7 +99,7 @@ const MyWorks = ({ navigation }) => {
             </>
           ) : (
             <Pressable onPress={() => navigation.navigate('Добавление работы')}>
-              <PlusIcon fill={SwitchTheme(isTheme).tabBarInactiveTintColor} />
+              <PlusIcon />
             </Pressable>
           )}
         </Animated.View>
@@ -120,7 +120,7 @@ const MyWorks = ({ navigation }) => {
           </Text>
         ),
     })
-  }, [visibleSearch, navigation, filter])
+  }, [visibleSearch, navigation, filter, isTheme])
   // for search in header
 
   return (

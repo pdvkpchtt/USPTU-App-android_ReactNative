@@ -7,6 +7,7 @@ import TextBody from '../../../shared/ui/Text/TextBody'
 import { LoadingBox } from '../../../shared/ui/LoadingBox'
 import useThemeStore from '../../../shared/theme/store/store'
 import SwitchTheme from '../../../shared/theme/SwitchTheme'
+import TextMain from '../../../shared/ui/Text/TextMain'
 
 const ListSubject = ({ items, navigation, refreshing, target_action, filter }) => {
   const isTheme = useThemeStore((state) => state.theme)
@@ -66,11 +67,11 @@ const ListSubject = ({ items, navigation, refreshing, target_action, filter }) =
               // marginHorizontal: 16,
               backgroundColor: SwitchTheme(isTheme).bgItem,
               borderRadius: 20,
-              paddingHorizontal: 12,
-              paddingVertical: 10,
+              paddingHorizontal: 16,
+              paddingVertical: 16,
             }}
           >
-            <TextBody textAlign="left">{filter ? 'Ничего не найдено' : 'Для выбранной группы нет данных'}</TextBody>
+            <TextMain textAlign="left">{filter ? 'Ничего не найдено' : 'Для выбранной группы нет данных'}</TextMain>
           </View>
         )}
       </>

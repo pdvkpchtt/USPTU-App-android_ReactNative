@@ -18,7 +18,7 @@ const FAB = ({ bottom = 89, right = 27, arrowDirection, onPress }) => {
         width: 40,
         bottom: bottom,
         right: right,
-        backgroundColor: SwitchTheme(isTheme).FAB,
+        backgroundColor: isTheme.includes('theme_usual') ? SwitchTheme(isTheme).FAB : SwitchTheme(isTheme).checkIcon,
         transform: [{ rotate: arrowDirection == 'chevron-down' ? '180deg' : '0deg' }],
         elevation: 3,
       }}

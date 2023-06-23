@@ -35,7 +35,7 @@ const Layout = (props) => {
           height,
           width,
           bottom: 0,
-          top: -71, // danil костыль/фикс полоски смешной серху
+          top: -70, // danil костыль/фикс полоски смешной серху
           right: 0,
           left: 0,
           zIndex: -1,

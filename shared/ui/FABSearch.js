@@ -20,7 +20,7 @@ const FABSearch = ({ arrowDirection, onPress }) => {
         bottom: 20,
         right: 20,
         elevation: 3,
-        backgroundColor: SwitchTheme(isTheme).FAB,
+        backgroundColor: isTheme.includes('theme_usual') ? SwitchTheme(isTheme).FAB : SwitchTheme(isTheme).checkIcon,
       }}
       onPress={onPress}
     >

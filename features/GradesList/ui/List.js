@@ -8,16 +8,25 @@ import { LoadingBox } from '../../../shared/ui/LoadingBox'
 import TextSectionHeader from '../../../shared/ui/Text/TextSectionHeader'
 import TextBody from './../../../shared/ui/Text/TextBody'
 import { useEffect, useState } from 'react'
+import TextMain from '../../../shared/ui/Text/TextMain'
+import { useUserStore } from '../../../entities/user'
+import { useGradesStore } from '../../../entities/grades'
 
 const List = ({ items, navigation, refreshing, filtering }) => {
   const scheme = useColorScheme()
   const [schemeState, setSchemeState] = useState(scheme)
   const [itemState, setItemState] = useState(false)
 
+  const { getStudyGroup } = useUserStore((state) => ({
+    getStudyGroup: state.getStudyGroup,
+  }))
+  const { filterGrades } = useGradesStore((state) => ({
+    filterGrades: state.filterGrades,
+  }))
+
   useEffect(() => {
     if (schemeState != scheme) {
-      setItemState(!itemState)
-      setSchemeState(scheme)
+      filterGrades('', getStudyGroup())
     }
   }, [scheme])
 
@@ -78,14 +87,14 @@ const List = ({ items, navigation, refreshing, filtering }) => {
           <View
             style={{
               marginTop: 12,
-              // marginHorizontal: 16,
+              marginHorizontal: 12,
               backgroundColor: SwitchTheme(isTheme).bgItem,
               borderRadius: 20,
               paddingHorizontal: 16,
               paddingVertical: 16,
             }}
           >
-            <TextBody textAlign="left">Ничего не найдено</TextBody>
+            <TextMain textAlign="left">Ничего не найдено</TextMain>
           </View>
         )}
       </>
@@ -110,7 +119,7 @@ const List = ({ items, navigation, refreshing, filtering }) => {
       showsVerticalScrollIndicator={false}
       showsHorizontalScrollIndicator={false}
       refreshControl={<RefreshControl refreshing={refreshing} />}
-      extraData={itemState}
+      // extraData={itemState}
       overScrollMode="never"
     />
   )

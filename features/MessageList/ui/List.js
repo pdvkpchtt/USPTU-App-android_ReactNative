@@ -12,6 +12,7 @@ import MessageItem from './MessageItem'
 import SwitchTheme from '../../../shared/theme/SwitchTheme'
 import useThemeStore from '../../../shared/theme/store/store'
 import InputForMessenger from './InputForMessenger'
+import TextMain from '../../../shared/ui/Text/TextMain'
 
 const List = ({ items, navigation, refreshing }) => {
   const isTheme = useThemeStore((state) => state.theme)
@@ -52,14 +53,14 @@ const List = ({ items, navigation, refreshing }) => {
           <View
             style={{
               marginTop: 12,
-              // marginHorizontal: 16,
+              marginHorizontal: 12,
               backgroundColor: SwitchTheme(isTheme).bgItem,
               borderRadius: 20,
-              paddingHorizontal: 12,
-              paddingVertical: 10,
+              paddingHorizontal: 16,
+              paddingVertical: 16,
             }}
           >
-            <TextBody textAlign="left">Ничего не найдено</TextBody>
+            <TextMain textAlign="left">Ничего не найдено</TextMain>
           </View>
         )}
       </>

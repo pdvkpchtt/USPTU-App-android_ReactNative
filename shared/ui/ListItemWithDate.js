@@ -17,6 +17,11 @@ const ListItemWithDate = ({ title, buttonTitle, onPress = null, position = 'all'
       style={{
         borderWidth: 2,
         borderColor: SwitchTheme(isTheme).placeselectionSearch,
+        backgroundColor: isTheme.includes('theme_usual')
+          ? 'transparent'
+          : isTheme.includes('_dark')
+          ? 'rgba(0, 0, 0, 0.4)'
+          : 'rgba(255, 255, 255, 0.4)',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -32,22 +37,6 @@ const ListItemWithDate = ({ title, buttonTitle, onPress = null, position = 'all'
     >
       {({ pressed }) => (
         <>
-          <Text
-            style={{
-              flex: 1,
-              position: 'absolute',
-              top: -10,
-              left: 12,
-              fontSize: 12,
-              fontFamily: 'Roboto-Medium',
-              lineHeight: 16,
-              color: SwitchTheme(isTheme).bgMesStudent,
-              backgroundColor: SwitchTheme(isTheme).bgFon,
-              paddingHorizontal: 4,
-            }}
-          >
-            {title}
-          </Text>
           <View
             style={
               {
@@ -55,11 +44,7 @@ const ListItemWithDate = ({ title, buttonTitle, onPress = null, position = 'all'
               }
             }
           >
-            <TextMain
-              marginRight={8}
-              marginLeft={13}
-              color={pressed ? SwitchTheme(isTheme).textbutton1pressed : SwitchTheme(isTheme).textbuttondate}
-            >
+            <TextMain marginRight={8} marginLeft={13}>
               {buttonTitle}
             </TextMain>
           </View>

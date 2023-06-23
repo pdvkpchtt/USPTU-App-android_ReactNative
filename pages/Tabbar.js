@@ -8,8 +8,8 @@ import ScheduleIcon from '../shared/ui/Icons/Tabbar/ScheduleIcon'
 import ProfileIcon from '../shared/ui/Icons/Tabbar/ProfileIcon'
 import SwitchTheme from '../shared/theme/SwitchTheme'
 import useThemeStore from '../shared/theme/store/store'
-import { Dimensions, ImageBackground, PixelRatio, StyleSheet, View } from 'react-native'
-import ItFon from '../shared/images/ItFon.js'
+import { Dimensions, PixelRatio, StyleSheet, View } from 'react-native'
+
 const Tab = createBottomTabNavigator()
 
 const Tabbar = () => {
@@ -62,8 +62,9 @@ const Tabbar = () => {
                 },
                 backgroundColor: isTheme == 'theme_usual' ? SwitchTheme(isTheme).bgFon : SwitchTheme(isTheme).bgItem,
                 borderTopWidth: 0,
+                borderTopWidth: PixelRatio.roundToNearestPixel(0.5),
                 elevation: 0,
-                // borderTopColor: SwitchTheme(isTheme).colorlineBottomNav,
+                borderTopColor: SwitchTheme(isTheme).colorlineBottomNav,
                 paddingBottom: 12,
                 paddingTop: 10,
                 height: 80,
@@ -75,18 +76,27 @@ const Tabbar = () => {
                 letterSpacing: 0.1,
               },
 
-              tabBarActiveTintColor: isTheme.includes('theme_epsh')
-                ? (route.name === 'TabGrades' && SwitchTheme(isTheme).tabBarActiveTintColorLeft) ||
-                  (route.name === 'TabSchedule' && SwitchTheme(isTheme).tabBarActiveTintColor) ||
-                  (route.name === 'TabProfile' && SwitchTheme(isTheme).tabBarActiveTintColorRight)
-                : SwitchTheme(isTheme).tabBarInactiveTintColor,
+              tabBarActiveTintColor: SwitchTheme(isTheme).tabBarInactiveTintColor,
               tabBarInactiveTintColor: SwitchTheme(isTheme).tabBarInactiveTintColor,
               tabBarIcon: ({ focused, color, size }) => {
                 if (route.name === 'TabGrades') {
                   return (
                     <View
                       style={{
-                        backgroundColor: focused ? '#DCE3EB' : 'transparent',
+                        backgroundColor: isTheme.includes('theme_usual')
+                          ? focused
+                            ? SwitchTheme(isTheme).usualIconOreol
+                            : 'transparent'
+                          : isTheme.includes('theme_epsh')
+                          ? focused
+                            ? SwitchTheme(isTheme).tabBarActiveTintColorLeft
+                            : 'transparent'
+                          : focused
+                          ? SwitchTheme(isTheme).tabBarActiveTintColor
+                          : 'transparent',
+                        borderRadius: 32,
+                        paddingHorizontal: 20,
+                        paddingVertical: 4,
                         borderRadius: 32,
                         paddingHorizontal: 20,
                         paddingVertical: 4,
@@ -95,12 +105,12 @@ const Tabbar = () => {
                       <GradeIcon
                         size={6}
                         color={
-                          isTheme.includes('theme_epsh')
+                          isTheme.includes('theme_usual')
                             ? focused
-                              ? SwitchTheme(isTheme).tabBarActiveTintColorLeft
+                              ? SwitchTheme(isTheme).tabBarActiveTintColor
                               : SwitchTheme(isTheme).tabBarInactiveTintColor
                             : focused
-                            ? SwitchTheme(isTheme).tabBarActiveTintColor
+                            ? '#fff'
                             : SwitchTheme(isTheme).tabBarInactiveTintColor
                         }
                       />
@@ -110,7 +120,20 @@ const Tabbar = () => {
                   return (
                     <View
                       style={{
-                        backgroundColor: focused ? '#DCE3EB' : 'transparent',
+                        backgroundColor: isTheme.includes('theme_usual')
+                          ? focused
+                            ? SwitchTheme(isTheme).usualIconOreol
+                            : 'transparent'
+                          : isTheme.includes('theme_epsh')
+                          ? focused
+                            ? SwitchTheme(isTheme).tabBarActiveTintColor
+                            : 'transparent'
+                          : focused
+                          ? SwitchTheme(isTheme).tabBarActiveTintColor
+                          : 'transparent',
+                        borderRadius: 32,
+                        paddingHorizontal: 20,
+                        paddingVertical: 4,
                         borderRadius: 32,
                         paddingHorizontal: 20,
                         paddingVertical: 4,
@@ -119,8 +142,12 @@ const Tabbar = () => {
                       <ScheduleIcon
                         size={6}
                         color={
-                          focused
-                            ? SwitchTheme(isTheme).tabBarActiveTintColor
+                          isTheme.includes('theme_usual')
+                            ? focused
+                              ? SwitchTheme(isTheme).tabBarActiveTintColor
+                              : SwitchTheme(isTheme).tabBarInactiveTintColor
+                            : focused
+                            ? '#fff'
                             : SwitchTheme(isTheme).tabBarInactiveTintColor
                         }
                       />
@@ -130,7 +157,17 @@ const Tabbar = () => {
                   return (
                     <View
                       style={{
-                        backgroundColor: focused ? '#DCE3EB' : 'transparent',
+                        backgroundColor: isTheme.includes('theme_usual')
+                          ? focused
+                            ? SwitchTheme(isTheme).usualIconOreol
+                            : 'transparent'
+                          : isTheme.includes('theme_epsh')
+                          ? focused
+                            ? SwitchTheme(isTheme).tabBarActiveTintColorRight
+                            : 'transparent'
+                          : focused
+                          ? SwitchTheme(isTheme).tabBarActiveTintColor
+                          : 'transparent',
                         borderRadius: 32,
                         paddingHorizontal: 20,
                         paddingVertical: 4,
@@ -139,12 +176,12 @@ const Tabbar = () => {
                       <ProfileIcon
                         size={8}
                         color={
-                          isTheme.includes('theme_epsh')
+                          isTheme.includes('theme_usual')
                             ? focused
-                              ? SwitchTheme(isTheme).tabBarActiveTintColorRight
+                              ? SwitchTheme(isTheme).tabBarActiveTintColor
                               : SwitchTheme(isTheme).tabBarInactiveTintColor
                             : focused
-                            ? SwitchTheme(isTheme).tabBarActiveTintColor
+                            ? '#fff'
                             : SwitchTheme(isTheme).tabBarInactiveTintColor
                         }
                       />

@@ -42,14 +42,14 @@ const CreateNote = ({ navigation }) => {
             flexDirection: 'column',
             justifyContent: 'flex-start',
             alignContent: 'flex-start',
-            marginTop: 24,
+            marginTop: 12,
             // marginHorizontal: 16,
           }}
         >
           <TextInput
             style={{
               // marginTop: 8,
-              borderRadius: 13,
+              borderRadius: 20,
               fontSize: 17,
               fontFamily: 'Roboto-Regular',
               lineHeight: 22,
@@ -73,11 +73,11 @@ const CreateNote = ({ navigation }) => {
             // }}
           />
 
-          <View style={{ paddingHorizontal: 16 }}>
+          <View style={{ paddingHorizontal: 12 }}>
             <TextSmall color={SwitchTheme(isTheme).textSec}>Не более 140 символов.</TextSmall>
           </View>
-          <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 13, marginTop: 24 }}>
-            <ListItemWithSwitch title="Весь день" isDividerNeed />
+          <View style={{ borderRadius: 20, marginTop: 12 }}>
+            <ListItemWithSwitch title="Весь день" />
             <ListItemWithDate
               title="Дата"
               buttonTitle={'11 март. 2023'}

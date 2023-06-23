@@ -19,23 +19,6 @@ const Profile = ({ navigation }) => {
     getProfileInformation()
   }, [])
 
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerTitle: () => (
-        <Text
-          style={{
-            fontSize: 20,
-            lineHeight: 24,
-            color: SwitchTheme(isTheme).textMain,
-            fontFamily: 'Roboto-Medium',
-          }}
-        >
-          Профиль
-        </Text>
-      ),
-    })
-  }, [])
-
   return (
     <Layout onRefresh={getProfileInformation}>
       <NameBlock navigation={navigation} />

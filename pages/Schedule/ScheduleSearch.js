@@ -75,7 +75,7 @@ const ScheduleSearch = ({ navigation }) => {
         <SearchBar placeholder="Поиск" setSearchText={setFilter} search={filter} navigation={navigation} />
       ),
     })
-  }, [navigation, filter])
+  }, [navigation, filter, isTheme])
   // for search in header
 
   return (

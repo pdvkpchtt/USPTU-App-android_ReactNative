@@ -7,11 +7,11 @@ const Card = ({ info }) => {
     <>
       {Object.keys(info).length ? (
         <>
-          <ListBox paddingHorizontal={0} paddingVertical={0} marginTop={24}>
+          <ListBox paddingHorizontal={0} paddingVertical={0} marginTop={12}>
             <ListItemWithBottomTitle title={info.name} bottomTitle="Номер общежития" isDividerNeed />
             <ListItemWithBottomTitle title={info.address} bottomTitle="Адрес общежития" />
           </ListBox>
-          <ListBox marginTop={24} paddingHorizontal={0} paddingVertical={0}>
+          <ListBox marginTop={16} paddingHorizontal={0} paddingVertical={0}>
             <ListItemWithBottomTitle
               title={info.status}
               bottomTitle="Статус заявки (договора)"
@@ -23,7 +23,7 @@ const Card = ({ info }) => {
           </ListBox>
         </>
       ) : (
-        <ListBox marginTop={24}>
+        <ListBox marginTop={12}>
           <TextMain>Нет информации об общежитии</TextMain>
         </ListBox>
       )}

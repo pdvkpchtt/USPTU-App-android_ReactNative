@@ -119,7 +119,7 @@ const Grades = ({ navigation }) => {
           </Text>
         ),
     })
-  }, [visibleSearch, navigation, filter])
+  }, [visibleSearch, navigation, filter, isTheme])
   // for search in header
 
   return (

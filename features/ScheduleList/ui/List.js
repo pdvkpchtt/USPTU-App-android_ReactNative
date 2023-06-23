@@ -13,6 +13,7 @@ import { useEffect, useState } from 'react'
 import FAB from '../../../shared/ui/FAB'
 import moment from 'moment/moment'
 import FABSearch from '../../../shared/ui/FABSearch'
+import TextMain from '../../../shared/ui/Text/TextMain'
 moment.locale('ru')
 
 const List = ({ items, navigation, refreshing, filtering }) => {
@@ -72,7 +73,7 @@ const List = ({ items, navigation, refreshing, filtering }) => {
               paddingVertical: 12,
             }}
           >
-            <TextBody textAlign="left">Нет занятий</TextBody>
+            <TextMain textAlign="left">Нет занятий</TextMain>
             {/* <Button title="as" onPress={() => console.warn(schemeState, scheme, 'asas')} /> */}
           </View>
         )}
@@ -112,10 +113,10 @@ const List = ({ items, navigation, refreshing, filtering }) => {
               backgroundColor: SwitchTheme(isTheme).bgItem,
               borderRadius: 20,
               paddingHorizontal: 16,
-              paddingVertical: 10,
+              paddingVertical: 16,
             }}
           >
-            <TextBody textAlign="left">Ничего не найдено</TextBody>
+            <TextMain textAlign="left">Ничего не найдено</TextMain>
           </View>
         )}
       </>

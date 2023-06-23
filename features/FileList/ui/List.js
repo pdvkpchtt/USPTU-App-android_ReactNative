@@ -10,6 +10,7 @@ import * as Linking from 'expo-linking'
 import useTokenStore from '../../../shared/apiClient/store/store'
 import useThemeStore from '../../../shared/theme/store/store'
 import SwitchTheme from '../../../shared/theme/SwitchTheme'
+import TextMain from '../../../shared/ui/Text/TextMain'
 
 const List = ({ items, navigation, refreshing }) => {
   const accessToken = useTokenStore((state) => state.token)
@@ -74,10 +75,10 @@ const List = ({ items, navigation, refreshing }) => {
               backgroundColor: SwitchTheme(isTheme).bgItem,
               borderRadius: 20,
               paddingHorizontal: 16,
-              paddingVertical: 10,
+              paddingVertical: 16,
             }}
           >
-            <TextBody textAlign="left">Ничего не найдено</TextBody>
+            <TextMain textAlign="left">Ничего не найдено</TextMain>
           </View>
         )}
       </>

@@ -10,18 +10,28 @@ import ListItemWithRightTitleAndLinkAndBadge from '../../../shared/ui/ListItemWi
 import SwitchTheme from '../../../shared/theme/SwitchTheme'
 import useThemeStore from '../../../shared/theme/store/store'
 import { useEffect, useState } from 'react'
+import TextMain from '../../../shared/ui/Text/TextMain'
+import { useUserStore } from '../../../entities/user'
+import { useGradesStore } from '../../../entities/grades'
 
 const SemesterList = ({ items, navigation, refreshing, filtering }) => {
   const scheme = useColorScheme()
   const [schemeState, setSchemeState] = useState(scheme)
-  const [itemState, setItemState] = useState(false)
+
+  const { getStudyGroup } = useUserStore((state) => ({
+    // фзц на айос
+    getStudyGroup: state.getStudyGroup,
+  }))
+  const { filterGrades } = useGradesStore((state) => ({
+    filterGrades: state.filterGrades,
+  }))
 
   useEffect(() => {
     if (schemeState != scheme) {
-      setItemState(!itemState)
+      filterGrades('', getStudyGroup())
       setSchemeState(scheme)
     }
-  }, [scheme])
+  }, [scheme, schemeState])
 
   const isTheme = useThemeStore((state) => state.theme)
   const stickyHeaderIndices = items
@@ -73,14 +83,14 @@ const SemesterList = ({ items, navigation, refreshing, filtering }) => {
           <View
             style={{
               marginTop: 12,
-              // marginHorizontal: 16,
+              marginHorizontal: 12,
               backgroundColor: SwitchTheme(isTheme).bgItem,
               borderRadius: 20,
               paddingHorizontal: 16,
               paddingVertical: 16,
             }}
           >
-            <TextBody textAlign="left">Ничего не найдено</TextBody>
+            <TextMain textAlign="left">Ничего не найдено</TextMain>
           </View>
         )}
       </>
@@ -106,8 +116,7 @@ const SemesterList = ({ items, navigation, refreshing, filtering }) => {
       refreshing={refreshing}
       showsVerticalScrollIndicator={false}
       showsHorizontalScrollIndicator={false}
-      refreshControl={<RefreshControl refreshing={refreshing} />}
-      extraData={itemState}
+      refreshControl={<RefreshControl refreshing={refreshing} onRefresh={() => filterGrades('', getStudyGroup())} />}
       overScrollMode="never"
     />
   )

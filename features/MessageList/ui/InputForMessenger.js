@@ -45,11 +45,12 @@ const InputForMessenger = ({ placeholder, isFocus = false }) => {
           letterSpacing: -0.15,
           marginLeft: 16,
           lineHeight: 24,
+          width: '100%',
           flexShrink: 1,
         }}
         spellCheck={false}
         autoComplete={'off'}
-        //  autoFocus={true}
+        // autoFocus={true}
         autoCorrect={false}
         placeholder={placeholder}
         placeholderTextColor={SwitchTheme(isTheme).placeholderSearch}
@@ -70,6 +71,8 @@ const InputForMessenger = ({ placeholder, isFocus = false }) => {
           paddingRight: 6,
           backgroundColor: '#CAE6FF',
           borderRadius: 99,
+          flexShrink: 0,
+          height: 40,
         }}
       >
         <SendIcon />

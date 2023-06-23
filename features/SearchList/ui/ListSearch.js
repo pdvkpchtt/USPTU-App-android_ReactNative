@@ -10,6 +10,7 @@ import TextBody from '../../../shared/ui/Text/TextBody'
 import getFilialName from './../../../shared/utils/getFilialName'
 import { useGeneralScheduleStore } from '../../../entities/generalSchedule'
 import { useEffect, useState } from 'react'
+import TextMain from '../../../shared/ui/Text/TextMain'
 
 const ListSearch = ({ navigation, items, refreshing, isEmpty }) => {
   const scheme = useColorScheme()
@@ -94,11 +95,11 @@ const ListSearch = ({ navigation, items, refreshing, isEmpty }) => {
             style={{
               backgroundColor: SwitchTheme(isTheme).bgItem,
               borderRadius: 20,
-              paddingHorizontal: 12,
-              paddingVertical: 12,
+              paddingHorizontal: 16,
+              paddingVertical: 16,
             }}
           >
-            <TextBody textAlign="left">Ничего не найдено</TextBody>
+            <TextMain textAlign="left">Ничего не найдено</TextMain>
           </View>
         )}
       </>
