@@ -7,6 +7,7 @@ const useThemeStore = create(
     (set, get) => ({
       theme: 'theme_usual',
       dataIdSelected: 0,
+      isAuto: false,
       setTheme: async (IsTheme) => {
         set({ theme: IsTheme })
         // console.log(IsTheme)
@@ -14,6 +15,9 @@ const useThemeStore = create(
       setSelected: (IdSelected) => {
         set({ dataIdSelected: IdSelected })
         // console.log(IdSelected)
+      },
+      setAuto: (autoState) => {
+        set({ isAuto: autoState })
       },
     }),
     {

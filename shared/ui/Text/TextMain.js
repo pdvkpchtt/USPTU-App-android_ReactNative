@@ -9,7 +9,7 @@ export default function TextMain(props) {
       style={{
         color: props.color || SwitchTheme(isTheme).textMain,
         fontSize: 16,
-        fontFamily: 'Roboto',
+        fontFamily: props.secondary ? 'Roboto-Medium' : 'Roboto',
         lineHeight: 24,
         letterSpacing: 0.3,
         ...props,

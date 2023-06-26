@@ -53,10 +53,21 @@ const GeneralSchedule = ({ navigation, route }) => {
           {({ pressed }) => {
             return (
               <>
-                <GeneralScheduleCalendarIcon />
-                <TextBody color={SwitchTheme(isTheme).textHeaderButton} textAlign="left">
-                  {`${showingWeekNumber}`}
-                </TextBody>
+                <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                  <GeneralScheduleCalendarIcon />
+                  <Text
+                    style={{
+                      fontSize: 11,
+                      fontFamily: 'Roboto-Bold',
+                      color: SwitchTheme(isTheme).tabBarInactiveTintColor,
+                      lineHeight: 16,
+                      textAlign: 'center',
+                      width: 24,
+                    }}
+                  >
+                    {`${showingWeekNumber}`}
+                  </Text>
+                </View>
               </>
             )
           }}

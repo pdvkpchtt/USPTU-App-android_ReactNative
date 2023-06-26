@@ -41,7 +41,6 @@ const Search = ({ setSearchText, placeholder, search, isFocus = false }) => {
       autoFocus
       spellCheck={false}
       autoComplete={'off'}
-      autoFocus={true}
       autoCorrect={false}
       placeholder={placeholder}
       placeholderTextColor={SwitchTheme(isTheme).placeholderSearch}

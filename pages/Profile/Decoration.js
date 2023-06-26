@@ -17,35 +17,39 @@ const Decoration = ({ navigation, route }) => {
   // console.log(themes)
   const IdSelected = useThemeStore((state) => state.dataIdSelected)
 
-  const { setTheme, setSelected } = useThemeStore((state) => ({
+  const { setTheme, setSelected, setAuto, isAuto } = useThemeStore((state) => ({
     setTheme: state.setTheme,
     setSelected: state.setSelected,
+    setAuto: state.setAuto,
+    isAuto: state.isAuto,
   }))
 
-  // const [isEnabled, setIsEnabled] = useState(false)
-  // const toggleSwitch = () => {
-  //   setIsEnabled((previousState) => !previousState)
-  //   if (isTheme.includes('_dark')) {
-  //     setTheme(isTheme.replace('_dark', ''))
-  //   } else {
-  //     setTheme(isTheme + '_dark')
-  //   }
-  // }
-  // const scheme = useColorScheme()
-  // const themeAutoHandler = () => {
-  //   if (scheme === 'dark' && !isTheme.includes('_dark')) setTheme(isTheme + '_dark')
-  //   else if (scheme === 'light' && isTheme.includes('_dark')) setTheme(isTheme.replace('_dark', ''))
-  // }
-  // useEffect(() => {
-  //   setTheme('theme_usual')
-  //   if (isTheme.includes('_dark')) {
-  //     setIsEnabled(true)
-  //   } else {
-  //     setIsEnabled(false)
-  //   }
+  const [isEnabled, setIsEnabled] = useState(false)
+  const [auto, setIsAuto] = useState(false)
+  const toggleSwitch = () => {
+    setIsEnabled((previousState) => !previousState)
+    if (!isAuto) {
+      if (isTheme.includes('_dark')) {
+        setTheme(isTheme.replace('_dark', ''))
+      } else {
+        setTheme(isTheme + '_dark')
+      }
+    }
+  }
 
-  //   console.log(isTheme)
-  // }, [isTheme])
+  const toggleAuto = () => {
+    setIsAuto((previousState) => !previousState)
+    setAuto(isAuto)
+  }
+
+  useEffect(() => {
+    // setTheme('theme_usual')
+    if (isTheme.includes('_dark')) {
+      setIsEnabled(true)
+    } else {
+      setIsEnabled(false)
+    }
+  }, [isTheme])
 
   return (
     <>
@@ -83,9 +87,14 @@ const Decoration = ({ navigation, route }) => {
             {SwitchTheme(isTheme).textlozungdecoration}
           </TextDisplay>
         </View>
-        {/* <View style={{ marginTop: 24, marginBottom: 24 }}>
-          <ListItemWithSwitch title="Ночной режим" onValueChange={toggleSwitch} value={isEnabled} />
-        </View> */}
+        {/* <View style={{ marginTop: 16, marginBottom: 16 }}>
+          <ListItemWithSwitch title="Авто" onValueChange={() => toggleAuto()} value={auto} isSwitch />
+        </View>
+        {!isAuto ? (
+          <View>
+            <ListItemWithSwitch title="Ночной режим" onValueChange={() => toggleSwitch()} value={isEnabled} />
+          </View>
+        ) : null} */}
       </Layout>
     </>
   )

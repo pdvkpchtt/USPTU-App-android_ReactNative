@@ -18,14 +18,17 @@ export default function App() {
   const scheme = useColorScheme()
   // console.warn(scheme)
 
-  const { setTheme } = useThemeStore((state) => ({
+  const { setTheme, isAuto } = useThemeStore((state) => ({
     setTheme: state.setTheme,
     setSelected: state.setSelected,
+    isAuto: state.isAuto,
   }))
 
   useEffect(() => {
+    // if (isAuto) {
     if (scheme === 'dark' && !isTheme.includes('_dark')) setTheme(isTheme + '_dark')
     else if (scheme === 'light' && isTheme.includes('_dark')) setTheme(isTheme.replace('_dark', ''))
+    // }
 
     console.log(scheme, isTheme)
   })

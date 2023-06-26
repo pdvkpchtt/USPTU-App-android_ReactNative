@@ -7,7 +7,13 @@ import TextMain from './Text/TextMain'
 import { useState } from 'react'
 import Checkbox from 'expo-checkbox'
 
-const ListItemWithSwitch = ({ title, isDividerNeed = false, value = null, onValueChange = false }) => {
+const ListItemWithSwitch = ({
+  title,
+  isDividerNeed = false,
+  value = null,
+  onValueChange = false,
+  isSwitch = false,
+}) => {
   const isTheme = useThemeStore((state) => state.theme)
   return (
     <>
@@ -28,19 +34,33 @@ const ListItemWithSwitch = ({ title, isDividerNeed = false, value = null, onValu
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
-            paddingHorizontal: 16,
+            paddingLeft: 16,
+            paddingRight: 27,
             paddingVertical: 16,
           }}
         >
           <View style={styles.rows2}>
             <TextMain>{title}</TextMain>
           </View>
-          <Checkbox
-            value={value}
-            style={{ width: 18, height: 18 }}
-            color={onValueChange ? SwitchTheme(isTheme).checkIcon : SwitchTheme(isTheme).checkBox}
-            onValueChange={onValueChange}
-          />
+          {isSwitch ? (
+            <Switch
+              alignSelf="center"
+              onValueChange={onValueChange}
+              value={value}
+              thumbColor={!isTheme.includes('_usual') && SwitchTheme(isTheme).checkIcon}
+              trackColor={{
+                true: !isTheme.includes('_usual') && SwitchTheme(isTheme.replace('_dark', '')).textOuterSec,
+              }}
+              style={{ height: 18, marginRight: -14.4 }}
+            />
+          ) : (
+            <Checkbox
+              value={value}
+              style={{ width: 18, height: 18 }}
+              color={value ? SwitchTheme(isTheme).checkIcon : SwitchTheme(isTheme).checkBox}
+              onValueChange={onValueChange}
+            />
+          )}
         </View>
         {isDividerNeed && <Divider ml={0} />}
       </View>

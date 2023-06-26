@@ -72,7 +72,13 @@ const ScheduleSearch = ({ navigation }) => {
         </Animated.View>
       ),
       headerTitle: () => (
-        <SearchBar placeholder="Поиск" setSearchText={setFilter} search={filter} navigation={navigation} />
+        <SearchBar
+          placeholder="Поиск"
+          isFocus={true}
+          setSearchText={setFilter}
+          search={filter}
+          navigation={navigation}
+        />
       ),
     })
   }, [navigation, filter, isTheme])
