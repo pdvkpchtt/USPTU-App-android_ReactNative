@@ -46,6 +46,7 @@ const SwitchTheme = (theme) => {
     colorlineBottomNav: '#D7D7D7',
     textTopNav: '#000000',
     bgTopNav: '#F9F9F9',
+    bgTopNavForThemes: '#F9F9F9',
     bgBottomNav: '#F9F9F9',
 
     checkBox: '#898989',
@@ -99,6 +100,7 @@ const SwitchTheme = (theme) => {
     textButtonExit: '#FF3B30',
     textTopNav: '#FFFFFF',
     bgTopNav: '#1D1D1D',
+    bgTopNavForThemes: '#05080A',
     bgBottomNav: '#1D1D1D',
 
     checkBox: '#fff',

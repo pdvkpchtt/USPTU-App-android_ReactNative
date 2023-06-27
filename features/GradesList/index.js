@@ -35,7 +35,7 @@ const GradesList = ({ navigation, filter }) => {
       filterGrades(filter, getStudyGroup())
       console.log('s')
     }
-  }, [dataIdSelected, filter])
+  }, [dataIdSelected, filter, schemeState, scheme])
 
   return filter.length ? (
     <List items={grades} navigation={navigation} refreshing={refreshing} filtering={filtering} />

@@ -11,10 +11,14 @@ const NavigationOptions = () => {
   const isTheme = useThemeStore((state) => state.theme)
   const width = PixelRatio.roundToNearestPixel(0.5)
   return {
-    headerTintColor: SwitchTheme(isTheme).tabBarInactiveTintColor,
+    headerTintColor: isTheme.includes('theme_usual') ? SwitchTheme(isTheme).tabBarInactiveTintColor : '#fff',
     headerBackTitle: 'Назад',
     headerStyle: {
-      backgroundColor: SwitchTheme(isTheme).bgTopNav,
+      backgroundColor: isTheme.includes('theme_usual')
+        ? SwitchTheme(isTheme).bgTopNav
+        : !isTheme.includes('_dark')
+        ? SwitchTheme(isTheme).checkIcon
+        : SwitchTheme(isTheme).bgTopNavForThemes,
       headerShadowVisible: false,
       borderBottomWidth: 0,
       borderWidth: 0,
@@ -29,7 +33,7 @@ const NavigationOptions = () => {
     headerTitleStyle: {
       fontSize: 20,
       lineHeight: 24,
-      color: SwitchTheme(isTheme).textMain,
+      color: isTheme.includes('theme_usual') ? SwitchTheme(isTheme).textMain : '#fff',
       fontFamily: 'Roboto-Medium',
     },
     headerTitleAlign: isSchedule ? 'center' : 'start',

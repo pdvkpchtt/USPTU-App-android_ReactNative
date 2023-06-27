@@ -26,9 +26,10 @@ const List = ({ items, navigation, refreshing, filtering }) => {
 
   useEffect(() => {
     if (schemeState != scheme) {
+      setSchemeState(scheme)
       filterGrades('', getStudyGroup())
     }
-  }, [scheme])
+  }, [scheme, schemeState])
 
   const isTheme = useThemeStore((state) => state.theme)
   const navigateToGrade = (item) => {
