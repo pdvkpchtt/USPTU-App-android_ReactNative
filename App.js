@@ -68,7 +68,7 @@ export default function App() {
         <Login />
       )}
       {/* пока добавил для статус бара danil */}
-      <StatusBar style={isTheme.includes('_dark') ? 'light' : 'dark'} />
+      <StatusBar style={isTheme.includes('_dark') || isTheme.includes('theme_ftt') ? 'light' : 'dark'} />
     </>
   )
 }

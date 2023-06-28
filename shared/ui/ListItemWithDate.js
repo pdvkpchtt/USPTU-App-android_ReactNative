@@ -7,7 +7,7 @@ import RunIcon from './Icons/RunIcon'
 import TextBody from './Text/TextBody'
 import TextMain from './Text/TextMain'
 import TextSmall from './Text/TextSmall'
-import DatePicerIcon from '../../shared/ui/Icons/DatePicerIcon'
+import DatePickerForComponent from '../../shared/ui/Icons/DatePickerForComponent'
 
 const ListItemWithDate = ({ title, buttonTitle, onPress = null, position = 'all', backgroundIsNeed = false }) => {
   const isTheme = useThemeStore((state) => state.theme)
@@ -49,7 +49,7 @@ const ListItemWithDate = ({ title, buttonTitle, onPress = null, position = 'all'
             </TextMain>
           </View>
           <View style={{ backgroundColor: SwitchTheme(isTheme).bgSearch, padding: 8, borderRadius: 99 }}>
-            <DatePicerIcon />
+            <DatePickerForComponent />
           </View>
         </>
       )}

@@ -73,7 +73,13 @@ const CurriculumSemestrList = ({ navigation, route }) => {
                   }}
                 >
                   {({ isPressed }) => {
-                    return <MaterialIcons name="close" size={24} color={SwitchTheme(isTheme).tabBarInactiveTintColor} />
+                    return (
+                      <MaterialIcons
+                        name="close"
+                        size={24}
+                        color={isTheme.includes('theme_usual') ? SwitchTheme(isTheme).tabBarInactiveTintColor : '#fff'}
+                      />
+                    )
                   }}
                 </Pressable>
               ) : (
@@ -85,7 +91,11 @@ const CurriculumSemestrList = ({ navigation, route }) => {
                 >
                   {({ isPressed }) => {
                     return (
-                      <MaterialIcons name="cancel" size={24} color={SwitchTheme(isTheme).tabBarInactiveTintColor} />
+                      <MaterialIcons
+                        name="cancel"
+                        size={24}
+                        color={isTheme.includes('theme_usual') ? SwitchTheme(isTheme).tabBarInactiveTintColor : '#fff'}
+                      />
                     )
                   }}
                 </Pressable>
@@ -104,7 +114,12 @@ const CurriculumSemestrList = ({ navigation, route }) => {
           />
         ) : (
           <Text
-            style={{ fontSize: 20, lineHeight: 24, color: SwitchTheme(isTheme).textMain, fontFamily: 'Roboto-Medium' }}
+            style={{
+              fontSize: 20,
+              lineHeight: 24,
+              color: isTheme.includes('theme_usual') ? SwitchTheme(isTheme).textMain : '#fff',
+              fontFamily: 'Roboto-Medium',
+            }}
           >
             {`${route.params.data[0].year} курс, ${route.params.data[0].semester} семестр`}
           </Text>

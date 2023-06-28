@@ -64,7 +64,13 @@ const ScheduleSearch = ({ navigation }) => {
                 }}
               >
                 {({ isPressed }) => {
-                  return <MaterialIcons name="close" size={24} color={SwitchTheme(isTheme).tabBarInactiveTintColor} />
+                  return (
+                    <MaterialIcons
+                      name="close"
+                      size={24}
+                      color={isTheme.includes('theme_usual') ? SwitchTheme(isTheme).tabBarInactiveTintColor : '#fff'}
+                    />
+                  )
                 }}
               </Pressable>
             ) : null}

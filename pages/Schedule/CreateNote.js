@@ -74,7 +74,7 @@ const CreateNote = ({ navigation }) => {
           />
 
           <View style={{ paddingHorizontal: 12 }}>
-            <TextSmall color={SwitchTheme(isTheme).textSec}>Не более 140 символов.</TextSmall>
+            <TextSmall color={SwitchTheme(isTheme).textOuterSec}>Не более 140 символов.</TextSmall>
           </View>
           <View style={{ borderRadius: 20, marginTop: 12 }}>
             <ListItemWithSwitch title="Весь день" />

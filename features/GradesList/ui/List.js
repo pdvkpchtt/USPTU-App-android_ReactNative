@@ -88,7 +88,7 @@ const List = ({ items, navigation, refreshing, filtering }) => {
           <View
             style={{
               marginTop: 12,
-              marginHorizontal: 12,
+              marginHorizontal: 0,
               backgroundColor: SwitchTheme(isTheme).bgItem,
               borderRadius: 20,
               paddingHorizontal: 16,
