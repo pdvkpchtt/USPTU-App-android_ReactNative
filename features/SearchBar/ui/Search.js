@@ -26,7 +26,7 @@ const Search = ({ setSearchText, placeholder, search, isFocus = false }) => {
       value={search}
       style={{
         // backgroundColor: 'red',
-        color: SwitchTheme(isTheme).textMain,
+        color: isTheme.includes('theme_usual') ? SwitchTheme(isTheme).textMain : '#fff',
         borderRadius: 20,
         fontSize: 17,
         fontFamily: 'Roboto',
@@ -43,7 +43,11 @@ const Search = ({ setSearchText, placeholder, search, isFocus = false }) => {
       autoComplete={'off'}
       autoCorrect={false}
       placeholder={placeholder}
-      placeholderTextColor={SwitchTheme(isTheme).placeholderSearch}
+      placeholderTextColor={
+        !isTheme.includes('theme_usual') && !isTheme.includes('_dark')
+          ? SwitchTheme(isTheme).placeholderTextLight
+          : SwitchTheme(isTheme).placeholderSearch
+      }
       selectionColor={SwitchTheme(isTheme).placeselectionSearch}
       numberOfLines={1}
       //  clearButtonMode="always"

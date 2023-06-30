@@ -64,10 +64,9 @@ const Schedule = ({ navigation }) => {
 
   return (
     <>
-      <View style={{ backgroundColor: SwitchTheme(isTheme).colorlineBottomNav, height: widthborder }} />
+      {/* <View style={{ backgroundColor: SwitchTheme(isTheme).colorlineBottomNav, height: widthborder }} /> */}
       <ScheduleList navigation={navigation} />
-
-      <DateTimePickerModal
+      {/* <DateTimePickerModal
         isVisible={isDatePickerVisible}
         mode="date"
         onConfirm={handleConfirm}
@@ -81,7 +80,7 @@ const Schedule = ({ navigation }) => {
         // pickerStyleIOS={{
         //   backgroundColor: SwitchTheme(isTheme).bgItem,
         // }}
-      />
+      /> */}
       {/* <View style={{ backgroundColor: SwitchTheme(isTheme).colorlineBottomNav, height: widthborder }} /> */}
     </>
   )

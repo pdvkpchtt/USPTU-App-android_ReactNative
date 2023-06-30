@@ -58,7 +58,7 @@ const GeneralSchedule = ({ navigation, route }) => {
                   <Text
                     style={{
                       fontSize: 11,
-                      fontFamily: 'Roboto-Bold',
+                      fontFamily: 'Roboto-Medium',
                       color: isTheme.includes('theme_usual') ? SwitchTheme(isTheme).tabBarInactiveTintColor : '#fff',
                       lineHeight: 16,
                       textAlign: 'center',

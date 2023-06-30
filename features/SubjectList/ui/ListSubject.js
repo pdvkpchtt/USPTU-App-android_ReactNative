@@ -68,7 +68,7 @@ const ListSubject = ({ items, navigation, refreshing, target_action, filter }) =
               backgroundColor: SwitchTheme(isTheme).bgItem,
               borderRadius: 20,
               paddingHorizontal: 16,
-              paddingVertical: 16,
+              paddingVertical: 12,
             }}
           >
             <TextMain textAlign="left">{filter ? 'Ничего не найдено' : 'Для выбранной группы нет данных'}</TextMain>

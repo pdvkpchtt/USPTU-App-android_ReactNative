@@ -48,7 +48,7 @@ const Layout = (props) => {
         {SwitchTheme(isTheme).fonImage}
       </View>
       {/* <ImageBackground source={require('../images/ftt.png')} style={styles.image}> */}
-      <View style={{ backgroundColor: SwitchTheme(isTheme).colorlineBottomNav, height: widthborder }} />
+      {/* <View style={{ backgroundColor: SwitchTheme(isTheme).colorlineBottomNav, height: widthborder }} /> */}
 
       {props.forFlashList ? (
         <View style={{ flex: 1, paddingHorizontal: 12 }}>{props?.children}</View>

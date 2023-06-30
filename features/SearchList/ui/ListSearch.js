@@ -96,7 +96,7 @@ const ListSearch = ({ navigation, items, refreshing, isEmpty }) => {
               backgroundColor: SwitchTheme(isTheme).bgItem,
               borderRadius: 20,
               paddingHorizontal: 16,
-              paddingVertical: 16,
+              paddingVertical: 12,
             }}
           >
             <TextMain textAlign="left">Ничего не найдено</TextMain>

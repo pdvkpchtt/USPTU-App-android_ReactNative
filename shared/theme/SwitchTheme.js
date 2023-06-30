@@ -178,6 +178,8 @@ const SwitchTheme = (theme) => {
 
         textOuterSec: '#4B3A27', // текст секондари вне хуйни бля крч вне карточек
 
+        placeholderTextLight: '#F5C295',
+
         placeselectionSearch: '#EC9041', //color
 
         bgBadgeMes: '#FF3B30',
@@ -216,6 +218,8 @@ const SwitchTheme = (theme) => {
         textOuterSec: '#4F3937',
 
         placeselectionSearch: '#F16E51', //color
+
+        placeholderTextLight: '#FEB5A5',
 
         bgBadgeMes: '#FF3B30',
         bgBadgeMesGrade: '#7A7A7C',
@@ -258,6 +262,8 @@ const SwitchTheme = (theme) => {
         bgBadgeMesGrade: '#7A7A7C',
         textBadgeMesGrade: '#ffffff',
 
+        placeholderTextLight: '#6C6C6C',
+
         checkIcon: '#0D0D0D', //color
         bgbutton1: '#F2F2F2',
         bgbutton1pressed: '#BDBDBD',
@@ -295,6 +301,8 @@ const SwitchTheme = (theme) => {
         bgBadgeMesGrade: '#7A7A7C',
         textBadgeMesGrade: '#ffffff',
 
+        placeholderTextLight: '#9DBDE2',
+
         checkIcon: '#5A97DC', //color
         bgbutton1: '#F2F2F2',
         bgbutton1pressed: '#BDBDBD',
@@ -331,6 +339,8 @@ const SwitchTheme = (theme) => {
         bgBadgeMes: '#FF3B30',
         bgBadgeMesGrade: '#7A7A7C',
         textBadgeMesGrade: '#ffffff',
+
+        placeholderTextLight: '#939CE9',
 
         checkIcon: '#4D5BD8', //color
         bgbutton1: '#F2F2F2',
@@ -374,6 +384,8 @@ const SwitchTheme = (theme) => {
         bgbutton1pressed: '#BDBDBD',
         textbutton1: '#2C5AB5', //color
 
+        placeholderTextLight: '#5C87DE',
+
         textbutton1pressed: 'black', //color pressed
         bgbuttondefault: '#2C5AB5', //color
         bgbuttondefaultpressed: '#1877DF',
@@ -410,6 +422,8 @@ const SwitchTheme = (theme) => {
         bgbutton1: '#F2F2F2',
         bgbutton1pressed: '#BDBDBD',
         textbutton1: '#D93045', //color
+
+        placeholderTextLight: '#EA7B89',
 
         textbutton1pressed: 'black', //color pressed
         bgbuttondefault: '#D93045', //color
@@ -448,6 +462,8 @@ const SwitchTheme = (theme) => {
         bgbutton1pressed: '#BDBDBD',
         textbutton1: '#3D9E6B', //color
 
+        placeholderTextLight: '#71BE96',
+
         textbutton1pressed: 'black', //color pressed
         bgbuttondefault: '#3D9E6B', //color
         bgbuttondefaultpressed: '#1877DF',
@@ -485,6 +501,8 @@ const SwitchTheme = (theme) => {
         bgbutton1: '#F2F2F2',
         bgbutton1pressed: '#BDBDBD',
         textbutton1: '#DE594F', //color
+
+        placeholderTextLight: '#F89D97',
 
         textbutton1pressed: 'black', //color pressed
         bgbuttondefault: '#DE594F', //color
@@ -525,6 +543,8 @@ const SwitchTheme = (theme) => {
         bgbutton1pressed: '#BDBDBD',
         textbutton1: '#8E76A9', //color
 
+        placeholderTextLight: '#B4A1C9',
+
         textbutton1pressed: 'black', //color pressed
         bgbuttondefault: '#8E76A9', //color
         bgbuttondefaultpressed: '#1877DF',
@@ -557,6 +577,8 @@ const SwitchTheme = (theme) => {
         bgBadgeMes: '#FF3B30',
         bgBadgeMesGrade: '#7A7A7C',
         textBadgeMesGrade: '#ffffff',
+
+        placeholderTextLight: '#AAACEC',
 
         checkIcon: '#6E72E3', //color
         bgbutton1: '#F2F2F2',
