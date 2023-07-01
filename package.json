@@ -33,6 +33,7 @@
     "native-base": "^3.4.28",
     "react": "18.1.0",
     "react-native": "0.70.8",
+    "react-native-calendars": "^1.1299.0",
     "react-native-gesture-handler": "^2.12.0",
     "react-native-get-random-values": "^1.8.0",
     "react-native-hyperlink": "^0.0.22",
