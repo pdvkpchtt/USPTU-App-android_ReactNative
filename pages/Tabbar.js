@@ -60,9 +60,11 @@ const Tabbar = () => {
                     height: 0, // for iOS
                   },
                 },
-                backgroundColor: isTheme.includes('theme_usual')
-                  ? SwitchTheme(isTheme).bgTopNav
-                  : SwitchTheme(isTheme).bgTopNavForThemes,
+                backgroundColor:
+                  // isTheme.includes('theme_usual')
+                  // ?
+                  SwitchTheme(isTheme).bgTopNav,
+                // : SwitchTheme(isTheme).bgTopNavForThemes,
                 borderTopWidth: 0,
                 borderTopWidth: PixelRatio.roundToNearestPixel(0.5),
                 elevation: 0,

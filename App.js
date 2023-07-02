@@ -18,6 +18,13 @@ export default function App() {
   const scheme = useColorScheme()
   // console.warn(scheme)
 
+  const isStatusBarLight =
+    isTheme.includes('theme_ftt') ||
+    isTheme.includes('theme_tf') ||
+    isTheme.includes('theme_gnf') ||
+    isTheme.includes('theme_inb') ||
+    isTheme.includes('theme_epsh')
+
   const { setTheme, isAuto } = useThemeStore((state) => ({
     setTheme: state.setTheme,
     setSelected: state.setSelected,
@@ -68,7 +75,7 @@ export default function App() {
         <Login />
       )}
       {/* пока добавил для статус бара danil */}
-      <StatusBar style={isTheme.includes('_dark') || isTheme.includes('theme_ftt') ? 'light' : 'dark'} />
+      <StatusBar style={isTheme.includes('_dark') || isStatusBarLight ? 'light' : 'dark'} />
     </>
   )
 }

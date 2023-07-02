@@ -106,7 +106,7 @@ const SwitchTheme = (theme) => {
     checkBox: '#fff',
     textSearch: '#FFFFFF',
 
-    FAB: '#1D1D1D',
+    FAB: '#1D1D1D', // тф гнф инб  епш
     FABStroke: '#2f2f2f',
     FABIcon: '#fff',
 
@@ -725,32 +725,32 @@ const SwitchTheme = (theme) => {
 
         textOuterSec: '#fff',
 
-        placeselectionSearch: '#B5B5B5', //color
+        placeselectionSearch: '#616161', //color
 
         bgBadgeMes: '#FF3B30',
         bgBadgeMesGrade: '#7A7A7C',
         textBadgeMesGrade: '#ffffff',
 
-        checkIcon: '#B5B5B5', //color
+        checkIcon: '#616161', //color
         bgbutton1: '#F2F2F2',
         bgbutton1pressed: '#BDBDBD',
-        textbutton1: '#B5B5B5', //color
+        textbutton1: '#616161', //color
 
         textbutton1pressed: 'black', //color pressed
-        bgbuttondefault: '#B5B5B5', //color
+        bgbuttondefault: '#616161', //color
         bgbuttondefaultpressed: '#1877DF',
         textbuttondefault: 'white',
 
-        textlink: '#B5B5B5', //color
-        bgMesStudent: '#B5B5B5', //color
+        textlink: '#616161', //color
+        bgMesStudent: '#616161', //color
 
-        textMesStudent: '#B5B5B5', //color'#007AFF',
-        textTimeMesStudent: '#B5B5B5', //color
-        colorIndicator: '#B5B5B5', //color
-        textHeaderButton: '#B5B5B5', //color
+        textMesStudent: '#616161', //color'#007AFF',
+        textTimeMesStudent: '#616161', //color
+        colorIndicator: '#616161', //color
+        textHeaderButton: '#616161', //color
         textHeaderButtonpressed: 'black', //color pressed
 
-        tabBarActiveTintColor: '#B5B5B5', //color
+        tabBarActiveTintColor: '#616161', //color
         textdecoration: 'ФТТ',
         textlozungdecoration: 'pipe-lines, pipe-lines!!!',
       }

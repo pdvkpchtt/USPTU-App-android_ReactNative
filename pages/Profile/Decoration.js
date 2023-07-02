@@ -80,7 +80,7 @@ const Decoration = ({ navigation, route }) => {
               </DecorationItem>
             ))}
           </ScrollView>
-          <TextMain marginTop={16} paddingHorizontal={16}>
+          <TextMain marginTop={16} paddingHorizontal={16} secondary>
             {SwitchTheme(isTheme).textdecoration}
           </TextMain>
           <TextDisplay color={SwitchTheme(isTheme).textSec} marginTop={3} paddingHorizontal={16}>

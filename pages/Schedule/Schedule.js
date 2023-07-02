@@ -10,6 +10,7 @@ import { useScheduleStore } from '../../entities/schedule'
 import DatePicerIcon from '../../shared/ui/Icons/DatePicerIcon'
 import { Calendar, LocaleConfig } from 'react-native-calendars'
 import Modal from 'react-native-modal'
+import moment from 'moment'
 
 LocaleConfig.locales['ru'] = {
   monthNames: [
@@ -35,6 +36,8 @@ LocaleConfig.defaultLocale = 'ru'
 
 const Schedule = ({ navigation }) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false)
+  let myDate = moment(new Date()).format('YYYY-MM-DD')
+  const [markedDateState, setMarkedDateState] = useState(myDate)
 
   const showingWeekNumber = useScheduleStore((state) => state.showingWeekNumber)
   const loadWeekFromCalendar = useScheduleStore((state) => state.loadWeekFromCalendar)
@@ -80,7 +83,7 @@ const Schedule = ({ navigation }) => {
             fontFamily: 'Roboto-Medium',
             paddingTop: 10,
             paddingBottom: 10,
-            color: SwitchTheme(isTheme).checkIcon,
+            color: isTheme.includes('_dark') ? '#fff' : SwitchTheme(isTheme).checkIcon,
             paddingRight: 5,
           }}
         >{`${month}`}</Text>
@@ -171,20 +174,32 @@ const Schedule = ({ navigation }) => {
           style={{ borderTopLeftRadius: 20, borderTopRightRadius: 20 }}
           onDayPress={(date) => {
             console.log(date)
+            setMarkedDateState(date.dateString)
             setDatePickerVisibility(false)
             loadWeekFromCalendar(date.dateString)
           }}
           renderHeader={renderCustomHeader}
           theme={{
             calendarBackground: SwitchTheme(isTheme).bgItem,
-            textSectionTitleColor: SwitchTheme(isTheme).checkIcon,
+            textSectionTitleColor: isTheme.includes('theme_ftt_dark') ? '#fff' : SwitchTheme(isTheme).checkIcon,
             todayTextColor: SwitchTheme(isTheme).textMain,
             dayTextColor: SwitchTheme(isTheme).textMain,
             textDisabledColor: SwitchTheme(isTheme).textSec,
-            arrowColor: SwitchTheme(isTheme).checkIcon,
+            arrowColor: isTheme.includes('theme_ftt_dark') ? '#fff' : SwitchTheme(isTheme).checkIcon,
           }}
           enableSwipeMonths
           firstDay={1}
+          markingType={'period'}
+          markedDates={{
+            [markedDateState]: {
+              startingDay: true,
+              endingDay: true,
+              customTextStyle: {
+                color: !isTheme.includes('theme_ftt') ? SwitchTheme(isTheme).checkIcon : 'red',
+                fontFamily: 'Roboto-Medium',
+              },
+            },
+          }}
         />
       </Modal>
       {/* <View style={{ backgroundColor: SwitchTheme(isTheme).colorlineBottomNav, height: widthborder }} /> */}
