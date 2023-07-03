@@ -22,7 +22,7 @@ const ListSearch = ({ navigation, items, refreshing, isEmpty }) => {
       setItemState(!itemState)
       setSchemeState(scheme)
     }
-  }, [scheme])
+  }, [scheme, schemeState])
 
   const isTheme = useThemeStore((state) => state.theme)
   const setSettings = useGeneralScheduleStore((state) => state.setSettings)
