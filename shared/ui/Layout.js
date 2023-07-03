@@ -63,6 +63,8 @@ const Layout = (props) => {
           }}
           refreshControl={
             <RefreshControl
+              colors={[SwitchTheme(isTheme).checkIcon]}
+              progressBackgroundColor={SwitchTheme(isTheme).bgItem}
               refreshing={props?.refreshing || false}
               onRefresh={props?.onRefresh ? onRefreshCallback : null}
             />

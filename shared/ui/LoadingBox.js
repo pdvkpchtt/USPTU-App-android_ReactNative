@@ -9,7 +9,13 @@ export const LoadingBox = (props) => {
     <ScrollView
       style={{ backgroundColor: 'transparent' }}
       contentContainerStyle={{ paddingHorizontal: 16, paddingVertical: 24, alignContent: 'center' }}
-      refreshControl={<RefreshControl refreshing={true} />}
+      refreshControl={
+        <RefreshControl
+          colors={[SwitchTheme(isTheme).checkIcon]}
+          progressBackgroundColor={SwitchTheme(isTheme).bgItem}
+          refreshing={true}
+        />
+      }
     >
       <View style={{ height: 40 }}></View>
     </ScrollView>

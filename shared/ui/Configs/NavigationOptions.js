@@ -14,7 +14,10 @@ const NavigationOptions = () => {
     headerTintColor: isTheme.includes('theme_usual') ? SwitchTheme(isTheme).tabBarInactiveTintColor : '#fff',
     headerBackTitle: 'Назад',
     headerStyle: {
-      backgroundColor: isTheme.includes('_dark') ? SwitchTheme(isTheme).bgTopNav : SwitchTheme(isTheme).checkIcon,
+      backgroundColor:
+        isTheme.includes('_dark') || isTheme.includes('theme_usual')
+          ? SwitchTheme(isTheme).bgTopNav
+          : SwitchTheme(isTheme).checkIcon,
 
       headerShadowVisible: false,
       borderBottomWidth: 0,

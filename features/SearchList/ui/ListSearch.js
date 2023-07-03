@@ -118,7 +118,13 @@ const ListSearch = ({ navigation, items, refreshing, isEmpty }) => {
       }}
       ListEmptyComponent={getListEmptyComponent}
       refreshing={refreshing}
-      refreshControl={<RefreshControl refreshing={refreshing} />}
+      refreshControl={
+        <RefreshControl
+          colors={[SwitchTheme(isTheme).checkIcon]}
+          progressBackgroundColor={SwitchTheme(isTheme).bgItem}
+          refreshing={refreshing}
+        />
+      }
       extraData={itemState}
       overScrollMode="never"
     />

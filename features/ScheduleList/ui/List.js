@@ -137,7 +137,14 @@ const List = ({ items, navigation, refreshing, filtering }) => {
         refreshing={refreshing}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
-        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={updateSchedule} />}
+        refreshControl={
+          <RefreshControl
+            colors={[SwitchTheme(isTheme).checkIcon]}
+            progressBackgroundColor={SwitchTheme(isTheme).bgItem}
+            refreshing={refreshing}
+            onRefresh={updateSchedule}
+          />
+        }
         onEndReached={!refreshing ? loadNextWeek : null}
         onEndReachedThreshold={0.5}
         ListFooterComponent={() =>

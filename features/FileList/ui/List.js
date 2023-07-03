@@ -102,7 +102,13 @@ const List = ({ items, navigation, refreshing }) => {
       refreshing={refreshing}
       showsVerticalScrollIndicator={false}
       showsHorizontalScrollIndicator={false}
-      refreshControl={<RefreshControl refreshing={refreshing} />}
+      refreshControl={
+        <RefreshControl
+          colors={[SwitchTheme(isTheme).checkIcon]}
+          progressBackgroundColor={SwitchTheme(isTheme).bgItem}
+          refreshing={refreshing}
+        />
+      }
       overScrollMode="never"
     />
   )

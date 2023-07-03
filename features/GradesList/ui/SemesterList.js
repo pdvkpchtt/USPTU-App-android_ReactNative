@@ -116,7 +116,14 @@ const SemesterList = ({ items, navigation, refreshing, filtering }) => {
       refreshing={refreshing}
       showsVerticalScrollIndicator={false}
       showsHorizontalScrollIndicator={false}
-      refreshControl={<RefreshControl refreshing={refreshing} onRefresh={() => filterGrades('', getStudyGroup())} />}
+      refreshControl={
+        <RefreshControl
+          colors={[SwitchTheme(isTheme).checkIcon]}
+          progressBackgroundColor={SwitchTheme(isTheme).bgItem}
+          refreshing={refreshing}
+          onRefresh={() => filterGrades('', getStudyGroup())}
+        />
+      }
       overScrollMode="never"
     />
   )
