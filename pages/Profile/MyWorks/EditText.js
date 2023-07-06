@@ -15,33 +15,18 @@ const EditText = ({ navigation, route }) => {
   const [text, setText] = useState(value)
   useLayoutEffect(() => {
     navigation.setOptions({
-      // headerStyle: {
-      //   backgroundColor: colorMode === 'dark' ? '#282829' : '#F9F9F9',
-      // },
-      // headerRight: () => (
-      //   <Pressable
-      //     onPress={() => {
-      //       route.params.setText(text)
-      //       navigation.goBack()
-      //     }}
-      //     pr="14px"
-      //     disabled={!hasChanged}
-      //   >
-      //     {({ isPressed }) => {
-      //       return (
-      //         <TextSemibold
-      //           textAlign={'left'}
-      //           color={useColorModeValue(
-      //             isPressed ? '#1877DF' : hasChanged ? '#007AFF' : '#C7C7CC',
-      //             isPressed ? '#1877DF' : hasChanged ? '#0A84FF' : '#434345'
-      //           )}
-      //         >
-      //           Готово
-      //         </TextSemibold>
-      //       )
-      //     }}
-      //   </Pressable>
-      // ),
+      headerTitle: () => (
+        <Text
+          style={{
+            fontSize: 20,
+            lineHeight: 24,
+            color: isTheme.includes('theme_usual') ? SwitchTheme(isTheme).textMain : '#fff',
+            fontFamily: 'Roboto-Medium',
+          }}
+        >
+          {route.params.header}
+        </Text>
+      ),
     })
   })
   return (

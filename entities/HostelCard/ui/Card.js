@@ -11,7 +11,7 @@ const Card = ({ info }) => {
             <ListItemWithBottomTitle title={info.name} bottomTitle="Номер общежития" isDividerNeed />
             <ListItemWithBottomTitle title={info.address} bottomTitle="Адрес общежития" />
           </ListBox>
-          <ListBox marginTop={16} paddingHorizontal={0} paddingVertical={0}>
+          <ListBox marginTop={12} paddingHorizontal={0} paddingVertical={0}>
             <ListItemWithBottomTitle
               title={info.status}
               bottomTitle="Статус заявки (договора)"

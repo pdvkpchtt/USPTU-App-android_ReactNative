@@ -29,7 +29,7 @@ const Hostel = ({ navigation }) => {
         <>
           <HostelCard info={info} />
           {bills.length ? (
-            <ListBox marginTop={24} paddingHorizontal={0} paddingVertical={0}>
+            <ListBox marginTop={12} paddingHorizontal={0} paddingVertical={0}>
               <ListItemWithLink
                 title="Счета"
                 position="all"

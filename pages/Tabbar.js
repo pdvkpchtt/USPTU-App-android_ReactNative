@@ -52,6 +52,7 @@ const Tabbar = () => {
           initialRouteName="TabSchedule"
           screenOptions={({ route }) => {
             return {
+              tabBarHideOnKeyboard: true,
               tabBarStyle: {
                 style: {
                   elevation: 0, // for Android

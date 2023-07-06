@@ -15,9 +15,9 @@ const List = ({ items, navigation }) => {
     return (
       <View
         style={{
-          marginBottom: 16,
+          marginTop: 12,
           // marginHorizontal: 16,
-          borderRadius: 13,
+          borderRadius: 20,
           backgroundColor: SwitchTheme(isTheme).bgItem,
         }}
       >
@@ -47,7 +47,7 @@ const List = ({ items, navigation }) => {
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={{
         // backgroundColor: SwitchTheme(isTheme).bgFon,
-        paddingVertical: 24,
+        paddingBottom: 12,
       }}
       overScrollMode="never"
     />

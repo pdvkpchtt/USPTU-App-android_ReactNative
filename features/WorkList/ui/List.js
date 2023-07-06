@@ -96,8 +96,14 @@ const List = ({ items, navigation, refreshing, isEmpty }) => {
       contentContainerStyle={{}}
       //  onScroll={Keyboard.dismiss}
       ListEmptyComponent={getListEmptyComponent}
-      // refreshing={refreshing}
-      // refreshControl={<RefreshControl refreshing={refreshing} />}
+      refreshing={refreshing}
+      refreshControl={
+        <RefreshControl
+          colors={[SwitchTheme(isTheme).checkIcon]}
+          progressBackgroundColor={SwitchTheme(isTheme).bgItem}
+          refreshing={refreshing}
+        />
+      }
       alwaysBounceVertical={false}
       bounces={false}
       showsVerticalScrollIndicator={false}

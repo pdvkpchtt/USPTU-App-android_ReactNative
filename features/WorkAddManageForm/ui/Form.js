@@ -1,4 +1,4 @@
-import { View } from 'react-native'
+import { Text, View } from 'react-native'
 import Layout from '../../../shared/ui/Layout'
 import ListItemWithBottomTitleAndLink from '../../../shared/ui/ListItemWithBottomTitleAndLink'
 import ListItemWithButton from '../../../shared/ui/ListItemWithButton'
@@ -8,9 +8,82 @@ import ListBox from './../../../shared/ui/ListBox'
 import ListItemWithRightTitle from './../../../shared/ui/ListItemWithRightTitle'
 import DateTimePickerModal from 'react-native-modal-datetime-picker'
 import ListItemWithBottomTitle from '../../../shared/ui/ListItemWithBottomTitle'
+import { Calendar, LocaleConfig } from 'react-native-calendars'
+import { useState } from 'react'
+import SwitchTheme from '../../../shared/theme/SwitchTheme'
+import useThemeStore from '../../../shared/theme/store/store'
+import moment from 'moment'
+import Modal from 'react-native-modal'
+
+LocaleConfig.locales['ru'] = {
+  monthNames: [
+    'Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентябрь',
+    'Октябрь',
+    'Ноябрь',
+    'Декабрь',
+  ],
+  monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+  dayNames: ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'],
+  dayNamesShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+  today: 'Сегодня',
+}
+LocaleConfig.defaultLocale = 'ru'
 
 const Form = ({ navigation }) => {
   const state = useStore()
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false)
+  let myDate = moment(new Date()).format('YYYY-MM-DD')
+  const [markedDateState, setMarkedDateState] = useState(myDate)
+  const isTheme = useThemeStore((state) => state.theme)
+
+  function renderCustomHeader(date) {
+    const header = date.toString('MMMM yyyy')
+    const [month, year] = header.split(' ')
+
+    return (
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          marginTop: 10,
+          marginBottom: 10,
+        }}
+      >
+        <Text
+          style={{
+            marginLeft: 5,
+            fontSize: 18,
+            fontFamily: 'Roboto-Medium',
+            paddingTop: 10,
+            paddingBottom: 10,
+            color: isTheme.includes('_dark') ? '#fff' : SwitchTheme(isTheme).checkIcon,
+            paddingRight: 5,
+          }}
+        >{`${month}`}</Text>
+        <Text
+          style={{
+            marginRight: 5,
+            fontSize: 18,
+            fontFamily: 'Roboto-Medium',
+            paddingTop: 10,
+            paddingBottom: 10,
+            color: SwitchTheme(isTheme).checkIcon,
+            paddingRight: 5,
+          }}
+        >
+          {year}
+        </Text>
+      </View>
+    )
+  }
 
   return (
     <>
@@ -45,7 +118,7 @@ const Form = ({ navigation }) => {
               header="Название"
               position="all"
               onPress={() => {
-                navigation.navigate('Правка', { value: 'name', setValue: 'setName' })
+                navigation.navigate('Правка', { value: 'name', setValue: 'setName', header: 'Название' })
               }}
             />
           </ListBox>
@@ -54,7 +127,7 @@ const Form = ({ navigation }) => {
             title="Дата"
             buttonTitle={state.date}
             onPress={() => {
-              state.setIsShowCalendar(true)
+              setDatePickerVisibility(true)
             }}
           />
 
@@ -64,7 +137,7 @@ const Form = ({ navigation }) => {
               header="Рецензия"
               position="top"
               onPress={() => {
-                navigation.navigate('Правка', { value: 'review', setValue: 'setReview' })
+                navigation.navigate('Правка', { value: 'review', setValue: 'setReview', header: 'Рецензия' })
               }}
             />
             <ListItemWithBottomTitleAndLink
@@ -72,27 +145,66 @@ const Form = ({ navigation }) => {
               header="Дополнительная информация"
               position="bottom"
               onPress={() => {
-                navigation.navigate('Правка', { value: 'extraInfo', setValue: 'setExtraInfo' })
+                navigation.navigate('Правка', {
+                  value: 'extraInfo',
+                  setValue: 'setExtraInfo',
+                  header: 'Дополнительная информация',
+                })
               }}
             />
           </ListBox>
         </>
       ) : null}
-      <DateTimePickerModal
-        //  display="inline"
-        locale="ru-RU"
-        isVisible={state.isShowCalendar}
-        mode="date"
-        onConfirm={(selectedDate) => {
-          state.setDate(selectedDate)
-          state.setIsShowCalendar(false)
+      <Modal
+        isVisible={isDatePickerVisible}
+        backdropOpacity={0.5}
+        style={{
+          justifyContent: 'flex-end',
+          marginHorizontal: 10,
+          marginBottom: 0,
+          paddingTop: 50,
+          // backgroundColor: 'red',
         }}
-        onCancel={() => state.setIsShowCalendar(false)}
-        cancelTextIOS="Отмена"
-        confirmTextIOS="Задать"
-        // minimumDate={minDate}
-        // maximumDate={maxDate}
-      />
+        backdropTransitionOutTiming={10}
+        animationIn="slideInUp"
+        animationOut="slideOutDown"
+        onSwipeComplete={() => setDatePickerVisibility(false)}
+        swipeDirection={['down']}
+        onBackdropPress={() => setDatePickerVisibility(false)}
+      >
+        <Calendar
+          style={{ borderTopLeftRadius: 20, borderTopRightRadius: 20 }}
+          onDayPress={(date) => {
+            console.log(date)
+            setMarkedDateState(date.dateString)
+            setDatePickerVisibility(false)
+            state.setDate(date.dateString)
+            // loadWeekFromCalendar(date.dateString)
+          }}
+          renderHeader={renderCustomHeader}
+          theme={{
+            calendarBackground: SwitchTheme(isTheme).bgItem,
+            textSectionTitleColor: isTheme.includes('theme_ftt_dark') ? '#fff' : SwitchTheme(isTheme).checkIcon,
+            todayTextColor: SwitchTheme(isTheme).textMain,
+            dayTextColor: SwitchTheme(isTheme).textMain,
+            textDisabledColor: SwitchTheme(isTheme).textSec,
+            arrowColor: isTheme.includes('theme_ftt_dark') ? '#fff' : SwitchTheme(isTheme).checkIcon,
+          }}
+          enableSwipeMonths
+          firstDay={1}
+          markingType={'period'}
+          markedDates={{
+            [markedDateState]: {
+              startingDay: true,
+              endingDay: true,
+              customTextStyle: {
+                color: !isTheme.includes('theme_ftt') ? SwitchTheme(isTheme).checkIcon : 'red',
+                fontFamily: 'Roboto-Medium',
+              },
+            },
+          }}
+        />
+      </Modal>
     </>
   )
 }
