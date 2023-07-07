@@ -114,7 +114,7 @@ const Schedule = ({ navigation }) => {
           }}
         >
           {({ pressed }) => {
-            return <NoteIcon size="22px" color={SwitchTheme(isTheme).textHeaderButton} />
+            return <NoteIcon size="22px" pressed={pressed} />
           }}
         </Pressable>
       ),
@@ -123,7 +123,7 @@ const Schedule = ({ navigation }) => {
           {({ pressed }) => {
             return (
               <View>
-                <DatePicerIcon />
+                <DatePicerIcon pressed={pressed} />
               </View>
             )
           }}

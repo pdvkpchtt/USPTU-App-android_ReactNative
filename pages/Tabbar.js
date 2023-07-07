@@ -22,6 +22,7 @@ const Tabbar = () => {
       background: 'transparent',
     },
   }
+
   const navThemeDark = {
     ...DarkTheme,
     colors: {
@@ -80,7 +81,6 @@ const Tabbar = () => {
                 lineHeight: 20,
                 letterSpacing: 0.1,
               },
-
               tabBarActiveTintColor: SwitchTheme(isTheme).tabBarInactiveTintColor,
               tabBarInactiveTintColor: SwitchTheme(isTheme).tabBarInactiveTintColor,
               tabBarIcon: ({ focused, color, size }) => {

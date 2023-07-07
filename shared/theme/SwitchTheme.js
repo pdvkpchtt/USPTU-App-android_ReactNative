@@ -29,6 +29,7 @@ const SwitchTheme = (theme) => {
   const { width, height } = Dimensions.get('screen')
 
   const defaultThemeLight = {
+    hoverBlue: '#4280C7',
     dateInDatePicker: '#000',
     usualIconOreol: '#DCE3EB',
     textMain: '#333333',
@@ -82,6 +83,7 @@ const SwitchTheme = (theme) => {
   }
 
   const defaultThemeDark = {
+    hoverBlue: '#4280C7',
     dateInDatePicker: '#fff',
     bgItem: '#1D1D1D',
     textMain: '#FFFFFF',
@@ -138,6 +140,7 @@ const SwitchTheme = (theme) => {
     case 'theme_usual':
       return {
         ...defaultThemeLight,
+        hoverEffect: '#f5f5f5',
         bgFon: '#F2F2F7', // цвет под фон картинки
         fonImage: <UsualFon width={width} height={height} />,
 
@@ -173,6 +176,7 @@ const SwitchTheme = (theme) => {
     case 'theme_it':
       return {
         ...defaultThemeLight,
+        hoverEffect: '#E9A163',
         bgFon: '#F5B471', // цвет под фон картинки
         fonImage: <ItFon width={width} height={height} />,
 
@@ -212,6 +216,7 @@ const SwitchTheme = (theme) => {
     case 'theme_asi':
       return {
         ...defaultThemeLight,
+        hoverEffect: '#EE7F66',
         bgFon: '#FFF1EE', // цвет под фон картинки
         fonImage: <AsiFon width={width} height={height} />,
 
@@ -251,6 +256,7 @@ const SwitchTheme = (theme) => {
     case 'theme_ftt':
       return {
         ...defaultThemeLight,
+        hoverEffect: '#383838',
         bgFon: '#FAFAFA', // цвет под фон картинки
         fonImage: <FttFon width={width} height={height} />,
 
@@ -290,6 +296,7 @@ const SwitchTheme = (theme) => {
     case 'theme_inict':
       return {
         ...defaultThemeLight,
+        hoverEffect: '#7AA8DD',
         bgFon: '#C0D9F5', // цвет под фон картинки
         fonImage: <InictFon />,
 
@@ -329,6 +336,7 @@ const SwitchTheme = (theme) => {
     case 'theme_tf':
       return {
         ...defaultThemeLight,
+        hoverEffect: '#7C86E2',
         bgFon: '#9099F1', // цвет под фон картинки
         fonImage: <TfFon width={width} height={height} />,
 
@@ -368,6 +376,7 @@ const SwitchTheme = (theme) => {
     case 'theme_gnf':
       return {
         ...defaultThemeLight,
+        hoverEffect: '#587FCB',
         bgFon: '#8DA8E0', // цвет под фон картинки
         fonImage: <GnfFon width={width} height={height} />,
 
@@ -407,6 +416,7 @@ const SwitchTheme = (theme) => {
     case 'theme_inb':
       return {
         ...defaultThemeLight,
+        hoverEffect: '#E46171',
         bgFon: '#E5A1A8', // цвет под фон картинки
         fonImage: <InbFon width={width} height={height} />,
 
@@ -446,6 +456,7 @@ const SwitchTheme = (theme) => {
     case 'theme_ies':
       return {
         ...defaultThemeLight,
+        hoverEffect: '#66BD8F',
         bgFon: '#C2F1B1', // цвет под фон картинки
         fonImage: <IesFon width={width} height={height} />,
 
@@ -486,6 +497,7 @@ const SwitchTheme = (theme) => {
     case 'theme_uvsheu':
       return {
         ...defaultThemeLight,
+        hoverEffect: '#DF7D75',
         bgFon: '#C3DDEC', // цвет под фон картинки
         fonImage: <UvsheuFon width={width} height={height} />,
 
@@ -527,6 +539,7 @@ const SwitchTheme = (theme) => {
     case 'theme_vshist':
       return {
         ...defaultThemeLight,
+        hoverEffect: '#9E8FB0',
         bgFon: '#CDC0DA', // цвет под фон картинки
         fonImage: <VshistFon width={width} height={height} />,
 
@@ -567,6 +580,7 @@ const SwitchTheme = (theme) => {
     case 'theme_epsh':
       return {
         ...defaultThemeLight,
+        hoverEffect: '#8083E7',
         bgFon: '#F2F2F2', // цвет под фон картинки
         fonImage: <EpshFon width={width} height={height} />,
 
@@ -611,6 +625,8 @@ const SwitchTheme = (theme) => {
     case 'theme_usual_dark':
       return {
         ...defaultThemeDark,
+        hoverEffect: '#333237',
+
         bgFon: '#000000', // цвет под фон картинки
         fonImage: <UsualFonDark width={width} height={height} />,
 
@@ -646,6 +662,7 @@ const SwitchTheme = (theme) => {
     case 'theme_it_dark':
       return {
         ...defaultThemeDark,
+        hoverEffect: '#E9A163',
         bgFon: '#000000', // цвет под фон картинки
         fonImage: <ItFonDark width={width} height={height} />,
 
@@ -683,6 +700,7 @@ const SwitchTheme = (theme) => {
     case 'theme_asi_dark':
       return {
         ...defaultThemeDark,
+        hoverEffect: '#EE7F66',
         bgFon: '#160F0F', // цвет под фон картинки
         fonImage: <AsiFonDark width={width} height={height} />,
 
@@ -720,6 +738,7 @@ const SwitchTheme = (theme) => {
     case 'theme_ftt_dark':
       return {
         ...defaultThemeDark,
+        hoverEffect: '#373737',
         bgFon: '#020202', // цвет под фон картинки
         fonImage: <FttFonDark width={width} height={height} />,
 
@@ -757,6 +776,7 @@ const SwitchTheme = (theme) => {
     case 'theme_inict_dark':
       return {
         ...defaultThemeDark,
+        hoverEffect: '#2B507E',
         bgFon: '#1D1B38', // цвет под фон картинки
         fonImage: <InictFonDark width={width} height={height} />,
 
@@ -794,6 +814,7 @@ const SwitchTheme = (theme) => {
     case 'theme_tf_dark':
       return {
         ...defaultThemeDark,
+        hoverEffect: '#4F5380',
         bgFon: '#2F3251', // цвет под фон картинки
         fonImage: <TfFonDark width={width} height={height} />,
 
@@ -831,6 +852,7 @@ const SwitchTheme = (theme) => {
     case 'theme_gnf_dark':
       return {
         ...defaultThemeDark,
+        hoverEffect: '#2C5AB5',
         bgFon: '#1A2B4F', // цвет под фон картинки
         fonImage: <GnfFonDark width={width} height={height} />,
 
@@ -868,6 +890,7 @@ const SwitchTheme = (theme) => {
     case 'theme_inb_dark':
       return {
         ...defaultThemeDark,
+        hoverEffect: '#883842',
         bgFon: '#3D1117', // цвет под фон картинки
         fonImage: <InbFonDark width={width} height={height} />,
 
@@ -905,6 +928,7 @@ const SwitchTheme = (theme) => {
     case 'theme_ies_dark':
       return {
         ...defaultThemeDark,
+        hoverEffect: '#1B653C',
         bgFon: '#032E1B', // цвет под фон картинки
         fonImage: <IesFonDark width={width} height={height} />,
 
@@ -943,6 +967,7 @@ const SwitchTheme = (theme) => {
     case 'theme_uvsheu_dark':
       return {
         ...defaultThemeDark,
+        hoverEffect: '#8B3535',
         bgFon: '#092434', // цвет под фон картинки
         fonImage: <UvsheuFonDark width={width} height={height} />,
 
@@ -982,6 +1007,7 @@ const SwitchTheme = (theme) => {
     case 'theme_vshist_dark':
       return {
         ...defaultThemeDark,
+        hoverEffect: '#836B9E',
         bgFon: '#423B48', // цвет под фон картинки
         fonImage: <VshistFonDark width={width} height={height} />,
 
@@ -1020,6 +1046,7 @@ const SwitchTheme = (theme) => {
     case 'theme_epsh_dark':
       return {
         ...defaultThemeDark,
+        hoverEffect: '#6B6EC3',
         bgFon: '#323738', // цвет под фон картинки
         fonImage: <EpshFonDark width={width} height={height} />,
 

@@ -82,12 +82,20 @@ const GeneralSchedule = ({ navigation, route }) => {
             return (
               <>
                 <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                  <GeneralScheduleCalendarIcon />
+                  <GeneralScheduleCalendarIcon pressed={pressed} />
                   <Text
                     style={{
                       fontSize: 11,
                       fontFamily: 'Roboto-Medium',
-                      color: isTheme.includes('theme_usual') ? SwitchTheme(isTheme).tabBarInactiveTintColor : '#fff',
+                      color: pressed
+                        ? isTheme == 'theme_usual' || isTheme.includes('_dark') || isTheme == 'theme_ftt'
+                          ? '#B0B0B0'
+                          : '#e4e4e4'
+                        : isTheme.includes('theme_usual')
+                        ? isTheme.includes('_dark')
+                          ? '#dddddd'
+                          : '#5F5F5F'
+                        : '#fff',
                       lineHeight: 16,
                       textAlign: 'center',
                       width: 24,

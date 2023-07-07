@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text } from 'react-native'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import SwitchTheme from '../theme/SwitchTheme'
 import useThemeStore from '../theme/store/store'
@@ -11,20 +11,33 @@ const FABSearch = ({ arrowDirection, onPress }) => {
   return (
     <Pressable
       style={{
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 16,
         position: 'absolute',
-        height: 56,
-        width: 56,
         bottom: 20,
         right: 20,
-        elevation: 3,
-        backgroundColor: isTheme.includes('theme_usual') ? SwitchTheme(isTheme).FAB : SwitchTheme(isTheme).checkIcon,
       }}
       onPress={onPress}
     >
-      <SearchIcon />
+      {({ pressed }) => {
+        return (
+          <View
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderRadius: 16,
+              height: 56,
+              width: 56,
+              elevation: pressed ? 1 : 3,
+              backgroundColor: pressed
+                ? SwitchTheme(isTheme).hoverEffect
+                : isTheme.includes('theme_usual')
+                ? SwitchTheme(isTheme).FAB
+                : SwitchTheme(isTheme).checkIcon,
+            }}
+          >
+            <SearchIcon />
+          </View>
+        )
+      }}
     </Pressable>
   )
 }

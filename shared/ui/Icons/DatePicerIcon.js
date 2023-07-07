@@ -1,7 +1,7 @@
 import Svg, { G, Path, Rect, Defs, ClipPath } from 'react-native-svg'
 import useThemeStore from '../../theme/store/store'
 
-const DatePicerIcon = () => {
+const DatePicerIcon = ({ pressed }) => {
   const isTheme = useThemeStore((state) => state.theme)
   return (
     <Svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -9,7 +9,17 @@ const DatePicerIcon = () => {
         fill-rule="evenodd"
         clip-rule="evenodd"
         d="M19 4H18V2H16V4H8V2H6V4H5C3.89 4 3 4.9 3 6V20C3 21.1 3.89 22 5 22H19C20.1 22 21 21.1 21 20V6C21 4.9 20.1 4 19 4ZM19 20H5V9H19V20ZM6.5 13C6.5 11.62 7.62 10.5 9 10.5C10.38 10.5 11.5 11.62 11.5 13C11.5 14.38 10.38 15.5 9 15.5C7.62 15.5 6.5 14.38 6.5 13Z"
-        fill={isTheme.includes('theme_usual') ? (isTheme.includes('_dark') ? '#dddddd' : '#5F5F5F') : '#fff'}
+        fill={
+          pressed
+            ? isTheme == 'theme_usual' || isTheme.includes('_dark') || isTheme == 'theme_ftt'
+              ? '#B0B0B0'
+              : '#e4e4e4'
+            : isTheme.includes('theme_usual')
+            ? isTheme.includes('_dark')
+              ? '#dddddd'
+              : '#5F5F5F'
+            : '#fff'
+        }
       />
     </Svg>
   )

@@ -11,7 +11,9 @@ export default function DefaultButton(props) {
           <View
             style={{
               backgroundColor: pressed
-                ? SwitchTheme(isTheme).bgbuttondefaultpressed
+                ? isTheme.includes('theme_usual')
+                  ? SwitchTheme(isTheme).hoverBlue
+                  : SwitchTheme(isTheme).hoverEffect
                 : SwitchTheme(isTheme).bgbuttondefault,
               paddingVertical: 10,
               width: '100%',

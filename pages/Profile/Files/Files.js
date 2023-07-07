@@ -76,12 +76,22 @@ const Files = ({ navigation }) => {
                     filterDisciplines('')
                   }}
                 >
-                  {({ isPressed }) => {
+                  {({ pressed }) => {
                     return (
                       <MaterialIcons
                         name="close"
                         size={24}
-                        color={isTheme.includes('theme_usual') ? SwitchTheme(isTheme).tabBarInactiveTintColor : '#fff'}
+                        color={
+                          pressed
+                            ? isTheme == 'theme_usual' || isTheme.includes('_dark') || isTheme == 'theme_ftt'
+                              ? '#B0B0B0'
+                              : '#e4e4e4'
+                            : isTheme.includes('theme_usual')
+                            ? isTheme.includes('_dark')
+                              ? '#dddddd'
+                              : '#5F5F5F'
+                            : '#fff'
+                        }
                       />
                     )
                   }}
@@ -93,12 +103,22 @@ const Files = ({ navigation }) => {
                     AnimOut(0)
                   }}
                 >
-                  {({ isPressed }) => {
+                  {({ pressed }) => {
                     return (
                       <MaterialIcons
                         name="cancel"
                         size={24}
-                        color={isTheme.includes('theme_usual') ? SwitchTheme(isTheme).tabBarInactiveTintColor : '#fff'}
+                        color={
+                          pressed
+                            ? isTheme == 'theme_usual' || isTheme.includes('_dark') || isTheme == 'theme_ftt'
+                              ? '#B0B0B0'
+                              : '#e4e4e4'
+                            : isTheme.includes('theme_usual')
+                            ? isTheme.includes('_dark')
+                              ? '#dddddd'
+                              : '#5F5F5F'
+                            : '#fff'
+                        }
                       />
                     )
                   }}

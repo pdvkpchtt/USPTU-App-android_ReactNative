@@ -96,7 +96,7 @@ const List = ({ items, navigation, refreshing }) => {
         return 'interval' in item ? 'sectionHeader' : 'row'
       }}
       keyExtractor={keyExtractor}
-      // contentContainerStyle={{ paddingBottom: 24 }}
+      contentContainerStyle={{ paddingBottom: 12 }}
       onScroll={Keyboard.dismiss}
       ListEmptyComponent={getListEmptyComponent}
       refreshing={refreshing}

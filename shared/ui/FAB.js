@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text } from 'react-native'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import SwitchTheme from '../theme/SwitchTheme'
 import useThemeStore from '../theme/store/store'
@@ -10,21 +10,34 @@ const FAB = ({ bottom = 89, right = 27, arrowDirection, onPress }) => {
   return (
     <Pressable
       style={{
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 12,
         position: 'absolute',
-        height: 40,
-        width: 40,
         bottom: bottom,
         right: right,
-        backgroundColor: isTheme.includes('theme_usual') ? SwitchTheme(isTheme).FAB : SwitchTheme(isTheme).checkIcon,
-        transform: [{ rotate: arrowDirection == 'chevron-down' ? '180deg' : '0deg' }],
-        elevation: 3,
       }}
       onPress={onPress}
     >
-      <FabIcons />
+      {({ pressed }) => {
+        return (
+          <View
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderRadius: 12,
+              height: 40,
+              width: 40,
+              backgroundColor: pressed
+                ? SwitchTheme(isTheme).hoverEffect
+                : isTheme.includes('theme_usual')
+                ? SwitchTheme(isTheme).FAB
+                : SwitchTheme(isTheme).checkIcon,
+              transform: [{ rotate: arrowDirection == 'chevron-down' ? '180deg' : '0deg' }],
+              elevation: pressed ? 1 : 3,
+            }}
+          >
+            <FabIcons />
+          </View>
+        )
+      }}
     </Pressable>
   )
 }

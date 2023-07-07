@@ -34,7 +34,11 @@ const ListItemWithButton = ({ title, buttonTitle, onPress = null, position = 'al
                 lineHeight: 20,
                 letterSpacing: 0.1,
                 marginLeft: 8,
-                color: pressed ? SwitchTheme(isTheme).textbutton1pressed : SwitchTheme(isTheme).textbutton1,
+                color: pressed
+                  ? isTheme.includes('theme_usual')
+                    ? SwitchTheme(isTheme).hoverBlue
+                    : SwitchTheme(isTheme).hoverEffect
+                  : SwitchTheme(isTheme).textbutton1,
               }}
             >
               {buttonTitle}

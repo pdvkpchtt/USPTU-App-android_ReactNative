@@ -14,7 +14,7 @@ const DisciplinesInfoCard = ({ info }) => {
   return (
     <>
       {info.contacts_of_educator !== '' ? (
-        <ListBox marginTop={12}>
+        <ListBox marginTop={12} marginBottom={12}>
           <Hyperlink linkStyle={{ color: SwitchTheme(isTheme).textlink }} linkDefault={true}>
             <TextMain flexShrink={1} selectable={true} selectionColor={SwitchTheme(isTheme).textlink}>
               {info.contacts_of_educator
@@ -28,7 +28,7 @@ const DisciplinesInfoCard = ({ info }) => {
         </ListBox>
       ) : null}
       {info.information_of_implementation !== '' ? (
-        <ListBox marginTop={16}>
+        <ListBox marginBottom={12}>
           <Hyperlink linkStyle={{ color: SwitchTheme(isTheme).textlink }} linkDefault={true}>
             <TextMain flexShrink={1} selectable={true} selectionColor={SwitchTheme(isTheme).textlink}>
               {info.information_of_implementation
