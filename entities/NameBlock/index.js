@@ -25,7 +25,7 @@ export const NameBlock = ({ navigation }) => {
       }}
     >
       <BoxComponent
-        name={getFullName()}
+        name={`${getFullName().split(' ')[0]} ${getFullName().split(' ')[1][0]}. ${getFullName().split(' ')[2][0]}.`}
         department={getCurrentData().department}
         speciality={getCurrentData().speciality}
       />
