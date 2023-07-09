@@ -4,13 +4,7 @@ import ItMiniFon from '../images/ItMiniFon'
 import AsiMiniFon from '../images/AsiMiniFon'
 import SwitchTheme from '../theme/SwitchTheme'
 
-const DecorationItem = ({ children, onPress = null, source, isNeedMargin = false }) => {
-  // console.log(text, position)
-  const isTheme = useThemeStore((state) => state.theme)
-
-  const { setTheme } = useThemeStore((state) => ({
-    setTheme: state.setTheme,
-  }))
+const DecorationItem = ({ children, active = false, theme, onPress = null, isNeedMargin = false }) => {
   return (
     <Pressable onPress={onPress}>
       <View
@@ -20,8 +14,10 @@ const DecorationItem = ({ children, onPress = null, source, isNeedMargin = false
           marginLeft: isNeedMargin === 'left' ? 16 : 3,
           marginRight: isNeedMargin === 'right' ? 16 : 3,
           // backgroundColor: SwitchTheme(isTheme).bgFon,
-          borderRadius: 5,
+          borderRadius: 7,
+          borderWidth: 1,
           overflow: 'hidden', // чтобы бордер радиус работал danil
+          borderColor: active ? SwitchTheme(theme).textHeaderButton : 'transparent',
         }}
       >
         {children}

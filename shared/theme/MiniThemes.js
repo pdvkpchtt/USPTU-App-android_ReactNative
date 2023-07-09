@@ -25,39 +25,53 @@ import ItMiniFonDark from '../../shared/images/ItMiniFonDark'
 import VshistMiniFonDark from '../../shared/images/VshistMiniFonDark'
 import SwitchTheme from './SwitchTheme'
 
-const MiniThemes = (isTheme) => {
-  let themes = []
-  if (isTheme.includes('_dark')) {
-    themes = [
-      ['theme_usual_dark', <UsualMiniFonDark />, <UsualMiniFonDark color={SwitchTheme(isTheme).textHeaderButton} />],
-      ['theme_it_dark', <ItMiniFonDark />, <ItMiniFonDark color={SwitchTheme(isTheme).textHeaderButton} />],
-      ['theme_asi_dark', <AsiMiniFonDark />, <AsiMiniFonDark color={SwitchTheme(isTheme).textHeaderButton} />],
-      ['theme_ftt_dark', <FttMiniFonDark />, <FttMiniFonDark color={SwitchTheme(isTheme).textHeaderButton} />],
-      ['theme_inict_dark', <InictMiniFonDark />, <InictMiniFonDark color={SwitchTheme(isTheme).textHeaderButton} />],
-      ['theme_tf_dark', <TfMiniFonDark />, <TfMiniFonDark color={SwitchTheme(isTheme).textHeaderButton} />],
-      ['theme_gnf_dark', <GnfMiniFonDark />, <GnfMiniFonDark color={SwitchTheme(isTheme).textHeaderButton} />],
-      ['theme_inb_dark', <InbMiniFonDark />, <InbMiniFonDark color={SwitchTheme(isTheme).textHeaderButton} />],
-      ['theme_ies_dark', <IesMiniFonDark />, <IesMiniFonDark color={SwitchTheme(isTheme).textHeaderButton} />],
-      ['theme_uvsheu_dark', <UvsheuMiniFonDark />, <UvsheuMiniFonDark color={SwitchTheme(isTheme).textHeaderButton} />],
-      ['theme_vshist_dark', <VshistMiniFonDark />, <VshistMiniFonDark color={SwitchTheme(isTheme).textHeaderButton} />],
-      ['theme_epsh_dark', <EpshMiniFonDark />, <EpshMiniFonDark color={SwitchTheme(isTheme).textHeaderButton} />],
-    ]
-  } else {
-    themes = [
-      ['theme_usual', <UsualMiniFon />, <UsualMiniFon color={SwitchTheme(isTheme).textHeaderButton} />],
-      ['theme_it', <ItMiniFon />, <ItMiniFon color={SwitchTheme(isTheme).textHeaderButton} />],
-      ['theme_asi', <AsiMiniFon />, <AsiMiniFon color={SwitchTheme(isTheme).textHeaderButton} />],
-      ['theme_ftt', <FttMiniFon />, <FttMiniFon color={SwitchTheme(isTheme).textHeaderButton} />],
-      ['theme_inict', <InictMiniFon />, <InictMiniFon color={SwitchTheme(isTheme).textHeaderButton} />],
-      ['theme_tf', <TfMiniFon />, <TfMiniFon color={SwitchTheme(isTheme).textHeaderButton} />],
-      ['theme_gnf', <GnfMiniFon />, <GnfMiniFon color={SwitchTheme(isTheme).textHeaderButton} />],
-      ['theme_inb', <InbMiniFon />, <InbMiniFon color={SwitchTheme(isTheme).textHeaderButton} />],
-      ['theme_ies', <IesMiniFon />, <IesMiniFon color={SwitchTheme(isTheme).textHeaderButton} />],
-      ['theme_uvsheu', <UvsheuMiniFon />, <UvsheuMiniFon color={SwitchTheme(isTheme).textHeaderButton} />],
-      ['theme_vshist', <VshistMiniFon />, <VshistMiniFon color={SwitchTheme(isTheme).textHeaderButton} />],
-      ['theme_epsh', <EpshMiniFon />, <EpshMiniFon color={SwitchTheme(isTheme).textHeaderButton} />],
-    ]
-  }
+const MiniThemes = () => {
+  let themes = [
+    [
+      'theme_usual_dark',
+      <UsualMiniFonDark />,
+      <UsualMiniFonDark color={SwitchTheme('theme_usual_dark').textHeaderButton} />,
+    ],
+    ['theme_it_dark', <ItMiniFonDark />, <ItMiniFonDark color={SwitchTheme('theme_it_dark').textHeaderButton} />],
+    ['theme_asi_dark', <AsiMiniFonDark />, <AsiMiniFonDark color={SwitchTheme('theme_asi_dark').textHeaderButton} />],
+    ['theme_ftt_dark', <FttMiniFonDark />, <FttMiniFonDark color={SwitchTheme('theme_ftt_dark').textHeaderButton} />],
+    [
+      'theme_inict_dark',
+      <InictMiniFonDark />,
+      <InictMiniFonDark color={SwitchTheme('theme_inict_dark').textHeaderButton} />,
+    ],
+    ['theme_tf_dark', <TfMiniFonDark />, <TfMiniFonDark color={SwitchTheme('theme_tf_dark').textHeaderButton} />],
+    ['theme_gnf_dark', <GnfMiniFonDark />, <GnfMiniFonDark color={SwitchTheme('theme_gnf_dark').textHeaderButton} />],
+    ['theme_inb_dark', <InbMiniFonDark />, <InbMiniFonDark color={SwitchTheme('theme_gnf_dark').textHeaderButton} />],
+    ['theme_ies_dark', <IesMiniFonDark />, <IesMiniFonDark color={SwitchTheme('theme_ies_dark').textHeaderButton} />],
+    [
+      'theme_uvsheu_dark',
+      <UvsheuMiniFonDark />,
+      <UvsheuMiniFonDark color={SwitchTheme('theme_uvsheu_dark').textHeaderButton} />,
+    ],
+    [
+      'theme_vshist_dark',
+      <VshistMiniFonDark />,
+      <VshistMiniFonDark color={SwitchTheme('theme_vshist_dark').textHeaderButton} />,
+    ],
+    [
+      'theme_epsh_dark',
+      <EpshMiniFonDark />,
+      <EpshMiniFonDark color={SwitchTheme('theme_epsh_dark').textHeaderButton} />,
+    ],
+    ['theme_usual', <UsualMiniFon />, <UsualMiniFon color={SwitchTheme('theme_usual').textHeaderButton} />],
+    ['theme_it', <ItMiniFon />, <ItMiniFon color={SwitchTheme('theme_it').textHeaderButton} />],
+    ['theme_asi', <AsiMiniFon />, <AsiMiniFon color={SwitchTheme('theme_asi').textHeaderButton} />],
+    ['theme_ftt', <FttMiniFon />, <FttMiniFon color={SwitchTheme('theme_ftt').textHeaderButton} />],
+    ['theme_inict', <InictMiniFon />, <InictMiniFon color={SwitchTheme('theme_inict').textHeaderButton} />],
+    ['theme_tf', <TfMiniFon />, <TfMiniFon color={SwitchTheme('theme_tf').textHeaderButton} />],
+    ['theme_gnf', <GnfMiniFon />, <GnfMiniFon color={SwitchTheme('theme_gnf').textHeaderButton} />],
+    ['theme_inb', <InbMiniFon />, <InbMiniFon color={SwitchTheme('theme_inb').textHeaderButton} />],
+    ['theme_ies', <IesMiniFon />, <IesMiniFon color={SwitchTheme('theme_ies').textHeaderButton} />],
+    ['theme_uvsheu', <UvsheuMiniFon />, <UvsheuMiniFon color={SwitchTheme('theme_uvsheu').textHeaderButton} />],
+    ['theme_vshist', <VshistMiniFon />, <VshistMiniFon color={SwitchTheme('theme_vshist').textHeaderButton} />],
+    ['theme_epsh', <EpshMiniFon />, <EpshMiniFon color={SwitchTheme('theme_epsh').textHeaderButton} />],
+  ]
 
   return themes
 }

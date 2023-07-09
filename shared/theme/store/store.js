@@ -8,8 +8,8 @@ const useThemeStore = create(
       theme: 'theme_usual',
       dataIdSelected: 0,
       isAuto: false,
-      setTheme: async (IsTheme) => {
-        set({ theme: IsTheme })
+      setTheme: (IsTheme, index) => {
+        set({ theme: IsTheme, dataIdSelected: index })
         // console.log(IsTheme)
       },
       setSelected: (IdSelected) => {

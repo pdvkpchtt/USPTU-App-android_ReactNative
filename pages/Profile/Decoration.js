@@ -12,8 +12,9 @@ import { useEffect } from 'react'
 
 const Decoration = ({ navigation, route }) => {
   const isTheme = useThemeStore((state) => state.theme)
+  const scheme = useColorScheme()
   // console.log(MiniThemes(isTheme))
-  const themes = MiniThemes(isTheme)
+  const themes = MiniThemes()
   // console.log(themes)
   const IdSelected = useThemeStore((state) => state.dataIdSelected)
 
@@ -24,32 +25,7 @@ const Decoration = ({ navigation, route }) => {
     isAuto: state.isAuto,
   }))
 
-  const [isEnabled, setIsEnabled] = useState(false)
-  const [auto, setIsAuto] = useState(false)
-  const toggleSwitch = () => {
-    setIsEnabled((previousState) => !previousState)
-    if (!isAuto) {
-      if (isTheme.includes('_dark')) {
-        setTheme(isTheme.replace('_dark', ''))
-      } else {
-        setTheme(isTheme + '_dark')
-      }
-    }
-  }
-
-  const toggleAuto = () => {
-    setIsAuto((previousState) => !previousState)
-    setAuto(isAuto)
-  }
-
-  useEffect(() => {
-    // setTheme('theme_usual')
-    if (isTheme.includes('_dark')) {
-      setIsEnabled(true)
-    } else {
-      setIsEnabled(false)
-    }
-  }, [isTheme])
+  console.log(scheme)
 
   return (
     <>
@@ -63,22 +39,33 @@ const Decoration = ({ navigation, route }) => {
           }}
         >
           <ScrollView style={styles.scrollView} horizontal={true} showsHorizontalScrollIndicator={false}>
-            {themes.map((theme, index, arr) => (
-              <DecorationItem
-                onPress={() => {
-                  // if (isTheme.includes('_dark')) {
-                  setTheme(theme[0])
-                  // } else {
-                  //   setTheme(theme[0] + '_dark')
-                  // }
-
-                  setSelected(index)
-                }}
-                isNeedMargin={index === 0 ? 'left' : index === arr.length - 1 ? 'right' : 'middle'}
-              >
-                {index == IdSelected ? theme[2] : theme[1]}
-              </DecorationItem>
-            ))}
+            {themes
+              .filter((item) => {
+                if (scheme === 'dark') {
+                  return item[0].includes('_dark')
+                } else {
+                  return !item[0].includes('_dark')
+                }
+              })
+              .map((theme, index, arr) => (
+                <DecorationItem
+                  key={index}
+                  active={index === IdSelected}
+                  theme={theme[0]}
+                  onPress={() => {
+                    console.log(theme, index)
+                    // if (isTheme.includes('_dark')) {
+                    setTheme(theme[0], index)
+                    // // } else {
+                    // //   setTheme(theme[0] + '_dark')
+                    // // }
+                    // setSelected(index)
+                  }}
+                  isNeedMargin={index === 0 ? 'left' : index === arr.length - 1 ? 'right' : 'middle'}
+                >
+                  {theme[1]}
+                </DecorationItem>
+              ))}
           </ScrollView>
           <TextMain marginTop={16} paddingHorizontal={16} secondary>
             {SwitchTheme(isTheme).textdecoration}

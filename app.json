@@ -1,11 +1,12 @@
 {
   "expo": {
-    "name": "lk-ios",
-    "slug": "lk-ios",
+    "name": "lk-android_new",
+    "slug": "lk-android_new",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
+    "scheme": "info.gcdis.usptu.pcs",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -25,16 +26,15 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.pdvkpchtt.lkios"
+      "package": "net.rusoil"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "3d400a5f-cc22-4897-8865-bbd0b2d200d8"
+        "projectId": "63383f22-96d5-496b-953d-5d7a8ffb4aa9"
       }
-    },
-    "owner": "pdvkpchtt"
+    }
   }
 }

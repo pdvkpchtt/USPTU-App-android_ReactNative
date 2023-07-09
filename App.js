@@ -11,11 +11,16 @@ import TextBody from './shared/ui/Text/TextBody'
 import { useEffect } from 'react'
 import { enableScreens } from 'react-native-screens'
 import useThemeStore from './shared/theme/store/store'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import * as Linking from 'expo-linking'
 enableScreens(false)
 export default function App() {
   const isTheme = useThemeStore((state) => state.theme) // пока добавил для статус бара danil
   const isAuth = useTokenStore((state) => state.isAuth)
   const scheme = useColorScheme()
+  const { validateAccessToken } = useUserStore((state) => ({
+    validateAccessToken: state.validateAccessToken,
+  }))
   // console.warn(scheme)
 
   const isStatusBarLight =
@@ -31,14 +36,25 @@ export default function App() {
     isAuto: state.isAuto,
   }))
 
+  const handleDeepLink = (event) => {
+    let data = Linking.parse(event.url)
+    validateAccessToken(data.hostname.split('access_token:')[1])
+  }
+
+  const addLinkingListener = () => {
+    Linking.addEventListener('url', handleDeepLink)
+  }
+
   useEffect(() => {
+    addLinkingListener()
+
     // if (isAuto) {
     if (scheme === 'dark' && !isTheme.includes('_dark')) setTheme(isTheme + '_dark')
     else if (scheme === 'light' && isTheme.includes('_dark')) setTheme(isTheme.replace('_dark', ''))
     // }
 
     console.log(scheme, isTheme)
-  })
+  }, [scheme])
 
   const toastConfig = {
     custom: ({ text1, props }) => (
@@ -64,8 +80,9 @@ export default function App() {
   if (!fontsLoaded) {
     return null
   }
+
   return (
-    <>
+    <GestureHandlerRootView style={{ flex: 1 }}>
       {isAuth ? (
         <>
           <Tabbar scheme={scheme} />
@@ -76,6 +93,6 @@ export default function App() {
       )}
       {/* пока добавил для статус бара danil */}
       <StatusBar style={isTheme.includes('_dark') || isStatusBarLight ? 'light' : 'dark'} />
-    </>
+    </GestureHandlerRootView>
   )
 }
