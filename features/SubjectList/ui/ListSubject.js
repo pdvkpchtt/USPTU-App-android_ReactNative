@@ -64,7 +64,7 @@ const ListSubject = ({ items, navigation, refreshing, target_action, filter }) =
           <View
             style={{
               marginTop: 12,
-              // marginHorizontal: 16,
+              marginHorizontal: 0,
               backgroundColor: SwitchTheme(isTheme).bgItem,
               borderRadius: 20,
               paddingHorizontal: 16,

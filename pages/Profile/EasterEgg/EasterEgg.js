@@ -55,21 +55,21 @@ export default function EasterEgg({ navigation }) {
   const style = StyleSheet.create({
     layer: {
       flex: 0,
+      width: '100%',
       alignItems: 'center',
-      backgroundColor: bg,
       height: 335,
       width: Dimensions.get('window').width - 32,
       marginLeft: 16,
       marginRight: 16,
-      top: 24,
+      top: 12,
       borderRadius: 15,
+      backgroundColor: bg,
     },
-    // back: {
-    //   width: '100%',
-    //   height: '100%',
-    //   backgroundColor: bg_back,
-    //   //justifyContent: 'center'
-    // },
+    back: {
+      width: '100%',
+      height: '100%',
+      //justifyContent: 'center'
+    },
   })
 
   const progressMax = useSharedValue(0)
