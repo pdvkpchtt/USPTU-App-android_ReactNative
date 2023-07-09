@@ -155,6 +155,8 @@ const ListItemSchedule = ({ item, index }) => {
                 bg={SwitchTheme(isTheme).bgItem}
                 bgpressed={SwitchTheme(isTheme).bgItem}
                 color={lessonTypeValidator(item[0].type).typeColor}
+                colorPressed={lessonTypeValidator(item[0].type).pressedColor}
+                isCopy
               >
                 {'Скопировать'}
               </LinkButton>
@@ -213,6 +215,8 @@ const ListItemSchedule = ({ item, index }) => {
                 bg={SwitchTheme(isTheme).bgItem}
                 bgpressed={SwitchTheme(isTheme).bgItem}
                 color={lessonTypeValidator(item[0].type).typeColor}
+                colorPressed={lessonTypeValidator(item[0].type).pressedColor}
+                isCopy
               >
                 {'Скопировать'}
               </LinkButton>
@@ -283,6 +287,8 @@ const ListItemSchedule = ({ item, index }) => {
                   bg={SwitchTheme(isTheme).bgItem}
                   bgpressed={SwitchTheme(isTheme).bgItem}
                   color={lessonTypeValidator(item[1].type).typeColor}
+                  colorPressed={lessonTypeValidator(item[1].type).pressedColor}
+                  isCopy
                 >
                   {'Скопировать'}
                 </LinkButton>
@@ -342,6 +348,8 @@ const ListItemSchedule = ({ item, index }) => {
                 bg={SwitchTheme(isTheme).bgItem}
                 bgpressed={SwitchTheme(isTheme).bgItem}
                 color={lessonTypeValidator(item[0].type).typeColor}
+                colorPressed={lessonTypeValidator(item[0].type).pressedColor}
+                isCopy
               >
                 {'Скопировать'}
               </LinkButton>
@@ -411,6 +419,8 @@ const ListItemSchedule = ({ item, index }) => {
                   bg={SwitchTheme(isTheme).bgItem}
                   bgpressed={SwitchTheme(isTheme).bgItem}
                   color={lessonTypeValidator(item[1].type).typeColor}
+                  colorPressed={lessonTypeValidator(item[1].type).pressedColor}
+                  isCopy
                 >
                   {'Скопировать'}
                 </LinkButton>
@@ -478,6 +488,8 @@ const ListItemSchedule = ({ item, index }) => {
                 bg={SwitchTheme(isTheme).bgItem}
                 bgpressed={SwitchTheme(isTheme).bgItem}
                 color={lessonTypeValidator(item[0].type).typeColor}
+                colorPressed={lessonTypeValidator(item[0].type).pressedColor}
+                isCopy
               >
                 {'Скопировать'}
               </LinkButton>

@@ -64,21 +64,21 @@ const SwitchTheme = (theme) => {
     bgSearchpressed: '#E5E5E6',
 
     borderSearch: '#AAAAAD',
-    typeColorlec: '#34C759',
-    typeColorlecpressed: '#3AAF58',
-    typeColorprac: '#5AC8FA',
-    typeColorpracpressed: '#5ABCE9',
-    typeColorlab: '#FF9500',
-    typeColorlabpressed: '#E29830',
-    typeColorzach: '#FE3B30',
-    typeColorzachpressed: '#E23B31',
-    typeColorekz: '#FE3B30',
-    typeColorekzpressed: '#E23B31',
-    typeColorkons: '#AF52DE',
-    typeColorkonspressed: '#9C4BC5',
-    typeColorproch: '#5856D6',
-    typeColorprochpressed: '#4A49B8',
-    textButtonExit: '#FF3B30',
+    typeColorlec: '#4CCA37',
+    typeColorlecpressed: '#57B448',
+    typeColorprac: '#2DAEF0',
+    typeColorpracpressed: '#2F99CF',
+    typeColorlab: '#FF9C45',
+    typeColorlabpressed: '#E18A3D',
+    typeColorzach: '#FF6E5B',
+    typeColorzachpressed: '#E26555',
+    typeColorekz: '#FF6E5B',
+    typeColorekzpressed: '#E26555',
+    typeColorkons: '#786FCC',
+    typeColorkonspressed: '#655DAF',
+    typeColorproch: '#63899A',
+    typeColorprochpressed: '#557889',
+    textButtonExit: '#FF6E5B',
     tabBarInactiveTintColor: '#45474A',
   }
 
@@ -411,7 +411,7 @@ const SwitchTheme = (theme) => {
 
         tabBarActiveTintColor: '#2C5AB5', //color
         textdecoration: 'ГНФ',
-        textlozungdecoration: 'ГНФ',
+        textlozungdecoration: 'Самый сильный и большой — это горно-нефтяной.',
       }
     case 'theme_inb':
       return {
@@ -451,7 +451,7 @@ const SwitchTheme = (theme) => {
 
         tabBarActiveTintColor: '#D93045', //color
         textdecoration: 'ИНБ',
-        textlozungdecoration: 'ИНБ',
+        textlozungdecoration: 'Акулы бизнеса.',
       }
     case 'theme_ies':
       return {
@@ -491,7 +491,7 @@ const SwitchTheme = (theme) => {
 
         tabBarActiveTintColor: '#3D9E6B', //color
         textdecoration: 'ИЭС',
-        textlozungdecoration: 'ИЭС',
+        textlozungdecoration: 'let the green into your heart.',
       }
 
     case 'theme_uvsheu':
@@ -885,7 +885,7 @@ const SwitchTheme = (theme) => {
 
         tabBarActiveTintColor: '#2C5AB5', //color
         textdecoration: 'ГНФ',
-        textlozungdecoration: 'ГНФ',
+        textlozungdecoration: 'Самый сильный и большой — это горно-нефтяной.',
       }
     case 'theme_inb_dark':
       return {
@@ -923,7 +923,7 @@ const SwitchTheme = (theme) => {
 
         tabBarActiveTintColor: '#9E2232', //color
         textdecoration: 'ИНБ',
-        textlozungdecoration: 'ИНБ',
+        textlozungdecoration: 'Акулы бизнеса.',
       }
     case 'theme_ies_dark':
       return {
@@ -961,7 +961,7 @@ const SwitchTheme = (theme) => {
 
         tabBarActiveTintColor: '#217547', //color
         textdecoration: 'ИЭС',
-        textlozungdecoration: 'ИЭС',
+        textlozungdecoration: 'let the green into your heart.',
       }
 
     case 'theme_uvsheu_dark':

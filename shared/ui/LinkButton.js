@@ -17,7 +17,12 @@ export default function LinkButton(props) {
               ...props,
             }}
           >
-            <TextSmall secondary color={props.color || 'white'} letterSpacing={0} fontFamily={'Roboto-Medium'}>
+            <TextSmall
+              secondary
+              color={pressed && props.isCopy ? props.colorPressed : props.color || 'white'}
+              letterSpacing={0}
+              fontFamily={'Roboto-Medium'}
+            >
               {props.children}
             </TextSmall>
           </View>
