@@ -12,7 +12,7 @@ const InstructionsEducatorsDiscipline = ({ navigation, route }) => {
   }, [navigation])
   return (
     <Layout>
-      <DisciplinesInfoCard info={route.params} />
+      <DisciplinesInfoCard info={route.params} navigation={navigation} />
     </Layout>
   )
 }

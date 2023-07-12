@@ -49,6 +49,7 @@ const EditText = ({ navigation, route }) => {
           color: SwitchTheme(isTheme).textMain,
           placeholderTextColor: SwitchTheme(isTheme).placeholderSearch,
         }}
+        autoFocus={true}
         cursorColor={SwitchTheme(isTheme).placeholderSearch}
         selectionColor={SwitchTheme(isTheme).placeholderSearch}
         editable

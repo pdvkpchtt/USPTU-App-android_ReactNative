@@ -39,7 +39,7 @@ apiClient.interceptors.response.use(
     useTokenStore.setState({ connectionError: true })
     Toast.show({
       type: 'custom',
-      text1: 'Не удалось подключиться к серверу. Проверьте интернет-соединение',
+      text1: 'Не удаётся установить соединение с сервером 😓',
     })
     // const originalRequest = error.config
     // if (error.response.status == 401 && error.config && !error.config._isRetry) {
