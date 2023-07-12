@@ -5,7 +5,9 @@ import Layout from '../../../shared/ui/Layout'
 const FileDiscipline = ({ navigation, route }) => {
   useEffect(() => {
     navigation.setOptions({
-      title: route.params.name,
+      title: `${route.params.name.split(' ')[0]} ${route.params.name.split(' ')[1][0]}. ${
+        route.params.name.split(' ')[2][0]
+      }.`,
     })
   }, [navigation])
 
