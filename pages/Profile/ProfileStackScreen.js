@@ -92,6 +92,7 @@ const ProfileStackScreen = ({ navigation }) => {
         component={MyWorks}
         options={{
           headerBackTitle: 'Назад',
+          lazy: false,
         }}
       />
       <ProfileStack.Screen name="Выбор дисциплины" component={DisciplineChoice} />
@@ -112,6 +113,7 @@ const ProfileStackScreen = ({ navigation }) => {
         component={WorkInfo}
         options={{
           headerBackTitle: 'Назад',
+          lazy: false,
         }}
       />
       <ProfileStack.Screen

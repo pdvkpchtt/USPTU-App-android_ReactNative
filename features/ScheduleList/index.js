@@ -3,7 +3,7 @@ import { useScheduleStore } from '../../entities/schedule'
 import List from './ui/List'
 import { shallow } from 'zustand/shallow'
 
-const ScheduleList = ({ navigation, filter }) => {
+const ScheduleList = ({ navigation, myFunc }) => {
   const { schedule, updateSchedule, refreshing } = useScheduleStore(
     (state) => ({
       schedule: state.schedule,
@@ -17,7 +17,7 @@ const ScheduleList = ({ navigation, filter }) => {
     updateSchedule()
   }, [])
 
-  return <List navigation={navigation} items={schedule} refreshing={refreshing} />
+  return <List navigation={navigation} items={schedule} refreshing={refreshing} myFunc={(val) => myFunc(val)} />
 }
 
 export default ScheduleList

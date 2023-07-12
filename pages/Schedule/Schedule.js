@@ -137,7 +137,7 @@ const Schedule = ({ navigation }) => {
   return (
     <>
       {/* <View style={{ backgroundColor: SwitchTheme(isTheme).colorlineBottomNav, height: widthborder }} /> */}
-      <ScheduleList navigation={navigation} />
+      <ScheduleList navigation={navigation} myFunc={(val) => setMarkedDateState(val)} />
       {/* <DateTimePickerModal
         isVisible={isDatePickerVisible}
         mode="date"

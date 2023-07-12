@@ -12,12 +12,10 @@ import TextMain from '../../../shared/ui/Text/TextMain'
 const ListSubject = ({ items, navigation, refreshing, target_action, filter }) => {
   const isTheme = useThemeStore((state) => state.theme)
   const navigateToFile = (item) => {
-    const pushAction = StackActions.push(target_action, {
+    navigation.navigate(target_action, {
       name: item.educator_name ? item.educator_name : item.discipline_name,
       ...item,
     })
-
-    navigation.dispatch(pushAction)
   }
   const stickyHeaderIndices = items
     .map((item, index) => {

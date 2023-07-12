@@ -17,12 +17,10 @@ const List = ({ items, navigation, refreshing }) => {
   const isTheme = useThemeStore((state) => state.theme)
 
   const navigateToMessage = (item) => {
-    const pushAction = StackActions.push('Файлы дисциплины', {
+    navigation.navigate('Файлы дисциплины', {
       name: item.educator_name,
       ...item,
     })
-
-    navigation.dispatch(pushAction)
   }
 
   const stickyHeaderIndices = items

@@ -15,11 +15,14 @@ import moment from 'moment/moment'
 import TextMain from '../../../shared/ui/Text/TextMain'
 moment.locale('ru')
 
-const List = ({ items, navigation, refreshing, filtering }) => {
+const List = ({ items, navigation, refreshing, filtering, myFunc }) => {
   const scheme = useColorScheme()
   const [schemeState, setSchemeState] = useState(scheme)
   const [HIDE_STATE, setHIDE_STATE] = useState(true)
   const [ARROW_DIRECTION, setARROW_DIRECTION] = useState('chevron-down')
+
+  let myDate = moment(new Date()).format('YYYY-MM-DD')
+
   useEffect(() => {
     if (schemeState != scheme) {
       updateSchedule()
@@ -140,7 +143,10 @@ const List = ({ items, navigation, refreshing, filtering }) => {
             colors={[SwitchTheme(isTheme).checkIcon]}
             progressBackgroundColor={SwitchTheme(isTheme).bgItem}
             refreshing={refreshing}
-            onRefresh={updateSchedule}
+            onRefresh={() => {
+              updateSchedule()
+              myFunc(myDate)
+            }}
           />
         }
         onEndReached={!refreshing ? loadNextWeek : null}
@@ -170,6 +176,7 @@ const List = ({ items, navigation, refreshing, filtering }) => {
           onPress={() => {
             updateSchedule()
             setHIDE_STATE(true)
+            myFunc(myDate)
           }}
           title="Add"
           arrowDirection={ARROW_DIRECTION}

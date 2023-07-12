@@ -1,15 +1,21 @@
 import React from 'react'
 import Svg, { G, Path, Rect } from 'react-native-svg'
-const CheckIcon = ({ props, color }) => {
+import useThemeStore from '../../theme/store/store'
+import SwitchTheme from '../../theme/SwitchTheme'
+const CheckIcon = ({ props, pressed }) => {
+  const isTheme = useThemeStore((state) => state.theme)
   return (
-    <Svg viewBox="0 0 16 16" width="16" height="16">
-      <G {...props}>
-        <Rect width="16" height="16" rx="6" fill="none" />
-        <Path
-          d="M5.88574 15.4609C6.37549 15.4609 6.75732 15.27 7.02295 14.8716L14.7925 2.85205C14.9917 2.55322 15.0664 2.2876 15.0664 2.03027C15.0664 1.37451 14.585 0.901367 13.9126 0.901367C13.4478 0.901367 13.1655 1.06738 12.8833 1.51562L5.85254 12.6553L2.25 8.08984C1.97607 7.74951 1.69385 7.6001 1.28711 7.6001C0.606445 7.6001 0.116699 8.08154 0.116699 8.74561C0.116699 9.03613 0.216309 9.31006 0.457031 9.60059L4.75684 14.8965C5.07227 15.2866 5.4209 15.4609 5.88574 15.4609Z"
-          fill={color}
-        />
-      </G>
+    <Svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <Path
+        d="M8.80001 15.905L5.30001 12.405C4.91001 12.015 4.29001 12.015 3.90001 12.405C3.51001 12.795 3.51001 13.415 3.90001 13.805L8.09001 17.995C8.48001 18.385 9.11001 18.385 9.50001 17.995L20.1 7.40502C20.49 7.01502 20.49 6.39502 20.1 6.00502C19.71 5.61502 19.09 5.61502 18.7 6.00502L8.80001 15.905Z"
+        fill={
+          pressed
+            ? isTheme.includes('theme_usual')
+              ? SwitchTheme(isTheme).hoverBlue
+              : SwitchTheme(isTheme).hoverEffect
+            : SwitchTheme(isTheme).textbutton1
+        }
+      />
     </Svg>
   )
 }

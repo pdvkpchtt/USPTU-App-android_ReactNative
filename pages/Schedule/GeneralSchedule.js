@@ -176,7 +176,7 @@ const GeneralSchedule = ({ navigation, route }) => {
         {SwitchTheme(isTheme).fonImage}
       </View>
 
-      <GeneralScheduleList />
+      <GeneralScheduleList myFunc={(val) => setMarkedDateState(val)} />
 
       <Modal
         isVisible={isDatePickerVisible}

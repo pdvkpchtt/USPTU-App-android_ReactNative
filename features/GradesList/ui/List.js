@@ -33,12 +33,10 @@ const List = ({ items, navigation, refreshing, filtering }) => {
 
   const isTheme = useThemeStore((state) => state.theme)
   const navigateToGrade = (item) => {
-    const pushAction = StackActions.push('Информация о дисциплине', {
+    navigation.navigate('Информация о дисциплине', {
       name: item.discipline_name,
       ...item,
     })
-
-    navigation.dispatch(pushAction)
   }
 
   const stickyHeaderIndices = items

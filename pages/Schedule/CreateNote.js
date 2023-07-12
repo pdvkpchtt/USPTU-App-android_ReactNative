@@ -10,6 +10,7 @@ import TextSmall from '../../shared/ui/Text/TextSmall'
 import Modal from 'react-native-modal'
 import moment from 'moment'
 import { Calendar, LocaleConfig } from 'react-native-calendars'
+import CheckIcon from '../../shared/ui/Icons/CheckIcon'
 
 LocaleConfig.locales['ru'] = {
   monthNames: [
@@ -84,20 +85,9 @@ const CreateNote = ({ navigation }) => {
     navigation.setOptions({
       headerRight: () => (
         <Pressable>
-          <TextBody color={SwitchTheme(isTheme).textHeaderButton} textAlign="left">
-            Добавить
-          </TextBody>
-        </Pressable>
-      ),
-      headerLeft: () => (
-        <Pressable
-          onPress={() => {
-            navigation.goBack()
+          {({ pressed }) => {
+            return <CheckIcon pressed={pressed} />
           }}
-        >
-          <TextBody color={SwitchTheme(isTheme).textHeaderButton} textAlign="left">
-            Отменить
-          </TextBody>
         </Pressable>
       ),
     })

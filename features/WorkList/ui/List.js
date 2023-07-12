@@ -14,12 +14,10 @@ const List = ({ items, navigation, refreshing, isEmpty }) => {
   const isTheme = useThemeStore((state) => state.theme)
 
   const navigateToWork = (item) => {
-    const pushAction = StackActions.push('Информация о работе', {
+    navigation.navigate('Информация о работе', {
       name: item.work_name,
       ...item,
     })
-
-    navigation.dispatch(pushAction)
   }
 
   const stickyHeaderIndices = items
