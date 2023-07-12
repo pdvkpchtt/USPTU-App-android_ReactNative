@@ -1,4 +1,6 @@
+import Checkbox from 'expo-checkbox'
 import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { useWorkAddStore } from '../../features/WorkAddManageForm'
 import useThemeStore from '../theme/store/store'
 import SwitchTheme from '../theme/SwitchTheme'
 import Divider from './Divider'
@@ -6,8 +8,10 @@ import RunIcon from './Icons/RunIcon'
 import TextHead from './Text/TextHead'
 import TextMain from './Text/TextMain'
 
-const ListItemWithLink = ({ title, onPress = null, header, position = 'middle', bg = null }) => {
+const ListItemWithLinkAndCheck = ({ title, onPress = null, header, position = 'middle', bg = null, item }) => {
   const isTheme = useThemeStore((state) => state.theme)
+  const { type, typeId } = useWorkAddStore((state) => ({ type: state.type, typeId: state.typeId }))
+
   return (
     <Pressable onPress={onPress}>
       {({ pressed }) => (
@@ -30,9 +34,13 @@ const ListItemWithLink = ({ title, onPress = null, header, position = 'middle', 
               {header ? <TextHead text={header} /> : null}
               <TextMain flexShrink={1}>{title}</TextMain>
             </View>
-            <View style={{ marginLeft: 8, marginRight: 8 }}>
-              <RunIcon />
-            </View>
+            <Checkbox
+              value={item.value == type && item.id == typeId}
+              style={{ width: 18, height: 18 }}
+              color={
+                item.value == type && item.id == typeId ? SwitchTheme(isTheme).checkIcon : SwitchTheme(isTheme).checkBox
+              }
+            />
           </View>
           {position === 'middle' || position === 'top' ? <Divider ml={-16} /> : null}
         </View>
@@ -46,7 +54,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    // alignItems: 'center',
+    alignItems: 'center',
     paddingVertical: 15.5,
     paddingRight: 0,
   },
@@ -60,4 +68,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default ListItemWithLink
+export default ListItemWithLinkAndCheck

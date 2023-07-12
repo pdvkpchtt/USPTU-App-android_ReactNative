@@ -11,11 +11,16 @@ import { useWorkAddStore } from '../../WorkAddManageForm'
 
 import useThemeStore from '../../../shared/theme/store/store'
 import SwitchTheme from '../../../shared/theme/SwitchTheme'
+import ListItemWithBottomTitleAndCheck from '../../../shared/ui/ListItemWithBottomTitleAndCheck'
+import { useEffect, useState } from 'react'
 
 const List = ({ items, navigation }) => {
-  const setDiscipline = useWorkAddStore((state) => state.setDiscipline)
-  const isTheme = useThemeStore((state) => state.theme)
+  const { setDiscipline, disciplineId } = useWorkAddStore((state) => ({
+    setDiscipline: state.setDiscipline,
+    disciplineId: state.disciplineId,
+  }))
 
+  const isTheme = useThemeStore((state) => state.theme)
   const stickyHeaderIndices = items
     .map((item, index) => {
       if ('interval' in item) {
@@ -39,8 +44,8 @@ const List = ({ items, navigation }) => {
     const ranking = splittedValue[splittedValue.length - 2].trim()
 
     return (
-      <View style={{ marginBottom: index == items.length - 1 ? 16 : 0 }}>
-        <ListItemWithBottomTitleAndLink
+      <View style={{ marginBottom: index == items.length - 1 ? 12 : 0 }}>
+        <ListItemWithBottomTitleAndCheck
           title={disciplineName}
           bottomTitle={`${item.gruppa} \u00B7 ${ranking}`}
           bg={SwitchTheme(isTheme).bgItem}
@@ -54,8 +59,9 @@ const List = ({ items, navigation }) => {
               semester: item.semestr,
               worknomer: item.worknomer,
             })
-            navigation.goBack()
+            // navigation.goBack()
           }}
+          item={item}
         />
       </View>
     )

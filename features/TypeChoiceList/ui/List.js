@@ -11,6 +11,7 @@ import { useWorkAddStore } from '../../WorkAddManageForm'
 import ListItemWithLink from './../../../shared/ui/ListItemWithLink'
 import useThemeStore from '../../../shared/theme/store/store'
 import SwitchTheme from '../../../shared/theme/SwitchTheme'
+import ListItemWithLinkAndCheck from '../../../shared/ui/ListItemWithLinkAndCheck'
 
 const List = ({ items, navigation }) => {
   const isTheme = useThemeStore((state) => state.theme)
@@ -18,7 +19,7 @@ const List = ({ items, navigation }) => {
   const renderItem = ({ item, index }) => {
     return (
       <View style={{ marginBottom: item?.isLast ? 12 : 0, paddingHorizontal: 12 }}>
-        <ListItemWithLink
+        <ListItemWithLinkAndCheck
           bg={SwitchTheme(isTheme).bgItem}
           title={item.value}
           position={index === 0 ? 'top' : index === items.length - 1 ? 'bottom' : 'middle'}
@@ -27,8 +28,9 @@ const List = ({ items, navigation }) => {
               typeId: item.id,
               type: item.value,
             })
-            navigation.goBack()
+            // navigation.goBack()
           }}
+          item={item}
         />
       </View>
     )
