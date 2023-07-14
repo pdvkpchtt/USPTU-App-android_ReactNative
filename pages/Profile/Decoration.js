@@ -50,8 +50,8 @@ const Decoration = ({ navigation, route }) => {
               .map((theme, index, arr) => (
                 <DecorationItem
                   key={index}
-                  active={index === IdSelected}
-                  theme={theme[0]}
+                  active={theme[0] == isTheme}
+                  theme={isTheme}
                   onPress={() => {
                     console.log(theme, index)
                     // if (isTheme.includes('_dark')) {

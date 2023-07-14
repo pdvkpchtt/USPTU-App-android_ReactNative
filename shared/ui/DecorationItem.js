@@ -13,7 +13,7 @@ const DecorationItem = ({ children, active = false, theme, onPress = null, isNee
           height: 98,
           marginLeft: isNeedMargin === 'left' ? 16 : 3,
           marginRight: isNeedMargin === 'right' ? 16 : 3,
-          // backgroundColor: SwitchTheme(isTheme).bgFon,
+          backgroundColor: active ? SwitchTheme(theme).bgFon : null,
           borderRadius: 7,
           borderWidth: 1,
           overflow: 'hidden', // чтобы бордер радиус работал danil
