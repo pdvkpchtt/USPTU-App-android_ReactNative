@@ -94,7 +94,7 @@ const List = ({ items, navigation, refreshing }) => {
         overScrollMode="never"
         // ListFooterComponent={}
       />
-      <InputForMessenger />
+      {/* <InputForMessenger /> */}
     </>
   )
 }

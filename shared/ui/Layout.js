@@ -27,54 +27,56 @@ const Layout = (props) => {
 
   const isTheme = useThemeStore((state) => state.theme)
   // console.log(isTheme)
+  // <View
+  //       style={{
+  //         position: 'absolute',
+  //         height,
+  //         width,
+  //         bottom: 0,
+  //         top: -70, // danil костыль/фикс полоски смешной серху
+  //         right: 0,
+  //         left: 0,
+  //         zIndex: -1,
+  //         lineHeight: 0,
+  //         // borderTopColor: 'red',
+  //         // borderTopWidth: 2,
+  //         backgroundColor: SwitchTheme(isTheme).bgFon,
+  //       }}
+  //     >
+  //       {/* {SwitchTheme(isTheme).fonImage} */}
+  //     </View>
   return (
     <>
-      <View
-        style={{
-          position: 'absolute',
-          height,
-          width,
-          bottom: 0,
-          top: -70, // danil костыль/фикс полоски смешной серху
-          right: 0,
-          left: 0,
-          zIndex: -1,
-          lineHeight: 0,
-          // borderTopColor: 'red',
-          // borderTopWidth: 2,
-          backgroundColor: SwitchTheme(isTheme).bgFon,
-        }}
-      >
-        {SwitchTheme(isTheme).fonImage}
-      </View>
-      {/* <ImageBackground source={require('../images/ftt.png')} style={styles.image}> */}
-      {/* <View style={{ backgroundColor: SwitchTheme(isTheme).colorlineBottomNav, height: widthborder }} /> */}
+      <ImageBackground source={SwitchTheme(isTheme).bgFon} style={styles.image}>
+        {/* <View style={{ backgroundColor: SwitchTheme(isTheme).colorlineBottomNav, height: widthborder }} /> */}
 
-      {props.forFlashList ? (
-        <View style={{ flex: 1, paddingHorizontal: 12 }}>{props?.children}</View>
-      ) : (
-        <ScrollView
-          contentContainerStyle={{
-            paddingHorizontal: 12,
-            // paddingBottom: 24,
-            backgroundColor: 'transparent',
-            //minHeight: height - (83 + 24 + 64),
-            ...props,
-          }}
-          refreshControl={
-            <RefreshControl
-              colors={[SwitchTheme(isTheme).checkIcon]}
-              progressBackgroundColor={SwitchTheme(isTheme).bgItem}
-              refreshing={props?.refreshing || false}
-              onRefresh={props?.onRefresh ? onRefreshCallback : null}
-            />
-          }
-          onScrollBeginDrag={Keyboard.dismiss}
-          overScrollMode="never"
-        >
-          {props?.children}
-        </ScrollView>
-      )}
+        {props.forFlashList ? (
+          <View style={{ flex: 1, paddingHorizontal: 12 }}>{props?.children}</View>
+        ) : (
+          <ScrollView
+            contentContainerStyle={{
+              paddingHorizontal: 12,
+              // paddingBottom: 24,
+              backgroundColor: 'transparent',
+              //minHeight: height - (83 + 24 + 64),
+              ...props,
+            }}
+            refreshControl={
+              <RefreshControl
+                colors={[SwitchTheme(isTheme).checkIcon]}
+                progressBackgroundColor={SwitchTheme(isTheme).bgItem}
+                refreshing={props?.refreshing || false}
+                onRefresh={props?.onRefresh ? onRefreshCallback : null}
+              />
+            }
+            onScrollBeginDrag={Keyboard.dismiss}
+            overScrollMode="never"
+          >
+            {props?.children}
+          </ScrollView>
+        )}
+      </ImageBackground>
+
       {/* <View style={{ backgroundColor: SwitchTheme(isTheme).colorlineBottomNav, height: widthborder }} /> */}
     </>
   )

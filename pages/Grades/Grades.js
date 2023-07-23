@@ -150,7 +150,7 @@ const Grades = ({ navigation }) => {
               fontFamily: 'Roboto-Medium',
             }}
           >
-            Успеваймость
+            Успеваемость
           </Text>
         ),
     })

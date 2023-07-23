@@ -4,11 +4,11 @@
     "slug": "lk-android_new",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/adaptive-icon2.png",
     "userInterfaceStyle": "automatic",
     "scheme": "info.gcdis.usptu.pcs",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splash3.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -23,7 +23,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/adaptive-icon2.png",
         "backgroundColor": "#FFFFFF"
       },
       "package": "net.rusoil"

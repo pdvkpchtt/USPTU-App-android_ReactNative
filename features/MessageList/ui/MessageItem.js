@@ -77,7 +77,7 @@ const MessageItem = ({ message }) => {
         }}
       >
         <Hyperlink
-          linkStyle={{ color: SwitchTheme(isTheme).textlink }}
+          linkStyle={{ color: '#fff' }}
           linkDefault={true}
           linkText={(url) => {
             if (url.includes('https://ams.rusoil.net/pcs3')) {
@@ -89,13 +89,13 @@ const MessageItem = ({ message }) => {
             }
           }}
         >
-          <TextMain color={SwitchTheme(isTheme).textMesStudent} flexShrink={1}>
+          <TextMain color={'#fff'} flexShrink={1}>
             {validateLinkToFiles(message.text)}
           </TextMain>
         </Hyperlink>
 
         <View style={styles.time_style}>
-          <TextTime color={SwitchTheme(isTheme).textTimeMesStudent}>{message.createdAt}</TextTime>
+          <TextTime color={'#fff'}>{message.createdAt}</TextTime>
         </View>
       </View>
     )

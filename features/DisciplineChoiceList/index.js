@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Text } from 'react-native'
+import { Text, useColorScheme } from 'react-native'
 import { useUserStore } from '../../entities/user'
 import Layout from '../../shared/ui/Layout'
 import { LoadingBox } from '../../shared/ui/LoadingBox'
@@ -12,6 +12,8 @@ const DisciplineChoiceList = ({ navigation }) => {
   const [loading, setLoading] = useState(true)
   const group = useUserStore((state) => state.getStudyGroup())
   // console.log(group)
+  const scheme = useColorScheme()
+  const [schemeState, setSchemeState] = useState(scheme)
 
   const getList = async () => {
     const data = await getDisciplines()
@@ -22,6 +24,13 @@ const DisciplineChoiceList = ({ navigation }) => {
   useEffect(() => {
     getList()
   }, [])
+
+  useEffect(() => {
+    if (schemeState != scheme) {
+      getList()
+      setSchemeState(scheme)
+    }
+  }, [scheme])
 
   return !loading ? <List items={items} navigation={navigation} /> : <LoadingBox />
 }

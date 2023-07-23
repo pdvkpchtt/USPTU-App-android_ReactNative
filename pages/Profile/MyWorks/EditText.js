@@ -47,8 +47,9 @@ const EditText = ({ navigation, route }) => {
           paddingVertical: 10,
           backgroundColor: SwitchTheme(isTheme).bgItem,
           color: SwitchTheme(isTheme).textMain,
-          placeholderTextColor: SwitchTheme(isTheme).placeholderSearch,
         }}
+        placeholder={route.params.header}
+        placeholderTextColor={SwitchTheme(isTheme).placeholderSearch}
         autoFocus={true}
         cursorColor={SwitchTheme(isTheme).placeholderSearch}
         selectionColor={SwitchTheme(isTheme).placeholderSearch}

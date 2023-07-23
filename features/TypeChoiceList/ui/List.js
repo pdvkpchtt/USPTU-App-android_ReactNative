@@ -18,7 +18,7 @@ const List = ({ items, navigation }) => {
   const setType = useWorkAddStore((state) => state.setType)
   const renderItem = ({ item, index }) => {
     return (
-      <View style={{ marginBottom: item?.isLast ? 12 : 0, paddingHorizontal: 12 }}>
+      <View style={{ marginBottom: item?.isLast ? 12 : 0, paddingHorizontal: 0 }}>
         <ListItemWithLinkAndCheck
           bg={SwitchTheme(isTheme).bgItem}
           title={item.value}
