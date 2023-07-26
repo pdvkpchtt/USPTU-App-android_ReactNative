@@ -24,10 +24,7 @@ const List = ({ items, navigation, refreshing, filtering, myFunc }) => {
   let myDate = moment(new Date()).format('YYYY-MM-DD')
 
   useEffect(() => {
-    if (schemeState != scheme) {
-      updateSchedule()
-      setSchemeState(scheme)
-    }
+    updateSchedule()
   }, [scheme])
 
   const today = moment()

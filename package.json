@@ -21,6 +21,7 @@
     "expo": "~47.0.12",
     "expo-checkbox": "~2.2.2",
     "expo-clipboard": "~4.0.1",
+    "expo-dev-client": "~2.0.1",
     "expo-device": "~5.0.0",
     "expo-document-picker": "~11.0.1",
     "expo-file-system": "~15.1.1",
@@ -33,6 +34,7 @@
     "native-base": "^3.4.28",
     "react": "18.1.0",
     "react-native": "0.70.8",
+    "react-native-app-intro-slider": "^4.0.4",
     "react-native-calendars": "^1.1299.0",
     "react-native-gesture-handler": "~2.8.0",
     "react-native-get-random-values": "^1.8.0",
@@ -48,8 +50,7 @@
     "react-native-webview": "11.23.1",
     "react-redux": "^8.0.5",
     "uuid": "^9.0.0",
-    "zustand": "^4.3.3",
-    "expo-dev-client": "~2.0.1"
+    "zustand": "^4.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

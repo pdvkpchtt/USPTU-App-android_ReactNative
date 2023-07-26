@@ -106,7 +106,7 @@ const Schedule = ({ navigation }) => {
 
   useEffect(() => {
     navigation.setOptions({
-      title: `${showingWeekNumber} неделя`,
+      title: `${showingWeekNumber > 52 ? showingWeekNumber - 52 : showingWeekNumber} неделя`,
       headerRight: () => (
         <Pressable
           onPress={() => {

@@ -33,11 +33,8 @@ const List = ({ items, navigation, refreshing, filtering, myFunc }) => {
   const [ARROW_DIRECTION, setARROW_DIRECTION] = useState('chevron-down')
 
   useEffect(() => {
-    if (schemeState != scheme) {
-      updateSchedule()
-      setSchemeState(scheme)
-    }
-  }, [scheme, schemeState])
+    updateSchedule()
+  }, [scheme])
 
   const isTheme = useThemeStore((state) => state.theme)
   const stickyHeaderIndices = items

@@ -101,7 +101,7 @@ const GeneralSchedule = ({ navigation, route }) => {
                       width: 24,
                     }}
                   >
-                    {`${showingWeekNumber}`}
+                    {`${showingWeekNumber > 52 ? showingWeekNumber - 52 : showingWeekNumber}`}
                   </Text>
                 </View>
               </>

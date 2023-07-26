@@ -13,6 +13,7 @@ import { enableScreens } from 'react-native-screens'
 import useThemeStore from './shared/theme/store/store'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import * as Linking from 'expo-linking'
+import IntroScreen from './pages/IntroScreen'
 enableScreens(false)
 export default function App() {
   const isTheme = useThemeStore((state) => state.theme) // пока добавил для статус бара danil
@@ -83,15 +84,15 @@ export default function App() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      {isAuth ? (
+      {/* {isAuth ? (
         <>
           <Tabbar scheme={scheme} />
           <Toast config={toastConfig} position="bottom" bottomOffset="100" />
         </>
       ) : (
         <Login />
-      )}
-      {/* пока добавил для статус бара danil */}
+      )} */}
+      <IntroScreen />
       <StatusBar style={isTheme.includes('_dark') || isStatusBarLight ? 'light' : 'dark'} />
     </GestureHandlerRootView>
   )
