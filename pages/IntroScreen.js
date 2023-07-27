@@ -259,9 +259,9 @@ export default function IntroScreen() {
           />
           {isShowButton && (
             <Pressable onPress={onDone} style={{ marginBottom: windowHeight * 0.14 }}>
-              {({ isPressed }) => {
+              {({ pressed }) => {
                 return (
-                  <TextBody fontSize={20} textAlign="center" color={isPressed ? '#1848A9' : '#2259C9'}>
+                  <TextBody fontSize={20} textAlign="center" color={pressed ? '#1848A9' : '#2259C9'}>
                     Начать
                   </TextBody>
                 )
