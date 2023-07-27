@@ -50,7 +50,7 @@ export default function IntroScreen() {
               color: '#1F1F1F',
               fontSize: 20,
               fontFamily: 'Roboto-Regular',
-              lineHeight: 32,
+              lineHeight: 28,
               textAlign: 'left',
             }}
           >
@@ -78,7 +78,7 @@ export default function IntroScreen() {
               color: '#2259C9',
               fontSize: 20,
               fontFamily: 'Roboto-Regular',
-              lineHeight: 32,
+              lineHeight: 28,
               textAlign: 'left',
             }}
           >
@@ -106,7 +106,7 @@ export default function IntroScreen() {
               color: '#1F1F1F',
               fontSize: 20,
               fontFamily: 'Roboto-Regular',
-              lineHeight: 32,
+              lineHeight: 28,
               textAlign: 'left',
             }}
           >
@@ -148,7 +148,7 @@ export default function IntroScreen() {
                 color: '#2259C9',
                 fontSize: 20,
                 fontFamily: 'Roboto-Regular',
-                lineHeight: 32,
+                lineHeight: 28,
                 textAlign: 'left',
               }}
             >
@@ -189,7 +189,7 @@ export default function IntroScreen() {
               color: '#1F1F1F',
               fontSize: 32,
               fontFamily: 'Roboto-Regular',
-              lineHeight: 32,
+              lineHeight: 42,
               textAlign: 'left',
             }}
           >
@@ -247,6 +247,7 @@ export default function IntroScreen() {
       ) : (
         <Animated.View style={[{ width: '100%', height: '100%' }, animatedStyle]}>
           <AppIntroSlider
+            overScrollMode="never"
             data={slides}
             renderItem={renderItem}
             showNextButton={false}
