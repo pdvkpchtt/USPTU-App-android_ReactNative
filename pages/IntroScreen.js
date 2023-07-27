@@ -2,13 +2,19 @@ import React, { useState } from 'react'
 import AppIntroSlider from 'react-native-app-intro-slider'
 import { StyleSheet, Pressable, Text, View } from 'react-native'
 import { Dimensions } from 'react-native'
-// import SplashScreen from './SplashScreen/SplashScreen'
 import Animated, { useAnimatedStyle, useSharedValue, withTiming, Easing } from 'react-native-reanimated'
+import SplashScreen from './SplashScreen/SplashScreen'
+import useIntroStore from '../shared/introScreen/store/store'
+import TextBody from '../shared/ui/Text/TextBody'
 
 export default function IntroScreen() {
   const [isShowDots, setIsShowDots] = useState(true)
   const [isShowButton, setIsShowButton] = useState(false)
   const windowHeight = Dimensions.get('window').height
+
+  const { setShowIntro } = useIntroStore((state) => ({
+    setShowIntro: state.setShowIntro,
+  }))
 
   const slides = [
     {
@@ -165,16 +171,15 @@ export default function IntroScreen() {
     }
   }
 
-  //   const dispatch = useDispatch()
-  //   const onDone = () => {
-  //     opacity.value = withTiming(0, {
-  //       duration: 200,
-  //       easing: Easing.out(Easing.exp),
-  //     })
-  //     setTimeout(() => {
-  //       dispatch(setFalseToShowIntro())
-  //     }, 200)
-  //   }
+  const onDone = () => {
+    opacity.value = withTiming(0, {
+      duration: 200,
+      easing: Easing.out(Easing.exp),
+    })
+    setTimeout(() => {
+      setShowIntro(false)
+    }, 200)
+  }
   const renderItem = ({ item, index }) => {
     return (
       <View style={{ flex: 1, paddingHorizontal: 32, alignItems: 'flex-start' }}>
@@ -182,7 +187,7 @@ export default function IntroScreen() {
           <Text
             style={{
               color: '#1F1F1F',
-              fontSize: 20,
+              fontSize: 32,
               fontFamily: 'Roboto-Regular',
               lineHeight: 32,
               textAlign: 'left',
@@ -237,33 +242,33 @@ export default function IntroScreen() {
 
   return (
     <>
-      {/* {showSplash ? (
-        <SplashScreen/>
-      ) : ( */}
-      <Animated.View style={[{ width: '100%', height: '100%' }, animatedStyle]}>
-        <AppIntroSlider
-          data={slides}
-          renderItem={renderItem}
-          showNextButton={false}
-          dotStyle={styles.dotStyle}
-          activeDotStyle={styles.activeDotStyle}
-          renderDoneButton={null}
-          onSlideChange={onSlideChange}
-          renderPagination={isShowButton ? () => null : false}
-        />
-        {isShowButton && (
-          <Pressable onPress={onDone} mb={windowHeight * 0.14}>
-            {({ isPressed }) => {
-              return (
-                <TextBody textAlign="center" color={isPressed ? '#1848A9' : '#2259C9'}>
-                  Начать
-                </TextBody>
-              )
-            }}
-          </Pressable>
-        )}
-      </Animated.View>
-      {/* )} */}
+      {showSplash ? (
+        <SplashScreen />
+      ) : (
+        <Animated.View style={[{ width: '100%', height: '100%' }, animatedStyle]}>
+          <AppIntroSlider
+            data={slides}
+            renderItem={renderItem}
+            showNextButton={false}
+            dotStyle={styles.dotStyle}
+            activeDotStyle={styles.activeDotStyle}
+            renderDoneButton={null}
+            onSlideChange={onSlideChange}
+            renderPagination={isShowButton ? () => null : false}
+          />
+          {isShowButton && (
+            <Pressable onPress={onDone} style={{ marginBottom: windowHeight * 0.14 }}>
+              {({ isPressed }) => {
+                return (
+                  <TextBody fontSize={20} textAlign="center" color={isPressed ? '#1848A9' : '#2259C9'}>
+                    Начать
+                  </TextBody>
+                )
+              }}
+            </Pressable>
+          )}
+        </Animated.View>
+      )}
     </>
   )
 }

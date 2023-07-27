@@ -14,6 +14,7 @@ import useThemeStore from './shared/theme/store/store'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import * as Linking from 'expo-linking'
 import IntroScreen from './pages/IntroScreen'
+import useIntroStore from './shared/introScreen/store/store'
 enableScreens(false)
 export default function App() {
   const isTheme = useThemeStore((state) => state.theme) // пока добавил для статус бара danil
@@ -35,6 +36,10 @@ export default function App() {
     setTheme: state.setTheme,
     setSelected: state.setSelected,
     isAuto: state.isAuto,
+  }))
+
+  const { showIntro } = useIntroStore((state) => ({
+    showIntro: state.showIntro,
   }))
 
   const handleDeepLink = (event) => {
@@ -84,15 +89,16 @@ export default function App() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      {/* {isAuth ? (
+      {showIntro ? (
+        <IntroScreen />
+      ) : isAuth ? (
         <>
           <Tabbar scheme={scheme} />
           <Toast config={toastConfig} position="bottom" bottomOffset="100" />
         </>
       ) : (
         <Login />
-      )} */}
-      <IntroScreen />
+      )}
       <StatusBar style={isTheme.includes('_dark') || isStatusBarLight ? 'light' : 'dark'} />
     </GestureHandlerRootView>
   )
