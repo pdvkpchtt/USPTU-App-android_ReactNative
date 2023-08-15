@@ -34,7 +34,7 @@ LocaleConfig.locales['ru'] = {
 }
 LocaleConfig.defaultLocale = 'ru'
 
-const Schedule = ({ navigation }) => {
+const Schedule = ({ route, navigation }) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false)
   let myDate = moment(new Date()).format('YYYY-MM-DD')
   const [markedDateState, setMarkedDateState] = useState(myDate)
@@ -44,6 +44,14 @@ const Schedule = ({ navigation }) => {
   const isTheme = useThemeStore((state) => state.theme)
 
   const { width, height } = Dimensions.get('window')
+
+  useEffect(() => {
+    if (route.params?.filterToDate) {
+      const navigateDate = moment(route.params.filterToDate, 'DD.MM.YYYY HH:mm')
+      console.log('sdf', navigateDate)
+      loadWeekFromCalendar(navigateDate)
+    }
+  }, [route])
 
   useEffect(() => {
     setDatePickerVisibility(false)
@@ -176,7 +184,9 @@ const Schedule = ({ navigation }) => {
             console.log(date)
             setMarkedDateState(date.dateString)
             setDatePickerVisibility(false)
-            loadWeekFromCalendar(date.dateString)
+            const dateForCalendar = moment(date.dateString + ' 00:01', 'YYYY-MM-DD HH:mm') // чтобы недели ровно считались
+            console.log(dateForCalendar)
+            loadWeekFromCalendar(dateForCalendar)
           }}
           renderHeader={renderCustomHeader}
           theme={{

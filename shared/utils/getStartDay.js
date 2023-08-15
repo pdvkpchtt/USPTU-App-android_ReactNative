@@ -10,7 +10,7 @@ export default function getStartDay() {
     currentYear--
   }
 
-  const startDay = moment('01.09.' + currentYear, 'DD.MM.YYYY').isoWeekday(1)
+  const startDay = moment('04.09.2023', 'DD.MM.YYYY')
 
   return startDay
 }

@@ -55,6 +55,25 @@ const List = ({ items, navigation, refreshing, filtering, myFunc }) => {
         </View>
       )
     }
+
+    if ('text' in item) {
+      return (
+        <View style={{ marginTop: 4, paddingHorizontal: 12 }}>
+          <View
+            style={{
+              backgroundColor: SwitchTheme(isTheme).bgItem,
+              borderRadius: 20,
+              paddingHorizontal: 16,
+              // marginTop: -12,
+              paddingVertical: 12,
+            }}
+          >
+            <TextMain textAlign="left">{'zametka ' + item.text}</TextMain>
+          </View>
+        </View>
+      )
+    }
+
     return (
       // не срабатывает isLast
       <View style={{ marginTop: 4, paddingHorizontal: 12 }}>
@@ -166,7 +185,12 @@ const List = ({ items, navigation, refreshing, filtering, myFunc }) => {
           ) : null
         }
         onViewableItemsChanged={checkViewableItems}
-        overScrollMode="never"
+        viewabilityConfig={{
+          waitForInteraction: true,
+          itemVisiblePercentThreshold: 50,
+          minimumViewTime: 1000,
+        }}
+        //overScrollMode="never"
       />
       {!HIDE_STATE ? (
         <FAB

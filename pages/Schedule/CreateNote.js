@@ -11,6 +11,8 @@ import Modal from 'react-native-modal'
 import moment from 'moment'
 import { Calendar, LocaleConfig } from 'react-native-calendars'
 import CheckIcon from '../../shared/ui/Icons/CheckIcon'
+import { useNotesStore } from '../../entities/notes'
+import { useUserStore } from '../../entities/user'
 
 LocaleConfig.locales['ru'] = {
   monthNames: [
@@ -36,9 +38,17 @@ LocaleConfig.defaultLocale = 'ru'
 
 const CreateNote = ({ navigation }) => {
   const isTheme = useThemeStore((state) => state.theme)
-  let myDate = moment(new Date()).format('YYYY-MM-DD')
-  const [markedDateState, setMarkedDateState] = useState(myDate)
+  const [markedDateState, setMarkedDateState] = useState(new Date())
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false)
+
+  const addNoteToStore = useNotesStore((state) => state.addNote)
+  const notes = useNotesStore((state) => state.notes)
+  const { getStudyGroup } = useUserStore((state) => ({
+    getStudyGroup: state.getStudyGroup,
+  }))
+
+  const [text, setText] = useState('')
+  const [value, setValue] = useState('')
 
   function renderCustomHeader(date) {
     const header = date.toString('MMMM yyyy')
@@ -81,17 +91,29 @@ const CreateNote = ({ navigation }) => {
     )
   }
 
+  const saveNote = () => {
+    // if (text.length < 3) {
+    //   return
+    // }
+    const group = getStudyGroup()
+
+    addNoteToStore(text, moment(markedDateState).format('DD.MM.YYYY'), group)
+    navigation.navigate('Индивидуальное расписание', {
+      filterToDate: moment(markedDateState).format('DD.MM.YYYY 00:01'),
+    })
+  }
+
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <Pressable>
+        <Pressable onPress={saveNote}>
           {({ pressed }) => {
             return <CheckIcon pressed={pressed} />
           }}
         </Pressable>
       ),
     })
-  }, [navigation])
+  }, [navigation, markedDateState])
 
   return (
     <>
@@ -126,21 +148,22 @@ const CreateNote = ({ navigation }) => {
             selectionColor={SwitchTheme(isTheme).placeholderSearch}
             editable
             multiline
+            value={value}
             placeholder="Содержимое заметки"
-            // onChangeText={(value) => {
-            //   setText(value)
-            //   setValue(value.trim().replace(/\n/g, ' '))
-            // }}
+            onChangeText={(value) => {
+              setValue(value)
+              setText(value.trim().replace(/\n/g, ' '))
+            }}
           />
 
           <View style={{ paddingHorizontal: 12 }}>
             <TextSmall color={SwitchTheme(isTheme).textOuterSec}>Не более 140 символов.</TextSmall>
           </View>
           <View style={{ borderRadius: 20, marginTop: 12 }}>
-            <ListItemWithSwitch title="Весь день" />
+            {/* <ListItemWithSwitch title="Весь день" /> */}
             <ListItemWithDate
               title="Дата"
-              buttonTitle={markedDateState}
+              buttonTitle={moment(markedDateState).format('DD.MM.YYYY')}
               onPress={() => {
                 setDatePickerVisibility(true)
               }}
@@ -170,7 +193,8 @@ const CreateNote = ({ navigation }) => {
           style={{ borderTopLeftRadius: 20, borderTopRightRadius: 20 }}
           onDayPress={(date) => {
             console.log(date)
-            setMarkedDateState(date.dateString)
+            setMarkedDateState(moment(date.dateString).toDate())
+            //  setMarkedDateState(moment(date.timestamp).toDate())
             setDatePickerVisibility(false)
             // loadWeekFromCalendar(date.dateString)
           }}
@@ -187,7 +211,7 @@ const CreateNote = ({ navigation }) => {
           firstDay={1}
           markingType={'period'}
           markedDates={{
-            [markedDateState]: {
+            [moment(markedDateState).format('YYYY-MM-DD')]: {
               startingDay: true,
               endingDay: true,
               customTextStyle: {

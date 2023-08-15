@@ -1,9 +1,14 @@
 import apiClient from '../../../shared/apiClient'
 import getCurrentWeekNumber from '../../../shared/utils/getCurrentWeekNumber'
+import getNow from './getNow'
 
 export default async function getScheduleByWeek(weekNumber = null) {
   if (!weekNumber) {
-    weekNumber = getCurrentWeekNumber()
+    weekNumber = await getNow()
+  }
+
+  if (weekNumber < 0) {
+    weekNumber = 1
   }
 
   const scheduleData = await apiClient.post('', `format=json&cat=s&uchweek_b=${weekNumber}&uchweek_e=${weekNumber}`, {

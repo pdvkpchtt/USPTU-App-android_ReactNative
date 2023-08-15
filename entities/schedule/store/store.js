@@ -36,7 +36,7 @@ const useStore = create(
       updateSchedule: async () => {
         set({ refreshing: true })
         const { week, weekNumber } = await getScheduleByWeek()
-        // console.log('updateSchedule', weekValidator(week))
+        console.log('updateSchedule', weekNumber)
         set({
           schedule: filterDays(weekValidator(week, weekNumber), moment()),
           refreshing: false,

@@ -1,9 +1,14 @@
 import apiClient from '../../../shared/apiClient'
 import getCurrentWeekNumber from '../../../shared/utils/getCurrentWeekNumber'
+import getNow from '../../schedule/api/getNow'
 
 export default async function getAuditorSchedule(settings, weekNumber) {
   if (!weekNumber) {
-    weekNumber = getCurrentWeekNumber()
+    weekNumber = await getNow()
+  }
+
+  if (weekNumber < 0) {
+    weekNumber = 1
   }
 
   const data = await apiClient.post(

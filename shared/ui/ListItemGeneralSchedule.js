@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Linking, Pressable, StyleSheet, Text, View } from 'react-native'
 import DateTimePickerModal from 'react-native-modal-datetime-picker'
 import DefaultButton from './defaultButton'
@@ -12,9 +12,14 @@ import TextMiddle from './Text/TextMiddle'
 import { Toast } from 'react-native-toast-message/lib/src/Toast'
 import useThemeStore from '../theme/store/store'
 import SwitchTheme from '../theme/SwitchTheme'
+import moment from 'moment/moment'
+import 'moment/locale/ru'
+moment.locale('ru')
+moment.weekdays(true)
 
 const ListItemGeneralSchedule = ({ item }) => {
   const isTheme = useThemeStore((state) => state.theme)
+  const [timer, setTimer] = useState(null)
   console.log(item)
   const lessonTypeValidator = (type) => {
     switch (type) {
@@ -91,11 +96,59 @@ const ListItemGeneralSchedule = ({ item }) => {
   const { lessonType, typeColor, pressedColor } = lessonTypeValidator(item.type)
   // console.log(item.type)
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const timeStart = moment(item[0].start_time + ' ' + item[0].ddate, 'HH:mm DD.MM.YYYY')
+      const timeEnd = moment(item[0].end_time + ' ' + item[0].ddate, 'HH:mm DD.MM.YYYY')
+      const durationStart = moment.duration(timeStart.diff(moment()), 'seconds').asSeconds()
+
+      // calculate total duration
+      const diffStart = moment(item[0].start_time + ' ' + item[0].ddate, 'HH:mm DD.MM.YYYY').diff(
+        moment(),
+        'hours',
+        'true'
+      )
+      const diffEnd = moment(item[0].end_time + ' ' + item[0].ddate, 'HH:mm DD.MM.YYYY').diff(
+        moment(),
+        'minutes',
+        'true'
+      )
+      console.log(diffEnd, diffStart)
+      if (diffStart < 8 && diffStart > 1) {
+        setTimer('до начала ' + moment.utc(durationStart).format('HH:mm:ss'))
+      } else if (diffStart < 1 && diffStart > 0) {
+        setTimer('до начала ' + moment.utc(durationStart).format('mm:ss'))
+      }
+      if (diffEnd > 50 && diffEnd < 95) {
+        const duration = moment.duration(timeEnd.clone().subtract(50, 'minutes').diff(moment()), 'seconds').asSeconds()
+        setTimer('до перерыва ' + moment.utc(duration).format('mm:ss'))
+      }
+      if (diffEnd > 45 && diffEnd < 50) {
+        const duration = moment.duration(timeEnd.clone().subtract(45, 'minutes').diff(moment()), 'seconds').asSeconds()
+        setTimer('перерыв ' + moment.utc(duration).format('mm:ss'))
+      }
+      if (diffEnd > 0 && diffEnd < 45) {
+        const duration = moment.duration(timeEnd.clone().diff(moment()), 'seconds').asSeconds()
+        setTimer('до конца ' + moment.utc(duration).format('mm:ss'))
+      }
+      if ((diffStart < 0 && diffEnd < 0) || diffStart > 8) {
+        setTimer(null)
+      }
+    }, 1000)
+
+    return () => clearInterval(intervalId) //This is important
+  }, [])
+
   const lessonsValidator = (item) => {
     if (item.length === 1) {
       return (
         <>
           {/* Добавить время */}
+          {timer ? (
+            <View>
+              <TextMain>{timer}</TextMain>
+            </View>
+          ) : null}
           {item[0].discipline_name.length > 2 ? <TextMain secondary>{item[0].discipline_name}</TextMain> : null}
           {item[0].podgruppa ? (
             <View style={styles.rows1}>

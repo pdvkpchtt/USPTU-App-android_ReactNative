@@ -3,12 +3,17 @@ import 'moment/locale/ru'
 import 'react-native-get-random-values'
 import { v4 as uuidv4 } from 'uuid'
 import getStartDay from '../../../shared/utils/getStartDay'
+import { useUserStore } from '../../user'
+import { useNotesStore } from '../../notes'
 
 moment.locale('ru')
 moment.weekdays(true)
 
-export const weekValidator = (week, weekNumber, notes) => {
+export const weekValidator = (week, weekNumber) => {
   const preparedDays = []
+  const notes = useNotesStore.getState().notes
+
+  const group = useUserStore.getState().getStudyGroup()
   const days = []
   let dayStart = getStartDay()
   dayStart.add(weekNumber - 1, 'weeks')
@@ -29,11 +34,12 @@ export const weekValidator = (week, weekNumber, notes) => {
   for (let day of days) {
     if (day.lessons.length) {
       const lessons = []
-      const filteredDayLessons = day.lessons.sort((a, b) => b.paraclockid - a.paraclockid)
+      const filteredLessonsForGroup = day.lessons.filter((item) => item.gruppa === group)
+      const filteredDayLessons = filteredLessonsForGroup.sort((a, b) => b.paraclockid - a.paraclockid)
       const lastLessonNumber = filteredDayLessons[0].paraclockid
 
       for (let i = 1; i <= lastLessonNumber; i++) {
-        const filteredLessons = day.lessons.filter((lesson) => lesson.paraclockid === i)
+        const filteredLessons = filteredLessonsForGroup.filter((lesson) => lesson.paraclockid === i)
         if (filteredLessons.length) {
           lessons.push({
             lessons: filteredLessons,
@@ -60,6 +66,8 @@ export const weekValidator = (week, weekNumber, notes) => {
       weekNumber: day.weekNumber,
       key: uuidv4(),
     })
+    const dayNotes = notes.filter((item) => item.group === group && item.date === day.fullDate)
+    preparedDays.push(...dayNotes)
     let lessons = [{ key: uuidv4(), lessons: [] }]
     if (day.lessons.length) {
       lessons = day.lessons
