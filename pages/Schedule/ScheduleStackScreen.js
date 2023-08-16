@@ -5,6 +5,7 @@ import CreateNote from './CreateNote'
 import Schedule from './Schedule'
 import ScheduleSearch from './ScheduleSearch'
 import GeneralSchedule from './GeneralSchedule'
+import EditNote from './EditNote'
 
 const ScheduleStack = createNativeStackNavigator()
 
@@ -19,6 +20,7 @@ const ScheduleStackScreen = ({ navigation }) => {
       />
       <ScheduleStack.Screen name="Общее расписание" component={GeneralSchedule} />
       <ScheduleStack.Screen name="Новая заметка" component={CreateNote} />
+      <ScheduleStack.Screen name="Правка заметки" component={EditNote} />
     </ScheduleStack.Navigator>
   )
 }

@@ -1,6 +1,6 @@
 import { StackActions } from '@react-navigation/native'
 import { FlashList } from '@shopify/flash-list'
-import { Button, Keyboard, RefreshControl, StyleSheet, Text, View, useColorScheme, Pressable } from 'react-native'
+import { Button, Keyboard, RefreshControl, StyleSheet, Animated, View, useColorScheme, Pressable } from 'react-native'
 import LessonCard from '../../../entities/LessonCard'
 import useThemeStore from '../../../shared/theme/store/store'
 import SwitchTheme from '../../../shared/theme/SwitchTheme'
@@ -14,6 +14,7 @@ import FAB from '../../../shared/ui/FAB'
 import moment from 'moment/moment'
 import FABSearch from '../../../shared/ui/FABSearch'
 import TextMain from '../../../shared/ui/Text/TextMain'
+import NoteCard from '../../../shared/ui/NoteCard'
 moment.locale('ru')
 
 const List = ({ items, navigation, refreshing, filtering, myFunc }) => {
@@ -57,21 +58,7 @@ const List = ({ items, navigation, refreshing, filtering, myFunc }) => {
     }
 
     if ('text' in item) {
-      return (
-        <View style={{ marginTop: 4, paddingHorizontal: 12 }}>
-          <View
-            style={{
-              backgroundColor: SwitchTheme(isTheme).bgItem,
-              borderRadius: 20,
-              paddingHorizontal: 16,
-              // marginTop: -12,
-              paddingVertical: 12,
-            }}
-          >
-            <TextMain textAlign="left">{'zametka ' + item.text}</TextMain>
-          </View>
-        </View>
-      )
+      return <NoteCard onPress={() => navigation.navigate('Правка заметки', { item: item })} text={item.text} />
     }
 
     return (

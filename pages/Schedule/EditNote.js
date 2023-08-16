@@ -13,6 +13,7 @@ import { Calendar, LocaleConfig } from 'react-native-calendars'
 import CheckIcon from '../../shared/ui/Icons/CheckIcon'
 import { useNotesStore } from '../../entities/notes'
 import { useUserStore } from '../../entities/user'
+import SecondaryButton from '../../shared/ui/secondaryButton'
 
 LocaleConfig.locales['ru'] = {
   monthNames: [
@@ -36,20 +37,27 @@ LocaleConfig.locales['ru'] = {
 }
 LocaleConfig.defaultLocale = 'ru'
 
-const CreateNote = ({ navigation }) => {
+const EditNote = ({ navigation, route }) => {
   const isTheme = useThemeStore((state) => state.theme)
-  const [markedDateState, setMarkedDateState] = useState(new Date())
+  const [markedDateState, setMarkedDateState] = useState(
+    new Date(
+      `${route.params.item.date.split('.')[2]}-${route.params.item.date.split('.')[1]}-${
+        route.params.item.date.split('.')[0]
+      }`
+    )
+  )
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false)
 
-  const addNoteToStore = useNotesStore((state) => state.addNote)
+  const editNoteToStore = useNotesStore((state) => state.editNote)
+  const deleteNoteToStore = useNotesStore((state) => state.removeNote)
   const notes = useNotesStore((state) => state.notes)
   const { getStudyGroup } = useUserStore((state) => ({
     getStudyGroup: state.getStudyGroup,
   }))
 
-  const [text, setText] = useState('')
-  const [value, setValue] = useState('')
-
+  const [text, setText] = useState(route.params.item.text)
+  const [value, setValue] = useState(route.params.item.text)
+  console.log(text, value)
   function renderCustomHeader(date) {
     const header = date.toString('MMMM yyyy')
     const [month, year] = header.split(' ')
@@ -97,7 +105,7 @@ const CreateNote = ({ navigation }) => {
     // }
     const group = getStudyGroup()
 
-    addNoteToStore(text, moment(markedDateState).format('DD.MM.YYYY'), group)
+    editNoteToStore(route.params.item.key, text, moment(markedDateState).format('DD.MM.YYYY'), group)
     navigation.navigate('Индивидуальное расписание', {
       filterToDate: moment(markedDateState).format('DD.MM.YYYY 00:01'),
     })
@@ -169,6 +177,20 @@ const CreateNote = ({ navigation }) => {
               }}
             />
           </View>
+
+          <SecondaryButton
+            color={SwitchTheme(isTheme).textButtonExit}
+            marginTop={16}
+            marginBottom={16}
+            onPress={() => {
+              deleteNoteToStore(route.params.item.key)
+              navigation.navigate('Индивидуальное расписание', {
+                filterToDate: moment(markedDateState).format('DD.MM.YYYY 00:01'),
+              })
+            }}
+          >
+            Удалить
+          </SecondaryButton>
         </View>
       </Layout>
 
@@ -226,4 +248,4 @@ const CreateNote = ({ navigation }) => {
   )
 }
 
-export default CreateNote
+export default EditNote
