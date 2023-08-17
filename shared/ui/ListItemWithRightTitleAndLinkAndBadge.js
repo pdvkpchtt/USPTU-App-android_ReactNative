@@ -5,6 +5,7 @@ import Divider from './Divider'
 import RunIcon from './Icons/RunIcon'
 import TextHead from './Text/TextHead'
 import TextMain from './Text/TextMain'
+import TextSmall from './Text/TextSmall'
 
 const ListItemWithRightTitleAndLinkAndBadge = ({
   title,
@@ -48,6 +49,11 @@ const ListItemWithRightTitleAndLinkAndBadge = ({
               </View>
             </View>
           </View>
+          {rightTitle ? (
+            <TextSmall color={SwitchTheme(isTheme).textSec} marginTop={-12} marginBottom={12}>
+              {rightTitle}
+            </TextSmall>
+          ) : null}
           {isDividerNeed || position === 'middle' || position === 'top' ? <Divider ml={-16} /> : null}
         </View>
       )}

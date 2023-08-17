@@ -14,6 +14,7 @@ import CheckIcon from '../../shared/ui/Icons/CheckIcon'
 import { useNotesStore } from '../../entities/notes'
 import { useUserStore } from '../../entities/user'
 import SecondaryButton from '../../shared/ui/secondaryButton'
+import Svg, { G, Path, Rect, Defs, ClipPath } from 'react-native-svg'
 
 LocaleConfig.locales['ru'] = {
   monthNames: [
@@ -114,14 +115,46 @@ const EditNote = ({ navigation, route }) => {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <Pressable onPress={saveNote}>
+        <Pressable onPress={value.length > 0 ? saveNote : () => {}}>
           {({ pressed }) => {
-            return <CheckIcon pressed={pressed} />
+            return (
+              <Svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <Path
+                  d="M8.80001 15.905L5.30001 12.405C4.91001 12.015 4.29001 12.015 3.90001 12.405C3.51001 12.795 3.51001 13.415 3.90001 13.805L8.09001 17.995C8.48001 18.385 9.11001 18.385 9.50001 17.995L20.1 7.40502C20.49 7.01502 20.49 6.39502 20.1 6.00502C19.71 5.61502 19.09 5.61502 18.7 6.00502L8.80001 15.905Z"
+                  fill={
+                    value.length < 1
+                      ? isTheme.includes('theme_usual')
+                        ? isTheme.includes('_dark')
+                          ? SwitchTheme(isTheme).placeholderSearch
+                          : '#b0b0b0'
+                        : isTheme.includes('_dark')
+                        ? SwitchTheme(isTheme).placeholderSearch
+                        : SwitchTheme(isTheme).placeholderTextLight
+                      : /////////////////////////
+                      isTheme.includes('theme_usual')
+                      ? pressed
+                        ? SwitchTheme(isTheme).hoverBlue
+                        : SwitchTheme(isTheme).checkIcon
+                      : !isTheme.includes('_dark')
+                      ? pressed
+                        ? '#dddddd'
+                        : '#fff'
+                      : pressed
+                      ? isTheme == 'theme_ftt_dark'
+                        ? '#dddddd'
+                        : SwitchTheme(isTheme).hoverEffect
+                      : isTheme == 'theme_ftt_dark'
+                      ? '#fff'
+                      : SwitchTheme(isTheme).checkIcon
+                  }
+                />
+              </Svg>
+            )
           }}
         </Pressable>
       ),
     })
-  }, [navigation, markedDateState, text, value])
+  }, [navigation, markedDateState, text, value, isTheme])
 
   return (
     <>
@@ -167,7 +200,7 @@ const EditNote = ({ navigation, route }) => {
           <View style={{ paddingHorizontal: 12 }}>
             <TextSmall color={SwitchTheme(isTheme).textOuterSec}>Не более 140 символов.</TextSmall>
           </View>
-          <View style={{ borderRadius: 20, marginTop: 12 }}>
+          <View style={{ borderRadius: 20, marginTop: 0 }}>
             {/* <ListItemWithSwitch title="Весь день" /> */}
             <ListItemWithDate
               title="Дата"
@@ -180,8 +213,8 @@ const EditNote = ({ navigation, route }) => {
 
           <SecondaryButton
             color={SwitchTheme(isTheme).textButtonExit}
-            marginTop={16}
-            marginBottom={16}
+            marginTop={12}
+            marginBottom={12}
             onPress={() => {
               deleteNoteToStore(route.params.item.key)
               navigation.navigate('Индивидуальное расписание', {

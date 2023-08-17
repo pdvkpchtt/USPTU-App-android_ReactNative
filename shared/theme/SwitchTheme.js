@@ -630,29 +630,29 @@ const SwitchTheme = (theme) => {
         bgFon: '#000000', // цвет под фон картинки
         fonImage: <UsualFonDark width={width} height={height} />,
 
-        placeselectionSearch: '#007AFF', //color
+        placeselectionSearch: '#4a90e0', //color
 
         bgBadgeMes: '#FF3B30',
         bgBadgeMesGrade: '#7A7A7C',
         textBadgeMesGrade: '#ffffff',
 
-        checkIcon: '#007AFF', //color
+        checkIcon: '#4a90e0', //color
         bgbutton1: '#F2F2F2',
         bgbutton1pressed: '#BDBDBD',
-        textbutton1: '#007AFF', //color
+        textbutton1: '#4a90e0', //color
 
         textbutton1pressed: 'black', //color pressed
-        bgbuttondefault: '#007AFF', //color
-        bgbuttondefaultpressed: '#1877DF',
+        bgbuttondefault: '#4a90e0', //color
+        bgbuttondefaultpressed: '#4a90e0',
         textbuttondefault: 'white',
 
-        textlink: '#007AFF', //color
-        bgMesStudent: '#007AFF', //color
+        textlink: '#4a90e0', //color
+        bgMesStudent: '#4a90e0', //color
 
-        textMesStudent: '#007AFF', //color
-        textTimeMesStudent: '#007AFF', //color
-        colorIndicator: '#007AFF', //color
-        textHeaderButton: '#007AFF', //color
+        textMesStudent: '#4a90e0', //color
+        textTimeMesStudent: '#4a90e0', //color
+        colorIndicator: '#4a90e0', //color
+        textHeaderButton: '#4a90e0', //color
         textHeaderButtonpressed: 'black', //color pressed
 
         tabBarActiveTintColor: '#fff', //color
@@ -852,7 +852,7 @@ const SwitchTheme = (theme) => {
     case 'theme_gnf_dark':
       return {
         ...defaultThemeDark,
-        hoverEffect: '#2C5AB5',
+        hoverEffect: '#21468e',
         bgFon: '#1A2B4F', // цвет под фон картинки
         fonImage: <GnfFonDark width={width} height={height} />,
 
@@ -890,7 +890,7 @@ const SwitchTheme = (theme) => {
     case 'theme_inb_dark':
       return {
         ...defaultThemeDark,
-        hoverEffect: '#883842',
+        hoverEffect: '#b7283a',
         bgFon: '#3D1117', // цвет под фон картинки
         fonImage: <InbFonDark width={width} height={height} />,
 

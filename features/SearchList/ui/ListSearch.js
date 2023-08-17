@@ -116,6 +116,7 @@ const ListSearch = ({ navigation, items, refreshing, isEmpty }) => {
       contentContainerStyle={{
         paddingVertical: 12,
       }}
+      showsVerticalScrollIndicator={false}
       ListEmptyComponent={getListEmptyComponent}
       refreshing={refreshing}
       refreshControl={
