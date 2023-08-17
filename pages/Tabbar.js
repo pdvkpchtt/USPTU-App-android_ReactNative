@@ -9,6 +9,7 @@ import ProfileIcon from '../shared/ui/Icons/Tabbar/ProfileIcon'
 import SwitchTheme from '../shared/theme/SwitchTheme'
 import useThemeStore from '../shared/theme/store/store'
 import { Dimensions, PixelRatio, StyleSheet, View } from 'react-native'
+import MyTabBar from './MyTabBar'
 
 const Tab = createBottomTabNavigator()
 
@@ -51,9 +52,9 @@ const Tabbar = () => {
         <Tab.Navigator
           id="Tabbar"
           initialRouteName="TabSchedule"
+          tabBar={(props) => <MyTabBar {...props} />}
           screenOptions={({ route }) => {
             return {
-              tabBarHideOnKeyboard: true,
               tabBarStyle: {
                 style: {
                   elevation: 0, // for Android
