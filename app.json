@@ -29,11 +29,8 @@
       "package": "net.rusoil"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "63383f22-96d5-496b-953d-5d7a8ffb4aa9"
+      "web": {
+        "favicon": "./assets/favicon.png"
       }
     }
   }
