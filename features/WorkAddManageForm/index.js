@@ -12,7 +12,7 @@ import TextBody from './../../shared/ui/Text/TextBody'
 import useThemeStore from '../../shared/theme/store/store'
 import SwitchTheme from '../../shared/theme/SwitchTheme'
 
-const WorkAddManageForm = ({ navigation }) => {
+const WorkAddManageForm = ({ navigation, route }) => {
   const isTheme = useThemeStore((state) => state.theme)
 
   const { discipline, isShowSubmitForm, loadingFileName, isModalVisible } = useStore((state) => ({
@@ -23,7 +23,7 @@ const WorkAddManageForm = ({ navigation }) => {
   }))
   return (
     <>
-      <Form navigation={navigation} />
+      <Form navigation={navigation} route={route} />
       <FilesList />
       {discipline && <FilesUploadForm />}
       {isShowSubmitForm ? <SubmitForm navigation={navigation} /> : null}

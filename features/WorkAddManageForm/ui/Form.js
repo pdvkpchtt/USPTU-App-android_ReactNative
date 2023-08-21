@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native'
+import { Alert, Text, View, Modal as MyModal, Pressable } from 'react-native'
 import Layout from '../../../shared/ui/Layout'
 import ListItemWithBottomTitleAndLink from '../../../shared/ui/ListItemWithBottomTitleAndLink'
 import ListItemWithButton from '../../../shared/ui/ListItemWithButton'
@@ -9,11 +9,12 @@ import ListItemWithRightTitle from './../../../shared/ui/ListItemWithRightTitle'
 import DateTimePickerModal from 'react-native-modal-datetime-picker'
 import ListItemWithBottomTitle from '../../../shared/ui/ListItemWithBottomTitle'
 import { Calendar, LocaleConfig } from 'react-native-calendars'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import SwitchTheme from '../../../shared/theme/SwitchTheme'
 import useThemeStore from '../../../shared/theme/store/store'
 import moment from 'moment'
 import Modal from 'react-native-modal'
+import TextHead from '../../../shared/ui/Text/TextHead'
 
 LocaleConfig.locales['ru'] = {
   monthNames: [
@@ -37,12 +38,44 @@ LocaleConfig.locales['ru'] = {
 }
 LocaleConfig.defaultLocale = 'ru'
 
-const Form = ({ navigation }) => {
+const Form = ({ navigation, route }) => {
+  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
+  const [ev, setEv] = useState(null)
+  useEffect(
+    () =>
+      navigation.addListener('beforeRemove', (e) => {
+        if (!hasUnsavedChanges) {
+          // If we don't have unsaved changes, then we don't need to do anything
+          return
+        }
+
+        // Prevent default behavior of leaving the screen
+        e.preventDefault()
+        setEv(e)
+
+        setModalVisible(true)
+        // Prompt the user before leaving the screen
+        // Alert.alert('Отменить изменения?', 'У вас есть несохраненный черновик работы. Вы действительно хотите выйти?', [
+        //   { text: 'Нет', style: 'cancel', onPress: () => {} },
+        //   {
+        //     text: 'Да',
+        //     style: 'destructive',
+        //     // If the user confirmed, then we dispatch the action we blocked earlier
+        //     // This will continue the action that had triggered the removal of the screen
+        //     onPress: () => navigation.dispatch(e.data.action),
+        //   },
+        // ])
+      }),
+    [navigation, hasUnsavedChanges]
+  )
+
   const state = useStore()
+
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false)
   let myDate = moment(new Date()).format('YYYY-MM-DD')
   const [markedDateState, setMarkedDateState] = useState(myDate)
   const isTheme = useThemeStore((state) => state.theme)
+  const [modalVisible, setModalVisible] = useState(false)
 
   function renderCustomHeader(date) {
     const header = date.toString('MMMM yyyy')
@@ -87,13 +120,113 @@ const Form = ({ navigation }) => {
 
   return (
     <>
+      <MyModal
+        animationType="fade"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          setModalVisible(!modalVisible)
+        }}
+      >
+        <View
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100%',
+            padding: 8,
+            backgroundColor: 'rgba(0,0,0,0.35)',
+          }}
+        >
+          <View
+            style={{
+              backgroundColor: SwitchTheme(isTheme).bgItem,
+              width: '100%',
+              maxWidth: 340,
+              elevation: 24,
+              borderRadius: 2,
+              padding: 24,
+            }}
+          >
+            <Text
+              style={{
+                fontFamily: 'Roboto-Medium',
+                color: SwitchTheme(isTheme).textMain,
+                fontSize: 21,
+                marginBottom: 12,
+              }}
+            >
+              Отменить изменения?
+            </Text>
+            <Text style={{ fontFamily: 'Roboto-Regular', color: SwitchTheme(isTheme).textMain, fontSize: 16 }}>
+              У вас есть несохраненный черновик работы. Вы действительно хотите выйти?
+            </Text>
+
+            <View
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'flex-end',
+                marginTop: 12,
+              }}
+            >
+              <Pressable
+                onPress={() => {
+                  setModalVisible(false)
+                }}
+              >
+                {({ pressed }) => (
+                  <Text
+                    style={{
+                      color: pressed
+                        ? isTheme.includes('theme_usual')
+                          ? SwitchTheme(isTheme).hoverBlue
+                          : SwitchTheme(isTheme).hoverEffect
+                        : SwitchTheme(isTheme).checkIcon,
+                      fontSize: 15,
+                      fontFamily: 'Roboto-Medium',
+                      marginRight: 40,
+                    }}
+                  >
+                    НЕТ
+                  </Text>
+                )}
+              </Pressable>
+              <Pressable
+                onPress={() => {
+                  navigation.dispatch(ev.data.action)
+                  setModalVisible(false)
+                }}
+              >
+                {({ pressed }) => (
+                  <Text
+                    style={{
+                      color: pressed
+                        ? isTheme.includes('theme_usual')
+                          ? SwitchTheme(isTheme).hoverBlue
+                          : SwitchTheme(isTheme).hoverEffect
+                        : SwitchTheme(isTheme).checkIcon,
+                      fontSize: 15,
+                      fontFamily: 'Roboto-Medium',
+                      marginRight: 8,
+                    }}
+                  >
+                    ДА
+                  </Text>
+                )}
+              </Pressable>
+            </View>
+          </View>
+        </View>
+      </MyModal>
+
       <ListBox paddingHorizontal={0} paddingVertical={0} marginTop={12}>
         <ListItemWithBottomTitleAndLink
           title={state?.discipline || 'Не выбрана'}
           header="Дисциплина"
           position="top"
           onPress={() => {
-            navigation.navigate('Выбор дисциплины')
+            navigation.navigate('Выбор дисциплины', { setChanges: () => setHasUnsavedChanges(true) })
           }}
         />
         <ListItemWithBottomTitleAndLink
@@ -101,7 +234,7 @@ const Form = ({ navigation }) => {
           header="Вид работы"
           position="bottom"
           onPress={() => {
-            navigation.navigate('Выбор вида работы')
+            navigation.navigate('Выбор вида работы', { setChanges: () => setHasUnsavedChanges(true) })
           }}
         />
       </ListBox>

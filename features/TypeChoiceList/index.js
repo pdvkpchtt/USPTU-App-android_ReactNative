@@ -7,7 +7,7 @@ import getDisciplines from './api/getTypes'
 import List from './ui/List'
 import validateDisciplines from './utils/validateDisciplines'
 
-const TypeChoiceList = ({ navigation }) => {
+const TypeChoiceList = ({ navigation, setChanges = () => {} }) => {
   const [items, setItems] = useState([])
   const scheme = useColorScheme()
   const [schemeState, setSchemeState] = useState(scheme)
@@ -28,7 +28,7 @@ const TypeChoiceList = ({ navigation }) => {
     }
   }, [scheme])
 
-  return items.length ? <List items={items} navigation={navigation} /> : <LoadingBox />
+  return items.length ? <List items={items} navigation={navigation} setChanges={setChanges} /> : <LoadingBox />
 }
 
 export default TypeChoiceList

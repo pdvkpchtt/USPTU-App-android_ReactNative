@@ -14,7 +14,7 @@ import SwitchTheme from '../../../shared/theme/SwitchTheme'
 import ListItemWithBottomTitleAndCheck from '../../../shared/ui/ListItemWithBottomTitleAndCheck'
 import { useEffect, useState } from 'react'
 
-const List = ({ items, navigation }) => {
+const List = ({ items, navigation, setChanges = () => {} }) => {
   const { setDiscipline, disciplineId } = useWorkAddStore((state) => ({
     setDiscipline: state.setDiscipline,
     disciplineId: state.disciplineId,
@@ -51,6 +51,7 @@ const List = ({ items, navigation }) => {
           bg={SwitchTheme(isTheme).bgItem}
           position={item.position}
           onPress={() => {
+            setChanges()
             setDiscipline({
               discipline: disciplineName,
               disciplineId: item.id,

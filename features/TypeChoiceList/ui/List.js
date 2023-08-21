@@ -13,7 +13,7 @@ import useThemeStore from '../../../shared/theme/store/store'
 import SwitchTheme from '../../../shared/theme/SwitchTheme'
 import ListItemWithLinkAndCheck from '../../../shared/ui/ListItemWithLinkAndCheck'
 
-const List = ({ items, navigation }) => {
+const List = ({ items, navigation, setChanges = () => {} }) => {
   const isTheme = useThemeStore((state) => state.theme)
   const setType = useWorkAddStore((state) => state.setType)
   const renderItem = ({ item, index }) => {
@@ -24,6 +24,7 @@ const List = ({ items, navigation }) => {
           title={item.value}
           position={index === 0 ? 'top' : index === items.length - 1 ? 'bottom' : 'middle'}
           onPress={() => {
+            setChanges()
             setType({
               typeId: item.id,
               type: item.value,

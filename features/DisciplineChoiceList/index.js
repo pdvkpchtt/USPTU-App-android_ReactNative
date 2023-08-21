@@ -7,7 +7,7 @@ import getDisciplines from './api/getDisciplines'
 import List from './ui/List'
 import validateDisciplines from './utils/validateDisciplines'
 
-const DisciplineChoiceList = ({ navigation }) => {
+const DisciplineChoiceList = ({ navigation, setChanges = () => {} }) => {
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(true)
   const group = useUserStore((state) => state.getStudyGroup())
@@ -32,7 +32,7 @@ const DisciplineChoiceList = ({ navigation }) => {
     }
   }, [scheme])
 
-  return !loading ? <List items={items} navigation={navigation} /> : <LoadingBox />
+  return !loading ? <List setChanges={setChanges} items={items} navigation={navigation} /> : <LoadingBox />
 }
 
 export default DisciplineChoiceList
