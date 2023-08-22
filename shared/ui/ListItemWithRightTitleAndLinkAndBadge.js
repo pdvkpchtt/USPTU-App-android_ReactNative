@@ -40,6 +40,7 @@ const ListItemWithRightTitleAndLinkAndBadge = ({
               <TextMain flexShrink={1}>{title}</TextMain>
             </View>
             <View style={styles.rows2}>
+              <TextSmall color={SwitchTheme(isTheme).textSec}>{rightTitle}</TextSmall>
               <View
                 style={{
                   marginLeft: 8,
@@ -49,11 +50,11 @@ const ListItemWithRightTitleAndLinkAndBadge = ({
               </View>
             </View>
           </View>
-          {rightTitle ? (
+          {/* {rightTitle ? (
             <TextSmall color={SwitchTheme(isTheme).textSec} marginTop={-12} marginBottom={12}>
               {rightTitle}
             </TextSmall>
-          ) : null}
+          ) : null} */}
           {isDividerNeed || position === 'middle' || position === 'top' ? <Divider ml={-16} /> : null}
         </View>
       )}

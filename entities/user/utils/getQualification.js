@@ -1,21 +1,21 @@
 const getQualification = (q) => {
   switch (q) {
     case 1:
-      return 'магистрант'
+      return 'Магистрант'
     case 2:
-      return 'специалист'
+      return 'Специалист'
     case 3:
-      return 'архитектор'
+      return 'Архитектор'
     case 4:
-      return 'бакалавр'
+      return 'Бакалавр'
     case 5:
-      return 'аспирант'
+      return 'Аспирант'
     case 6:
-      return 'докторант'
+      return 'Докторант'
     case 7:
-      return 'рабочий'
+      return 'Рабочий'
     case 8:
-      return 'специалист среднего звена'
+      return 'Специалист среднего звена'
     default:
       return ''
   }

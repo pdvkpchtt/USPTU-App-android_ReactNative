@@ -30,7 +30,7 @@ apiClient.interceptors.response.use(
           useTokenStore.setState({ isAuth: false })
         }
       } catch (error) {
-        // console.log(JSON.stringify(error))
+        // //console.log(JSON.stringify(error))
       }
     }
     return response
@@ -49,7 +49,7 @@ apiClient.interceptors.response.use(
     //     localStorage.setItem('token', response.data.accessToken)
     //     return $api.request(originalRequest)
     //   } catch (e) {
-    //     console.log('НЕ АВТОРИЗОВАН')
+    //     //console.log('НЕ АВТОРИЗОВАН')
     //   }
     // }
     //throw error

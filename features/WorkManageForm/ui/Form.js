@@ -10,7 +10,7 @@ const Form = ({ draftSend, workSend }) => {
         onPress={draftSend}
         // onPress={async () => {
         //   const res = await deleteStudentWorkDraft(access_token, route.params.id)
-        //   //console.log(res)
+        //   ////console.log(res)
         //   navigation.goBack()
         // }}
       >
@@ -33,7 +33,7 @@ const Form = ({ draftSend, workSend }) => {
                 onPress: workSend,
                 // onPress: async () => {
                 //   const res = await sendStudentWork(access_token, route.params.id)
-                //   //console.log(res)
+                //   ////console.log(res)
                 //   navigation.goBack()
                 // },
                 style: 'default',

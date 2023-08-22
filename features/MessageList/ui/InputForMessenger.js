@@ -7,7 +7,7 @@ const InputForMessenger = ({ placeholder, isFocus = false }) => {
   const isTheme = useThemeStore((state) => state.theme)
   const [text, setText] = useState('')
   const inputRef = useRef()
-  // console.log('sdgsdg')
+  // //console.log('sdgsdg')
 
   // useEffect(() => {
   //   setText(text)

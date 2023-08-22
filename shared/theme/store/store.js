@@ -10,11 +10,11 @@ const useThemeStore = create(
       isAuto: false,
       setTheme: (IsTheme, index) => {
         set({ theme: IsTheme, dataIdSelected: index })
-        // console.log(IsTheme)
+        // //console.log(IsTheme)
       },
       setSelected: (IdSelected) => {
         set({ dataIdSelected: IdSelected })
-        // console.log(IdSelected)
+        // //console.log(IdSelected)
       },
       setAuto: (autoState) => {
         set({ isAuto: autoState })

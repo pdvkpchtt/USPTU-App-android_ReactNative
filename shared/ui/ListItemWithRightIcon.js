@@ -6,7 +6,7 @@ import RunIcon from './Icons/RunIcon'
 import TextMain from './Text/TextMain'
 
 const ListItemWithRightIcon = ({ children, text, onPress = null, isDividerNeed = 'false', position = 'middle' }) => {
-  // console.log(text, position)
+  // //console.log(text, position)
   const isTheme = useThemeStore((state) => state.theme)
   return (
     <Pressable onPress={onPress}>

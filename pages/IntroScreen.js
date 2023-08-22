@@ -242,34 +242,34 @@ export default function IntroScreen() {
 
   return (
     <>
-      {showSplash ? (
-        <SplashScreen />
-      ) : (
-        <Animated.View style={[{ width: '100%', height: '100%' }, animatedStyle]}>
-          <AppIntroSlider
-            overScrollMode="never"
-            data={slides}
-            renderItem={renderItem}
-            showNextButton={false}
-            dotStyle={styles.dotStyle}
-            activeDotStyle={styles.activeDotStyle}
-            renderDoneButton={null}
-            onSlideChange={onSlideChange}
-            renderPagination={isShowButton ? () => null : false}
-          />
-          {isShowButton && (
-            <Pressable onPress={onDone} style={{ marginBottom: windowHeight * 0.14 }}>
-              {({ pressed }) => {
-                return (
-                  <TextBody fontSize={20} textAlign="center" color={pressed ? '#1848A9' : '#2259C9'}>
-                    Начать
-                  </TextBody>
-                )
-              }}
-            </Pressable>
-          )}
-        </Animated.View>
-      )}
+      {/* {showSplash ? (
+        <SplashScreen /> ждем макса
+      ) : ( */}
+      <Animated.View style={[{ width: '100%', height: '100%' }, animatedStyle]}>
+        <AppIntroSlider
+          overScrollMode="never"
+          data={slides}
+          renderItem={renderItem}
+          showNextButton={false}
+          dotStyle={styles.dotStyle}
+          activeDotStyle={styles.activeDotStyle}
+          renderDoneButton={null}
+          onSlideChange={onSlideChange}
+          renderPagination={isShowButton ? () => null : false}
+        />
+        {isShowButton && (
+          <Pressable onPress={onDone} style={{ marginBottom: windowHeight * 0.14 }}>
+            {({ pressed }) => {
+              return (
+                <TextBody fontSize={20} textAlign="center" color={pressed ? '#1848A9' : '#2259C9'}>
+                  Начать
+                </TextBody>
+              )
+            }}
+          </Pressable>
+        )}
+      </Animated.View>
+      {/* )} */}
     </>
   )
 }

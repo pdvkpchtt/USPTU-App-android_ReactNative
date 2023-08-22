@@ -13,9 +13,9 @@ import { useEffect } from 'react'
 const Decoration = ({ navigation, route }) => {
   const isTheme = useThemeStore((state) => state.theme)
   const scheme = useColorScheme()
-  // console.log(MiniThemes(isTheme))
+  // //console.log(MiniThemes(isTheme))
   const themes = MiniThemes()
-  // console.log(themes)
+  // //console.log(themes)
   const IdSelected = useThemeStore((state) => state.dataIdSelected)
 
   const { setTheme, setSelected, setAuto, isAuto } = useThemeStore((state) => ({
@@ -25,7 +25,7 @@ const Decoration = ({ navigation, route }) => {
     isAuto: state.isAuto,
   }))
 
-  console.log(scheme)
+  ////console.log(scheme)
 
   return (
     <>
@@ -53,7 +53,7 @@ const Decoration = ({ navigation, route }) => {
                   active={theme[0] == isTheme}
                   theme={isTheme}
                   onPress={() => {
-                    console.log(theme, index)
+                    // //console.log(theme, index)
                     // if (isTheme.includes('_dark')) {
                     setTheme(theme[0], index)
                     // // } else {

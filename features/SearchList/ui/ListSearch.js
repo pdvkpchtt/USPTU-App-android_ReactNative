@@ -26,7 +26,7 @@ const ListSearch = ({ navigation, items, refreshing, isEmpty }) => {
 
   const isTheme = useThemeStore((state) => state.theme)
   const setSettings = useGeneralScheduleStore((state) => state.setSettings)
-  console.log(items.length)
+  ////console.log(items.length)
 
   const renderItem = ({ item, index }) => {
     if ('GRUPPA' in item) {

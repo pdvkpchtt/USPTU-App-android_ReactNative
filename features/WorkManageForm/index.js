@@ -10,7 +10,7 @@ const WorkManageForm = ({ id, navigation }) => {
         navigation.goBack()
       }}
       workSend={async () => {
-        // console.log('workSend')
+        // //console.log('workSend')
       }}
       id={id}
     />

@@ -9,7 +9,7 @@ const ActivePayments = ({ navigation, route }) => {
       title: route.params.name,
     })
   }, [navigation])
-  console.log(route.params.items)
+  ////console.log(route.params.items)
   return (
     <Layout>
       <PaymentsList items={route.params.items} navigation={navigation}></PaymentsList>

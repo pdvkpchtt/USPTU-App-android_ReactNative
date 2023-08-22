@@ -7,7 +7,7 @@ const Search = ({ setSearchText, placeholder, search, isFocus = false }) => {
   const isTheme = useThemeStore((state) => state.theme)
   const [text, setText] = useState('')
   const inputRef = useRef()
-  // console.log('sdgsdg')
+  // //console.log('sdgsdg')
   const ScreenWidth = Dimensions.get('screen').width
 
   useEffect(() => {

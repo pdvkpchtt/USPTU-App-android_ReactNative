@@ -36,7 +36,7 @@ const useStore = create(
       updateSchedule: async () => {
         set({ refreshing: true })
         const { week, weekNumber } = await getScheduleByWeek()
-        console.log('updateSchedule', weekNumber)
+        ////console.log('updateSchedule', weekNumber)
         set({
           schedule: filterDays(weekValidator(week, weekNumber), moment()),
           refreshing: false,
@@ -48,7 +48,7 @@ const useStore = create(
       loadNextWeek: async () => {
         set({ refreshing: true })
         const { week, weekNumber } = await getScheduleByWeek(get().nextWeekNumber)
-        // console.log('Loading next week', weekValidator(week))
+        // //console.log('Loading next week', weekValidator(week))
         set({
           schedule: [...get().schedule, ...weekValidator(week, weekNumber)],
           refreshing: false,
@@ -62,7 +62,7 @@ const useStore = create(
         set({ schedule: [] })
         const neededWeek = convertDateToWeek(date)
         const { week, weekNumber } = await getScheduleByWeek(neededWeek)
-        // console.log('loadWeekFromCalendar', weekValidator(week))
+        // //console.log('loadWeekFromCalendar', weekValidator(week))
         set({
           schedule: filterDays(weekValidator(week, weekNumber), moment(date)),
           refreshing: false,

@@ -38,36 +38,8 @@ LocaleConfig.locales['ru'] = {
 }
 LocaleConfig.defaultLocale = 'ru'
 
-const Form = ({ navigation, route }) => {
-  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
+const Form = ({ navigation, route, setHasUnsavedChanges }) => {
   const [ev, setEv] = useState(null)
-  useEffect(
-    () =>
-      navigation.addListener('beforeRemove', (e) => {
-        if (!hasUnsavedChanges) {
-          // If we don't have unsaved changes, then we don't need to do anything
-          return
-        }
-
-        // Prevent default behavior of leaving the screen
-        e.preventDefault()
-        setEv(e)
-
-        setModalVisible(true)
-        // Prompt the user before leaving the screen
-        // Alert.alert('Отменить изменения?', 'У вас есть несохраненный черновик работы. Вы действительно хотите выйти?', [
-        //   { text: 'Нет', style: 'cancel', onPress: () => {} },
-        //   {
-        //     text: 'Да',
-        //     style: 'destructive',
-        //     // If the user confirmed, then we dispatch the action we blocked earlier
-        //     // This will continue the action that had triggered the removal of the screen
-        //     onPress: () => navigation.dispatch(e.data.action),
-        //   },
-        // ])
-      }),
-    [navigation, hasUnsavedChanges]
-  )
 
   const state = useStore()
 
@@ -308,7 +280,7 @@ const Form = ({ navigation, route }) => {
         <Calendar
           style={{ borderTopLeftRadius: 20, borderTopRightRadius: 20 }}
           onDayPress={(date) => {
-            console.log(date)
+            //console.log(date)
             setMarkedDateState(date.dateString)
             setDatePickerVisibility(false)
             state.setDate(date.dateString)

@@ -11,7 +11,7 @@ const DisciplineChoiceList = ({ navigation, setChanges = () => {} }) => {
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(true)
   const group = useUserStore((state) => state.getStudyGroup())
-  // console.log(group)
+  // //console.log(group)
   const scheme = useColorScheme()
   const [schemeState, setSchemeState] = useState(scheme)
 

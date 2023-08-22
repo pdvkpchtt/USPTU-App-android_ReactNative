@@ -33,7 +33,7 @@ const GradesList = ({ navigation, filter }) => {
     if (schemeState != scheme) {
       getGrades(filter, getStudyGroup())
       filterGrades(filter, getStudyGroup())
-      console.log('s')
+      ////console.log('s')
     }
   }, [dataIdSelected, filter, schemeState, scheme])
 

@@ -24,7 +24,7 @@ const WorkList = ({ navigation, filter }) => {
   }, [focused, dataIdSelected])
 
   useEffect(() => {
-    // console.log(filter)
+    // //console.log(filter)
     if (filter) {
       filterWorks(filter, getStudyGroup())
     }

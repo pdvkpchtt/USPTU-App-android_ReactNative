@@ -229,7 +229,7 @@ const CreateNote = ({ navigation }) => {
         <Calendar
           style={{ borderTopLeftRadius: 20, borderTopRightRadius: 20 }}
           onDayPress={(date) => {
-            console.log(date)
+            ////console.log(date)
             setMarkedDateState(moment(date.dateString).toDate())
             //  setMarkedDateState(moment(date.timestamp).toDate())
             setDatePickerVisibility(false)

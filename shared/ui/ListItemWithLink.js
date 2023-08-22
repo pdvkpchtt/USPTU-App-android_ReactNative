@@ -30,7 +30,7 @@ const ListItemWithLink = ({ title, onPress = null, header, position = 'middle', 
               {header ? <TextHead text={header} /> : null}
               <TextMain flexShrink={1}>{title}</TextMain>
             </View>
-            <View style={{ marginLeft: 8, marginRight: 8 }}>
+            <View style={{ marginLeft: 8 }}>
               <RunIcon />
             </View>
           </View>

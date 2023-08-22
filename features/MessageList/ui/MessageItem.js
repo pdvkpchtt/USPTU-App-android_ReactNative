@@ -19,10 +19,10 @@ const MessageItem = ({ message }) => {
       result += `\nhttps://ams.rusoil.net/pcs3/${encodeURI(url)}&access_token=${accessToken}`
     }
 
-    console.log(result.replace(/<a href=".\/disc_do_f(.*)<\/a>/g, ''))
+    //console.log(result.replace(/<a href=".\/disc_do_f(.*)<\/a>/g, ''))
     return result.replace(/<a href=".\/disc_do_f(.*)<\/a>/g, '')
   }
-  // console.log(message.text)
+  // //console.log(message.text)
   if (message.role == 'educator') {
     return (
       <View

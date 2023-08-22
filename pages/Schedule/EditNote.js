@@ -58,7 +58,7 @@ const EditNote = ({ navigation, route }) => {
 
   const [text, setText] = useState(route.params.item.text)
   const [value, setValue] = useState(route.params.item.text)
-  console.log(text, value)
+  ////console.log(text, value)
   function renderCustomHeader(date) {
     const header = date.toString('MMMM yyyy')
     const [month, year] = header.split(' ')
@@ -247,7 +247,7 @@ const EditNote = ({ navigation, route }) => {
         <Calendar
           style={{ borderTopLeftRadius: 20, borderTopRightRadius: 20 }}
           onDayPress={(date) => {
-            console.log(date)
+            ////console.log(date)
             setMarkedDateState(moment(date.dateString).toDate())
             //  setMarkedDateState(moment(date.timestamp).toDate())
             setDatePickerVisibility(false)

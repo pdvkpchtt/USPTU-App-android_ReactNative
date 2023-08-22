@@ -20,7 +20,7 @@ const SubmitForm = ({ navigation }) => {
     }
     for (let file of files) {
       const res = await uploadStudentWork(await getId(), file)
-      // console.log(res)
+      // //console.log(res)
       if (res?.status === 'error') {
         deleteFile(file.key)
         useStore.setState({ isModalVisible: false, loading: false })
@@ -39,7 +39,7 @@ const SubmitForm = ({ navigation }) => {
     useStore.setState({ isModalVisible: true, loading: true })
     // setHasUnsavedChanges(false)
     const uploadStatus = await uploadFiles()
-    // console.log(uploadStatus)
+    // //console.log(uploadStatus)
     if (uploadStatus.status == 'success') {
       const res = await addStudentWorkDescription(useStore.getState())
       useStore.setState({ isModalVisible: false })
@@ -60,7 +60,7 @@ const SubmitForm = ({ navigation }) => {
     const error = await saveDraft(false)
     if (!error) {
       const res = await sendStudentWork(useStore.getState().id)
-      console.log(res)
+      //console.log(res)
 
       navigation.goBack()
     }

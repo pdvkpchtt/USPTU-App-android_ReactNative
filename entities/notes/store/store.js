@@ -11,7 +11,7 @@ const useStore = create(
       addNote: (text, date, group) => {
         const note = { key: uuidv4(), text: text, date: date, group: group }
         const newNotes = [...get().notes, note]
-        console.log(newNotes)
+        ////console.log(newNotes)
         set({ notes: newNotes })
       },
       editNote: (key, text, date, group) => {
