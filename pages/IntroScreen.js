@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import AppIntroSlider from 'react-native-app-intro-slider'
-import { StyleSheet, Pressable, Text, View } from 'react-native'
-import { Dimensions } from 'react-native'
+import { StyleSheet, Pressable, Text, View, Dimensions } from 'react-native'
 import Animated, { useAnimatedStyle, useSharedValue, withTiming, Easing } from 'react-native-reanimated'
 import SplashScreen from './SplashScreen/SplashScreen'
 import useIntroStore from '../shared/introScreen/store/store'

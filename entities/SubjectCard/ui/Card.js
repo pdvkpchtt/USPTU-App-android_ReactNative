@@ -24,7 +24,7 @@ const Card = ({ item, onPress, isShowBadge }) => {
                 position="top"
               />
             ) : (
-              <ListItemWithLink title={item.educator_name} onPress={onPress} position="top" />
+              <ListItemWithLink title={item.educator_name} header={item.ranking} onPress={onPress} position="top" />
             )}
             <ListItemWithBottomTitle title={item.discipline_name} header={item.group} />
           </>
