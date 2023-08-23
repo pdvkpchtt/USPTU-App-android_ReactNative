@@ -1,7 +1,7 @@
 import apiClient from '../../../shared/apiClient/index'
 
 export default async function addStudentWorkDescription(state) {
-  console.log(JSON.stringify(state))
+  ////console.log(JSON.stringify(state))
   const formData = encodeURI(
     JSON.stringify({
       ID: state.id.toString(),

@@ -15,7 +15,7 @@ const WorkInfo = ({ route, navigation }) => {
       title: route.params.work_name,
     })
   }, [navigation])
-  // console.log(route.params)
+  // //console.log(route.params)
   return (
     <Layout>
       <WorkInfoCard item={route.params} />

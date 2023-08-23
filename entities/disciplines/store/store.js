@@ -12,7 +12,7 @@ const useStore = create((set, get) => ({
   refreshing: true,
   getDisciplines: async (filter, potok) => {
     set({ refreshing: true })
-    // console.log('potok', potok)
+    // //console.log('potok', potok)
     const { messages, info, files } = await getOnlineDiscipline(potok)
     set({
       messages: messages,

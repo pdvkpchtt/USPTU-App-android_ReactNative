@@ -20,7 +20,7 @@ moment.weekdays(true)
 const ListItemGeneralSchedule = ({ item }) => {
   const isTheme = useThemeStore((state) => state.theme)
   const [timer, setTimer] = useState(null)
-  console.log(item)
+  //console.log(item)
   const lessonTypeValidator = (type) => {
     switch (type) {
       case 'лекция':
@@ -94,7 +94,7 @@ const ListItemGeneralSchedule = ({ item }) => {
   }
 
   const { lessonType, typeColor, pressedColor } = lessonTypeValidator(item.type)
-  // console.log(item.type)
+  // //console.log(item.type)
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -113,7 +113,7 @@ const ListItemGeneralSchedule = ({ item }) => {
         'minutes',
         'true'
       )
-      console.log(diffEnd, diffStart)
+      //console.log(diffEnd, diffStart)
       if (diffStart < 8 && diffStart > 1) {
         setTimer('до начала ' + moment.utc(durationStart).format('HH:mm:ss'))
       } else if (diffStart < 1 && diffStart > 0) {

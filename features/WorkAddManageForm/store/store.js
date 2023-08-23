@@ -60,7 +60,7 @@ const useStore = create((set, get) => ({
     set({ extraInfo })
   },
   getDate: () => {
-    // console.log(get().date)
+    // //console.log(get().date)
     //return get().date.format('D MMM YYYY г.')
   },
   reset: () => {

@@ -43,7 +43,17 @@ const PersonalInfo = ({ navigation, route }) => {
               isDividerNeed
             />
             <ListItemWithBottomTitle bottomTitle={'Форма'} title={capitalize(data.mode_of_study)} isDividerNeed />
-            <ListItemWithBottomTitle bottomTitle={'Направление'} title={capitalize(data.education_type)} />
+            <ListItemWithBottomTitle
+              bottomTitle={'Направление'}
+              title={capitalize(data.education_type)}
+              isDividerNeed
+            />
+            <ListItemWithBottomTitle
+              bottomTitle={'Уровень образования'}
+              title={data.level_of_education}
+              isDividerNeed
+            />
+            <ListItemWithBottomTitle bottomTitle={'Квалификация'} title={data.qualification} />
           </>
         ) : (
           <>
@@ -54,9 +64,7 @@ const PersonalInfo = ({ navigation, route }) => {
               onPress={() => {
                 navigation.navigate('Смена группы')
               }}
-              isDividerNeed
             />
-            <ListItemWithBottomTitle bottomTitle={'Уровень образования'} title={data.level_of_education} />
           </>
         )}
       </View>

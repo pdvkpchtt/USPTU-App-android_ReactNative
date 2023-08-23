@@ -29,7 +29,7 @@ const ChangeGroup = ({ navigation }) => {
     <Layout>
       <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 20, marginTop: 12 }}>
         {groups.map((group, index, arr) => (
-          // console.log(index === 0),
+          // //console.log(index === 0),
           <ListItemWithRightIcon
             text={group}
             position={index === 0 ? 'top' : index === arr.length - 1 ? 'bottom' : 'middle'}

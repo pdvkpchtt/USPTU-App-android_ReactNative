@@ -7,7 +7,7 @@ export default async function getNow() {
     },
   })
 
-  console.log(data.data)
+  ////console.log(data.data)
 
   return data?.data?.now?.[0].NUMWEEK
 }

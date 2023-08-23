@@ -50,9 +50,9 @@ export default async function getOnlineDiscipline(potok) {
     }
     onlineDisciplines.push(itemOnline)
   }
-  // console.log(onlineDisciplines)
+  // //console.log(onlineDisciplines)
   onlineDisciplines = onlineDisciplines.filter((item) => item.group === potok)
-  // console.log(onlineDisciplines)
+  // //console.log(onlineDisciplines)
   const disciplines = {}
 
   disciplines.messages = gradesValidator(

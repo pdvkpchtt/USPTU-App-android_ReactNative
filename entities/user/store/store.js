@@ -30,18 +30,18 @@ const useStore = create(
       validateAccessToken: async (tokenEncrypted) => {
         const accessToken = await decrypt(tokenEncrypted, get().par)
         updateToken(accessToken)
-        console.log(accessToken)
+        ////console.log(accessToken)
         const id = await getKontId(accessToken)
-        console.log(id)
+        // //console.log(id)
         set({ id: id })
         const profile = await getProfileInformation(id)
         set({ ...profile })
         useTokenStore.setState({ isAuth: true })
         //  updateToken(accessToken)
         // const id = await getKontId(accessToken)
-        // console.log(id)
+        // //console.log(id)
         // if (!id?.R) {
-        //   console.log('tttt')
+        //   //console.log('tttt')
         //   set({ access_token: accessToken, id })
         //   const profile = await getProfileInformation(get().access_token, get().id)
         //   set({ ...profile })
@@ -50,7 +50,7 @@ const useStore = create(
         // }
       },
       getCurrentData: () => {
-        // console.log(get().data)
+        // //console.log(get().data)
         return {
           ...get().data[get().dataIdSelected],
         }
@@ -81,7 +81,7 @@ const useStore = create(
       //   const accessToken = await upgradeAccessToken(get().accessToken)
       //   set({ access_token: accessToken })
       //   let id = await getKontId(access_token)
-      //   console.log(id)
+      //   //console.log(id)
       //   if (id?.R === 'Err') {
       //     throw new Error('false access_token')
       //   }

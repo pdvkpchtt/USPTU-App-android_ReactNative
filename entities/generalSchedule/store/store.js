@@ -51,11 +51,11 @@ const useStore = create((set, get) => ({
   },
   updateSchedule: async () => {
     set({ refreshing: true })
-    console.log('updateSchedule')
+    // //console.log('updateSchedule')
     const [getSchedule, weekValidator] = scheduleChooser(get().settings)
     const { week, weekNumber } = await getSchedule(get().settings)
 
-    console.log('updateSchedule', JSON.stringify(weekValidator(week, weekNumber)))
+    ////console.log('updateSchedule', JSON.stringify(weekValidator(week, weekNumber)))
     set({
       schedule: filterDays(weekValidator(week, weekNumber), moment()),
       refreshing: false,
@@ -68,7 +68,7 @@ const useStore = create((set, get) => ({
     set({ refreshing: true })
     const [getSchedule, weekValidator] = scheduleChooser(get().settings)
     const { week, weekNumber } = await getSchedule(get().settings, get().nextWeekNumber)
-    console.log('Loading next week', weekValidator(week, weekNumber))
+    // //console.log('Loading next week', weekValidator(week, weekNumber))
     set({
       schedule: [...get().schedule, ...weekValidator(week, weekNumber)],
       refreshing: false,
@@ -81,10 +81,10 @@ const useStore = create((set, get) => ({
     set({ refreshing: true })
     set({ schedule: [] })
     const neededWeek = convertDateToWeek(date)
-    console.log('neededWeek', neededWeek)
+    // //console.log('neededWeek', neededWeek)
     const [getSchedule, weekValidator] = scheduleChooser(get().settings)
     const { week, weekNumber } = await getSchedule(get().settings, neededWeek)
-    console.log('loadWeekFromCalendar', weekValidator(week, weekNumber))
+    ////console.log('loadWeekFromCalendar', weekValidator(week, weekNumber))
     set({
       schedule: filterDays(weekValidator(week, weekNumber), moment(date)),
       refreshing: false,

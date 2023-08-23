@@ -46,7 +46,7 @@ const GeneralSchedule = ({ navigation, route }) => {
   const loadWeekFromCalendar = useGeneralScheduleStore((state) => state.loadWeekFromCalendar)
   const isTheme = useThemeStore((state) => state.theme)
   const { width, height } = Dimensions.get('window')
-  console.log(route.params)
+  ////console.log(route.params)
 
   const showDatePicker = () => {
     setDatePickerVisibility(true)
@@ -57,7 +57,7 @@ const GeneralSchedule = ({ navigation, route }) => {
   }
 
   const handleConfirm = (date) => {
-    console.log('A date: ', date)
+    ////console.log('A date: ', date)
     loadWeekFromCalendar(date)
     hideDatePicker()
   }
@@ -198,7 +198,7 @@ const GeneralSchedule = ({ navigation, route }) => {
         <Calendar
           style={{ borderTopLeftRadius: 20, borderTopRightRadius: 20 }}
           onDayPress={(date) => {
-            console.log(date)
+            ////console.log(date)
             setMarkedDateState(date.dateString)
             setDatePickerVisibility(false)
             loadWeekFromCalendar(date.dateString)

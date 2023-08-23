@@ -11,7 +11,7 @@ const Movements = ({}) => {
   const isTheme = useThemeStore((state) => state.theme)
 
   const data = useUserStore((state) => state.movements)
-  // console.log(data)
+  // //console.log(data)
 
   const renderItem = ({ item }) => (
     <View style={{ borderRadius: 20, backgroundColor: SwitchTheme(isTheme).bgItem, marginTop: 12 }}>

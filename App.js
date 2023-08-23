@@ -15,6 +15,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import * as Linking from 'expo-linking'
 import IntroScreen from './pages/IntroScreen'
 import useIntroStore from './shared/introScreen/store/store'
+import SplashScreen from './pages/SplashScreen/SplashScreen'
 enableScreens(false)
 export default function App() {
   const isTheme = useThemeStore((state) => state.theme) // пока добавил для статус бара danil
@@ -59,7 +60,7 @@ export default function App() {
     else if (scheme === 'light' && isTheme.includes('_dark')) setTheme(isTheme.replace('_dark', ''))
     // }
 
-    console.log(scheme, isTheme)
+    //console.log(scheme, isTheme)
   }, [scheme])
 
   const toastConfig = {

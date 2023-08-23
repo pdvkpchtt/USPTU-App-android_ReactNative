@@ -7,6 +7,6 @@ export default async function getKontId() {
       obj: 'get_kont_id',
     },
   })
-  console.log(data)
+  ////console.log(data)
   return data.data
 }

@@ -48,7 +48,7 @@ const Schedule = ({ route, navigation }) => {
   useEffect(() => {
     if (route.params?.filterToDate) {
       const navigateDate = moment(route.params.filterToDate, 'DD.MM.YYYY HH:mm')
-      console.log('sdf', navigateDate)
+      ////console.log('sdf', navigateDate)
       loadWeekFromCalendar(navigateDate)
     }
   }, [route])
@@ -66,7 +66,7 @@ const Schedule = ({ route, navigation }) => {
   }
 
   const handleConfirm = (date) => {
-    console.log('A date: ', date)
+    ////console.log('A date: ', date)
     loadWeekFromCalendar(date)
     hideDatePicker()
   }
@@ -181,11 +181,11 @@ const Schedule = ({ route, navigation }) => {
         <Calendar
           style={{ borderTopLeftRadius: 20, borderTopRightRadius: 20 }}
           onDayPress={(date) => {
-            console.log(date)
+            ////console.log(date)
             setMarkedDateState(date.dateString)
             setDatePickerVisibility(false)
             const dateForCalendar = moment(date.dateString + ' 00:01', 'YYYY-MM-DD HH:mm') // чтобы недели ровно считались
-            console.log(dateForCalendar)
+            ////console.log(dateForCalendar)
             loadWeekFromCalendar(dateForCalendar)
           }}
           renderHeader={renderCustomHeader}

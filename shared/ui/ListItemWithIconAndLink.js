@@ -7,7 +7,7 @@ import TextMain from './Text/TextMain'
 
 const ListItemWithIconAndLink = ({ children, text, onPress = null, position = 'middle', bg = null }) => {
   const isTheme = useThemeStore((state) => state.theme)
-  // console.log(text, position)
+  // //console.log(text, position)
   return (
     <Pressable onPress={onPress}>
       {({ pressed }) => (

@@ -26,7 +26,7 @@ const Layout = (props) => {
   const widthborder = PixelRatio.roundToNearestPixel(0.5)
 
   const isTheme = useThemeStore((state) => state.theme)
-  // console.log(isTheme)
+  // //console.log(isTheme)
   // <View
   //       style={{
   //         position: 'absolute',

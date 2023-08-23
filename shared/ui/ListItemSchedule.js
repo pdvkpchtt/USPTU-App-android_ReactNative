@@ -15,7 +15,7 @@ import SwitchTheme from '../theme/SwitchTheme'
 
 const ListItemSchedule = ({ item, index }) => {
   const isTheme = useThemeStore((state) => state.theme)
-  console.log(item)
+  //console.log(item)
   const lessonTypeValidator = (type) => {
     switch (type) {
       case 'ЛЕК':
@@ -95,7 +95,7 @@ const ListItemSchedule = ({ item, index }) => {
   }
 
   const { lessonType, typeColor, pressedColor } = lessonTypeValidator(item.type)
-  // console.log(item.type)
+  // //console.log(item.type)
 
   const lessonsValidator = (item) => {
     if (item.length === 1) {

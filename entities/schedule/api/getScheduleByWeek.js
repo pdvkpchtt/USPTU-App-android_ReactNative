@@ -7,7 +7,7 @@ export default async function getScheduleByWeek(weekNumber = null) {
     weekNumber = await getNow()
   }
 
-  if (weekNumber < 0) {
+  if (weekNumber <= 0) {
     weekNumber = 1
   }
 

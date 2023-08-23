@@ -41,7 +41,7 @@ const ListItemWithBottomTitleAndLink = ({
               <TextMain>{title}</TextMain>
               {bottomTitle ? <TextSmall color={SwitchTheme(isTheme).textSec}>{bottomTitle}</TextSmall> : null}
             </View>
-            <View style={{ flexShrink: 0, marginRight: 8 }}>
+            <View style={{ flexShrink: 0, alignSelf: 'center' }}>
               <RunIcon />
             </View>
           </View>

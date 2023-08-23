@@ -10,6 +10,9 @@ import SwitchTheme from '../shared/theme/SwitchTheme'
 import useThemeStore from '../shared/theme/store/store'
 import { Dimensions, PixelRatio, StyleSheet, View } from 'react-native'
 import MyTabBar from './MyTabBar'
+import { useEffect } from 'react'
+import { useState } from 'react'
+import * as NavigationBar from 'expo-navigation-bar'
 
 const Tab = createBottomTabNavigator()
 
@@ -31,8 +34,18 @@ const Tabbar = () => {
       background: 'transparent',
     },
   }
+
+  const [colorFonImage, setColorFonImage] = useState(SwitchTheme(isTheme).fonImage)
+  const [bgFon, setBgFon] = useState(SwitchTheme(isTheme).bgFon)
+
+  useEffect(() => {
+    setColorFonImage(SwitchTheme(isTheme).fonImage)
+    setBgFon(SwitchTheme(isTheme).bgFon)
+    //NavigationBar.setBackgroundColorAsync(SwitchTheme(isTheme).bgTopNav)
+  }, [isTheme])
+
   // const width = PixelRatio.roundToNearestPixel(0.5)
-  // console.log(SwitchTheme(isTheme).fonImage)
+  // //console.log(SwitchTheme(isTheme).fonImage)
   return (
     <>
       <View
@@ -42,10 +55,10 @@ const Tabbar = () => {
           height: height,
           bottom: -89,
           top: 20,
-          backgroundColor: SwitchTheme(isTheme).bgFon,
+          backgroundColor: bgFon,
         }}
       >
-        {SwitchTheme(isTheme).fonImage}
+        {colorFonImage}
       </View>
       {/* <ImageBackground source={require('../shared/images/ftt.png')} style={styles.image}> */}
       <NavigationContainer theme={isTheme.includes('_dark') ? navThemeDark : navTheme}>

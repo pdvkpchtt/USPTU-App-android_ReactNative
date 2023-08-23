@@ -22,7 +22,7 @@ const CurriculumList = ({ navigation, filter }) => {
 
   const getData = async () => {
     const plan = await getCurriculumList()
-    // console.log(plan.plan[getPotok()])
+    // //console.log(plan.plan[getPotok()])
     if (getPotok() in plan.plan) {
       setData(plan.plan[getPotok()])
     }

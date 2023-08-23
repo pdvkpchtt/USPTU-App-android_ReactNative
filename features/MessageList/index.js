@@ -21,7 +21,7 @@ const MessageList = ({ navigation, route }) => {
     getData()
   }, [])
 
-  // console.log(messages[0])
+  // //console.log(messages[0])
   return loading ? <LoadingBox /> : <List items={messages} />
   //return
 }

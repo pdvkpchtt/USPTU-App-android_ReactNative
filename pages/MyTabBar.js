@@ -52,7 +52,7 @@ const MyTabBar = ({ state, descriptors, navigation }) => {
             : route.name
 
         const isFocused = state.index === index
-        console.log(label)
+        ////console.log(label)
         const IconMode = (label, focused) => {
           if (label === 'Успеваемость') {
             return (

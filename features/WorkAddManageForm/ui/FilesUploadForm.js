@@ -60,7 +60,7 @@ const FilesUploadForm = ({ navigation }) => {
         quality: 1,
       })
 
-      // console.log(response)
+      // //console.log(response)
       for (let asset of response.assets) {
         const fileInfo = await FileSystem.getInfoAsync(asset.uri)
         const size = fileInfo.size / Math.pow(1024, 2)
@@ -77,7 +77,7 @@ const FilesUploadForm = ({ navigation }) => {
               size: formatBytes(fileInfo.size),
               key: uuidv4(),
             }
-            // console.log(file.name + file.mimeType)
+            // //console.log(file.name + file.mimeType)
             addFile(file)
           } else {
             Alert.alert('Ошибка добавления файла', `Данный файл уже добавлен`)
