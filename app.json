@@ -4,11 +4,11 @@
     "slug": "lk-android_new",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/adaptive-icon2.png",
+    "icon": "./assets/icon2.png",
     "userInterfaceStyle": "automatic",
     "scheme": "info.gcdis.usptu.pcs",
     "splash": {
-      "image": "./assets/splash3.png",
+      "image": "./assets/splash2.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
