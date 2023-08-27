@@ -68,15 +68,15 @@ const navListConfig = (navigation) => {
         },
       },
     ],
-    [
-      {
-        name: 'USPTU Food',
-        icon: <USPTUFoodIcon />,
-        onPress: () => {
-          navigation.navigate('USPTU Food')
-        },
-      },
-    ],
+    // [
+    //   {
+    //     name: 'USPTU Food',
+    //     icon: <USPTUFoodIcon />,
+    //     onPress: () => {
+    //       navigation.navigate('USPTU Food')
+    //     },
+    //   },
+    // ],
     [
       {
         name: 'Общежитие',

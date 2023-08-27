@@ -43,7 +43,7 @@ const Payments = ({ navigation }) => {
             {inActivePayments.length > 0 ? (
               <ListItemWithLink
                 title="Истекшие выплаты"
-                position="bottom"
+                position={activePayments.length > 0 ? 'bottom' : 'all'}
                 onPress={() => {
                   navigation.navigate('Активные/Истекшие выплаты', {
                     name: 'Истекшие выплаты',

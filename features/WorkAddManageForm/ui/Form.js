@@ -39,8 +39,6 @@ LocaleConfig.locales['ru'] = {
 LocaleConfig.defaultLocale = 'ru'
 
 const Form = ({ navigation, route, setHasUnsavedChanges }) => {
-  const [ev, setEv] = useState(null)
-
   const state = useStore()
 
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false)
@@ -92,106 +90,6 @@ const Form = ({ navigation, route, setHasUnsavedChanges }) => {
 
   return (
     <>
-      <MyModal
-        animationType="fade"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(!modalVisible)
-        }}
-      >
-        <View
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '100%',
-            padding: 8,
-            backgroundColor: 'rgba(0,0,0,0.35)',
-          }}
-        >
-          <View
-            style={{
-              backgroundColor: SwitchTheme(isTheme).bgItem,
-              width: '100%',
-              maxWidth: 340,
-              elevation: 24,
-              borderRadius: 2,
-              padding: 24,
-            }}
-          >
-            <Text
-              style={{
-                fontFamily: 'Roboto-Medium',
-                color: SwitchTheme(isTheme).textMain,
-                fontSize: 21,
-                marginBottom: 12,
-              }}
-            >
-              Отменить изменения?
-            </Text>
-            <Text style={{ fontFamily: 'Roboto-Regular', color: SwitchTheme(isTheme).textMain, fontSize: 16 }}>
-              У вас есть несохраненный черновик работы. Вы действительно хотите выйти?
-            </Text>
-
-            <View
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'flex-end',
-                marginTop: 12,
-              }}
-            >
-              <Pressable
-                onPress={() => {
-                  setModalVisible(false)
-                }}
-              >
-                {({ pressed }) => (
-                  <Text
-                    style={{
-                      color: pressed
-                        ? isTheme.includes('theme_usual')
-                          ? SwitchTheme(isTheme).hoverBlue
-                          : SwitchTheme(isTheme).hoverEffect
-                        : SwitchTheme(isTheme).checkIcon,
-                      fontSize: 15,
-                      fontFamily: 'Roboto-Medium',
-                      marginRight: 40,
-                    }}
-                  >
-                    НЕТ
-                  </Text>
-                )}
-              </Pressable>
-              <Pressable
-                onPress={() => {
-                  navigation.dispatch(ev.data.action)
-                  setModalVisible(false)
-                }}
-              >
-                {({ pressed }) => (
-                  <Text
-                    style={{
-                      color: pressed
-                        ? isTheme.includes('theme_usual')
-                          ? SwitchTheme(isTheme).hoverBlue
-                          : SwitchTheme(isTheme).hoverEffect
-                        : SwitchTheme(isTheme).checkIcon,
-                      fontSize: 15,
-                      fontFamily: 'Roboto-Medium',
-                      marginRight: 8,
-                    }}
-                  >
-                    ДА
-                  </Text>
-                )}
-              </Pressable>
-            </View>
-          </View>
-        </View>
-      </MyModal>
-
       <ListBox paddingHorizontal={0} paddingVertical={0} marginTop={12}>
         <ListItemWithBottomTitleAndLink
           title={state?.discipline || 'Не выбрана'}

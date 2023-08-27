@@ -23,6 +23,9 @@ const Form = ({ logIn }) => {
 
   useEffect(() => {
     opacity.value = withTiming(1)
+    // validateAccessToken(
+    //   '70837696F745D22FA23CA8B7B968C4B7C7E59D13AE0FB8C3626AA9EF182AD3D0B46714DD1D8C2D28E01DD07DDBAF4684'
+    // )
   }, [])
 
   return (
