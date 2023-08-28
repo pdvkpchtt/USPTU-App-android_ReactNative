@@ -10,6 +10,9 @@ export default function RoundedButton(props) {
         return (
           <View
             style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
               backgroundColor: pressed
                 ? isTheme.includes('theme_usual')
                   ? SwitchTheme(isTheme).hoverBlue

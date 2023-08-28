@@ -24,7 +24,7 @@ const Form = ({ logIn }) => {
   useEffect(() => {
     opacity.value = withTiming(1)
     // validateAccessToken(
-    //   '355C1A4476C5ED99917915944F9B2E40CD62BEF2592BEBB53DDA5C4DE1DC04591B67A1481CE9266B6941738FE4170937'
+    //   '8040D03C6B88B747C97C12E7D83445E90B6061ED9F97884AFA2BAAE10990E4B493816258E7A7D31E22971697FEEC3DEF'
     // )
   }, [])
 
@@ -54,9 +54,10 @@ const Form = ({ logIn }) => {
           flexGrow: 0,
           alignSelf: 'center',
           paddingBottom: '30%',
+          alignItems: 'center',
         }}
       >
-        <Animated.View style={animatedStyle}>
+        <Animated.View style={[animatedStyle]}>
           <RoundedButton
             width={230}
             onPress={() =>
