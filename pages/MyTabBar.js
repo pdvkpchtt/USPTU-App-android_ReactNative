@@ -29,6 +29,7 @@ const MyTabBar = ({ state, descriptors, navigation }) => {
   return (
     <View
       style={{
+        display: keyboardStatus ? 'none' : 'flex',
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         height: 80,
