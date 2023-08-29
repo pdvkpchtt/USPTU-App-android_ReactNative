@@ -89,7 +89,7 @@ const useStore = create(
       // },
     }),
     {
-      name: 'user',
+      name: 'user-new',
       storage: createJSONStorage(() => AsyncStorage),
     }
   )

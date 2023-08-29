@@ -29,7 +29,7 @@ const useStore = create(
     }),
 
     {
-      name: 'grades',
+      name: 'grades-new',
       storage: createJSONStorage(() => AsyncStorage),
     }
   )

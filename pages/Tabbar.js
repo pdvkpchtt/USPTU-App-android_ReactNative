@@ -12,7 +12,6 @@ import { Dimensions, PixelRatio, StyleSheet, View } from 'react-native'
 import MyTabBar from './MyTabBar'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import * as NavigationBar from 'expo-navigation-bar'
 
 const Tab = createBottomTabNavigator()
 
