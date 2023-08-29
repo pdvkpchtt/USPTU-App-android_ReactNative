@@ -6,11 +6,11 @@ import capitalize from '../../shared/utils/capitalize'
 import { View } from 'react-native'
 import SwitchTheme from '../../shared/theme/SwitchTheme'
 import useThemeStore from '../../shared/theme/store/store'
+import { movements } from '../demoData'
 
 const Movements = ({}) => {
   const isTheme = useThemeStore((state) => state.theme)
 
-  const data = useUserStore((state) => state.movements)
   // //console.log(data)
 
   const renderItem = ({ item }) => (
@@ -36,7 +36,7 @@ const Movements = ({}) => {
   return (
     <Layout forFlashList>
       <FlashList
-        data={data.slice().reverse()}
+        data={movements.slice().reverse()}
         renderItem={renderItem}
         estimatedItemSize={76}
         showsVerticalScrollIndicator={false}

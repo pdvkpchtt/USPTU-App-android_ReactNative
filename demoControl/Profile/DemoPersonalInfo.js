@@ -10,56 +10,52 @@ import ListItemWithBottomTitleAndLink from '../../shared/ui/ListItemWithBottomTi
 import ListItemWithRightTitle from '../../shared/ui/ListItemWithRightTitle'
 import ListItemWithRightTitleAndLink from '../../shared/ui/ListItemWithRightTitleAndLink'
 import capitalize from '../../shared/utils/capitalize'
+import { personal } from '../demoData'
 
 const PersonalInfo = ({ navigation, route }) => {
   const getCurrentData = useUserStore((state) => state.getCurrentData)
-  const [data, setData] = useState(getCurrentData())
   const focused = useIsFocused()
   // const { previous_screen } = route.params
-
-  useEffect(() => {
-    setData(getCurrentData())
-  }, [focused])
   const isTheme = useThemeStore((state) => state.theme)
 
   return (
     <Layout marginBottom={16}>
       <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 20, marginTop: 12 }}>
-        {data.qualification !== '' ? (
+        {personal.qualification !== '' ? (
           <>
             <ListItemWithBottomTitleAndLink
               bottomTitle={'Группа'}
-              title={data.study_group}
+              title={personal.study_group}
               position="top"
               // onPress={() => {
               //   navigation.navigate('Смена группы')
               // }}
               isDividerNeed
             />
-            <ListItemWithBottomTitle bottomTitle={'Факультет'} title={capitalize(data.department)} isDividerNeed />
+            <ListItemWithBottomTitle bottomTitle={'Факультет'} title={capitalize(personal.department)} isDividerNeed />
             <ListItemWithBottomTitle
               bottomTitle={'Курс, семестр'}
-              title={`${data.year}, ${data.semester}`}
+              title={`${personal.year}, ${personal.semester}`}
               isDividerNeed
             />
-            <ListItemWithBottomTitle bottomTitle={'Форма'} title={capitalize(data.mode_of_study)} isDividerNeed />
+            <ListItemWithBottomTitle bottomTitle={'Форма'} title={capitalize(personal.mode_of_study)} isDividerNeed />
             <ListItemWithBottomTitle
               bottomTitle={'Направление'}
-              title={capitalize(data.education_type)}
+              title={capitalize(personal.education_type)}
               isDividerNeed
             />
             <ListItemWithBottomTitle
               bottomTitle={'Уровень образования'}
-              title={data.level_of_education}
+              title={personal.level_of_education}
               isDividerNeed
             />
-            <ListItemWithBottomTitle bottomTitle={'Квалификация'} title={data.qualification} />
+            <ListItemWithBottomTitle bottomTitle={'Квалификация'} title={personal.qualification} />
           </>
         ) : (
           <>
             <ListItemWithBottomTitleAndLink
               bottomTitle={'Группа'}
-              title={data.study_group}
+              title={personal.study_group}
               position="top"
               // onPress={() => {
               //   navigation.navigate('Смена группы')
@@ -69,15 +65,15 @@ const PersonalInfo = ({ navigation, route }) => {
         )}
       </View>
 
-      {data.qualification !== '' ? (
+      {personal.qualification !== '' ? (
         <View style={{ backgroundColor: SwitchTheme(isTheme).bgItem, borderRadius: 20, marginVertical: 12 }}>
-          <ListItemWithBottomTitle bottomTitle={'Код специальности'} title={data.speciality_code} isDividerNeed />
+          <ListItemWithBottomTitle bottomTitle={'Код специальности'} title={personal.speciality_code} isDividerNeed />
           <ListItemWithBottomTitle
             bottomTitle={'Номер зачётной книжки'}
-            title={data.record_book_number}
+            title={personal.record_book_number}
             isDividerNeed
           />
-          <ListItemWithBottomTitle bottomTitle={'Средний балл'} title={data.grade_point_average} />
+          <ListItemWithBottomTitle bottomTitle={'Средний балл'} title={personal.grade_point_average} />
         </View>
       ) : null}
     </Layout>
