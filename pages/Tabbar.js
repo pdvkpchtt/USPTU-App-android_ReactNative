@@ -12,10 +12,18 @@ import { Dimensions, PixelRatio, StyleSheet, View } from 'react-native'
 import MyTabBar from './MyTabBar'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import useDemoStore from '../demoControl/store'
+import DemoGradesStackScreen from '../demoControl/Grades/DemoGradesStackScreen'
+import DemoScheduleStackScreen from '../demoControl/Schedule/DemoScheduleStackScreen'
+import DemoProfileStackScreen from '../demoControl/Profile/DemoProfileStackScreen'
 
 const Tab = createBottomTabNavigator()
 
 const Tabbar = () => {
+  const { demo } = useDemoStore((state) => ({
+    demo: state.demo,
+  }))
+
   const { width, height } = Dimensions.get('screen')
   const isTheme = useThemeStore((state) => state.theme)
   const navTheme = {
@@ -210,21 +218,45 @@ const Tabbar = () => {
             }
           }}
         >
-          <Tab.Screen
-            name="TabGrades"
-            component={GradesStackScreen}
-            options={{ tabBarLabel: 'Успеваемость', headerShown: false, title: 'Успеваемость' }}
-          />
-          <Tab.Screen
-            name="TabSchedule"
-            component={ScheduleStackScreen}
-            options={{ tabBarLabel: 'Расписание', headerShown: false, title: 'Расписание' }}
-          />
-          <Tab.Screen
-            name="TabProfile"
-            component={ProfileStackScreen}
-            options={{ tabBarLabel: 'Профиль', headerShown: false, title: 'Профиль' }}
-          />
+          {demo ? (
+            <Tab.Screen
+              name="TabGrades"
+              component={DemoGradesStackScreen}
+              options={{ tabBarLabel: 'Успеваемость', headerShown: false, title: 'Успеваемость' }}
+            />
+          ) : (
+            <Tab.Screen
+              name="TabGrades"
+              component={GradesStackScreen}
+              options={{ tabBarLabel: 'Успеваемость', headerShown: false, title: 'Успеваемость' }}
+            />
+          )}
+          {demo ? (
+            <Tab.Screen
+              name="TabSchedule"
+              component={DemoScheduleStackScreen}
+              options={{ tabBarLabel: 'Расписание', headerShown: false, title: 'Расписание' }}
+            />
+          ) : (
+            <Tab.Screen
+              name="TabSchedule"
+              component={ScheduleStackScreen}
+              options={{ tabBarLabel: 'Расписание', headerShown: false, title: 'Расписание' }}
+            />
+          )}
+          {demo ? (
+            <Tab.Screen
+              name="TabProfile"
+              component={DemoProfileStackScreen}
+              options={{ tabBarLabel: 'Профиль', headerShown: false, title: 'Профиль' }}
+            />
+          ) : (
+            <Tab.Screen
+              name="TabProfile"
+              component={ProfileStackScreen}
+              options={{ tabBarLabel: 'Профиль', headerShown: false, title: 'Профиль' }}
+            />
+          )}
         </Tab.Navigator>
       </NavigationContainer>
       {/* </ImageBackground> */}
