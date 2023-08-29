@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import AppIntroSlider from 'react-native-app-intro-slider'
 import { StyleSheet, Pressable, Text, View, Dimensions } from 'react-native'
 import Animated, { useAnimatedStyle, useSharedValue, withTiming, Easing } from 'react-native-reanimated'
 import SplashScreen from './SplashScreen/SplashScreen'
 import useIntroStore from '../shared/introScreen/store/store'
 import TextBody from '../shared/ui/Text/TextBody'
+import { useEffect } from 'react'
 
 export default function IntroScreen() {
   const [isShowDots, setIsShowDots] = useState(true)
@@ -213,7 +214,6 @@ export default function IntroScreen() {
       backgroundColor: 'black',
       marginBottom: windowHeight * 0.2,
     },
-    //[...]
   })
 
   const onSlideChange = (index) => {
@@ -223,13 +223,19 @@ export default function IntroScreen() {
   }
 
   const [showSplash, setShowSplash] = useState(true)
-  setTimeout(() => {
-    setShowSplash(false)
-    opacity.value = withTiming(1, {
-      duration: 1000,
-      easing: Easing.out(Easing.exp),
-    })
-  }, 3400)
+
+  useEffect(() => {
+    let timer1 = setTimeout(() => {
+      setShowSplash(false)
+      opacity.value = withTiming(1, {
+        duration: 1000,
+        easing: Easing.out(Easing.exp),
+      })
+    }, 3400)
+    return () => {
+      clearTimeout(timer1)
+    }
+  }, [])
 
   const opacity = useSharedValue(0)
 
@@ -239,36 +245,32 @@ export default function IntroScreen() {
     }
   })
 
-  return (
-    <>
-      {showSplash ? (
-        <SplashScreen />
-      ) : (
-        <Animated.View style={[{ width: '100%', height: '100%' }, animatedStyle]}>
-          <AppIntroSlider
-            overScrollMode="never"
-            data={slides}
-            renderItem={renderItem}
-            showNextButton={false}
-            dotStyle={styles.dotStyle}
-            activeDotStyle={styles.activeDotStyle}
-            renderDoneButton={null}
-            onSlideChange={onSlideChange}
-            renderPagination={isShowButton ? () => null : false}
-          />
-          {isShowButton && (
-            <Pressable onPress={onDone} style={{ marginBottom: windowHeight * 0.14 }}>
-              {({ pressed }) => {
-                return (
-                  <TextBody fontSize={20} textAlign="center" color={pressed ? '#1848A9' : '#2259C9'}>
-                    Начать
-                  </TextBody>
-                )
-              }}
-            </Pressable>
-          )}
-        </Animated.View>
+  return showSplash ? (
+    <SplashScreen />
+  ) : (
+    <Animated.View style={[{ width: '100%', height: '100%' }, animatedStyle]}>
+      <AppIntroSlider
+        overScrollMode="never"
+        data={slides}
+        renderItem={renderItem}
+        showNextButton={false}
+        dotStyle={styles.dotStyle}
+        activeDotStyle={styles.activeDotStyle}
+        renderDoneButton={null}
+        onSlideChange={onSlideChange}
+        renderPagination={isShowButton ? () => null : false}
+      />
+      {isShowButton && (
+        <Pressable onPress={onDone} style={{ marginBottom: windowHeight * 0.14 }}>
+          {({ pressed }) => {
+            return (
+              <TextBody fontSize={20} textAlign="center" color={pressed ? '#1848A9' : '#2259C9'}>
+                Начать
+              </TextBody>
+            )
+          }}
+        </Pressable>
       )}
-    </>
+    </Animated.View>
   )
 }

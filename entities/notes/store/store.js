@@ -24,7 +24,7 @@ const useStore = create(
       },
     }),
     {
-      name: 'note',
+      name: 'note-new',
       storage: createJSONStorage(() => AsyncStorage),
     }
   )

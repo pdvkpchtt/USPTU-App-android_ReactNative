@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react'
-import { View } from 'native-base'
 import { Path } from 'react-native-svg'
 
 import Animated, { Easing, useAnimatedProps } from 'react-native-reanimated'
@@ -8,7 +7,7 @@ const AnimatedPath = Animated.createAnimatedComponent(Path)
 
 const AnimatedLogo = ({ d, strokeWidth, progress, progressOpacity, progressOpacityStroke, style }) => {
   const [length, setLength] = useState(0)
-  const ref = useRef(null)
+  const ref = useRef()
   const strokeAnimation = useAnimatedProps(() => ({
     strokeDashoffset: length - length * Easing.bezier(0.37, 0, 0.63, 1).factory()(progress.value),
     fillOpacity: progressOpacity.value,

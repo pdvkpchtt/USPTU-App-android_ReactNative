@@ -21,7 +21,7 @@ const useThemeStore = create(
       },
     }),
     {
-      name: 'theme',
+      name: 'theme-new',
       storage: createJSONStorage(() => AsyncStorage),
     }
   )

@@ -73,7 +73,7 @@ const useStore = create(
       },
     }),
     {
-      name: 'schedule',
+      name: 'schedule-new',
       storage: createJSONStorage(() => AsyncStorage),
     }
   )

@@ -11,7 +11,7 @@ const useIntroStore = create(
       },
     }),
     {
-      name: 'intro',
+      name: 'intro-new',
       storage: createJSONStorage(() => AsyncStorage),
     }
   )

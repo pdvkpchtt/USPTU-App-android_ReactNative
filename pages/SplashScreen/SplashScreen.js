@@ -1,15 +1,18 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Dimensions, Linking, StyleSheet, View, Alert } from 'react-native'
 import Svg, { Path } from 'react-native-svg'
 import AnimatedLogo from './AnimatedLogo'
 import Animated, {
   Easing,
   interpolateColor,
+  useAnimatedProps,
   useAnimatedStyle,
   useDerivedValue,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated'
+
+const AnimatedPath = Animated.createAnimatedComponent(Path)
 
 export default function SplashScreen({ navigation }) {
   const colors = ['#7EDAB9']
@@ -62,10 +65,10 @@ export default function SplashScreen({ navigation }) {
   })
 
   const rStyleText = useAnimatedStyle(() => {
-    const colors = interpolateColor(progressColor.value, [0, 1], ['white', 'black'])
-    const stroke = interpolateColor(progressColor.value, [0, 1], ['black', 'white'])
-
-    return { fill: colors, stroke: stroke }
+    return {
+      fill: interpolateColor(progressColor.value, [0, 1], ['white', 'black']),
+      stroke: interpolateColor(progressColor.value, [0, 1], ['black', 'white']),
+    }
   })
 
   useEffect(() => {
@@ -84,6 +87,22 @@ export default function SplashScreen({ navigation }) {
     }, 100)
   }, [progress, strokeWidth])
 
+  const [length, setLength] = useState(0)
+  const ref = useRef()
+  const strokeAnimation = useAnimatedProps(() => ({
+    strokeDashoffset: length - length * Easing.bezier(0.37, 0, 0.63, 1).factory()(progress.value),
+    fillOpacity: progressOpacity.value,
+    strokeWidth: strokeWidth.value,
+    strokeOpacity: progressOpacityStroke.value,
+  }))
+
+  const animatedBGProps = useAnimatedProps(() => ({
+    strokeDashoffset: length + 10 - length * Easing.bezier(0.85, 1, 0.15, 1).factory()(progress.value),
+    fillOpacity: progress.value,
+    strokeWidth: strokeWidth.value - 2,
+    strokeOpacity: progressOpacityStroke.value,
+  }))
+
   return (
     <Animated.View style={[style.back, rStyleBG]}>
       <Svg
@@ -93,15 +112,31 @@ export default function SplashScreen({ navigation }) {
         style={{ right: 50, bottom: 50 }}
       >
         {paths.map((d, key) => (
-          <AnimatedLogo
-            style={rStyleText}
-            progress={progress}
-            progressOpacity={progressOpacity}
-            progressOpacityStroke={progressOpacityStroke}
-            d={d}
-            strokeWidth={strokeWidth}
-            key={key}
-          />
+          <React.Fragment key={key}>
+            <AnimatedPath
+              animatedProps={animatedBGProps}
+              ref={ref}
+              d={d}
+              stroke={'#007AFF'}
+              strokeWidth={0}
+              strokeDashoffset={0}
+              fillOpacity={0}
+              strokeDasharray={length}
+              strokeOpacity={0}
+            />
+            <AnimatedPath
+              style={style}
+              animatedProps={strokeAnimation}
+              onLayout={() => setLength(ref.current.getTotalLength())}
+              ref={ref}
+              d={d}
+              strokeWidth={0}
+              strokeDasharray={length}
+              strokeDashoffset={0}
+              fillOpacity={0}
+              strokeOpacity={0}
+            />
+          </React.Fragment>
         ))}
       </Svg>
     </Animated.View>

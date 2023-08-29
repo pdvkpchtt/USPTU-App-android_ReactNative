@@ -20,7 +20,7 @@ const useTokenStore = create(
       },
     }),
     {
-      name: 'token',
+      name: 'token-new',
       storage: createJSONStorage(() => AsyncStorage),
     }
   )

@@ -15,8 +15,8 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import * as Linking from 'expo-linking'
 import IntroScreen from './pages/IntroScreen'
 import useIntroStore from './shared/introScreen/store/store'
-import SplashScreen from './pages/SplashScreen/SplashScreen'
-enableScreens(false)
+
+///enableScreens(false)
 export default function App() {
   const isTheme = useThemeStore((state) => state.theme) // пока добавил для статус бара danil
   const isAuth = useTokenStore((state) => state.isAuth)
