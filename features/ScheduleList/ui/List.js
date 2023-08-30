@@ -18,11 +18,10 @@ import NoteCard from '../../../shared/ui/NoteCard'
 moment.locale('ru')
 
 const List = ({ items, navigation, refreshing, filtering, myFunc }) => {
-  const { loadNextWeek, updateSchedule, setShowingWeekNumber, weekNumber } = useScheduleStore((state) => ({
+  const { loadNextWeek, updateSchedule, setShowingWeekNumber } = useScheduleStore((state) => ({
     loadNextWeek: state.loadNextWeek,
     updateSchedule: state.updateSchedule,
     setShowingWeekNumber: state.setShowingWeekNumber,
-    weekNumber: state.weekNumber,
   }))
 
   let myDate = moment(new Date()).format('YYYY-MM-DD')
@@ -90,7 +89,8 @@ const List = ({ items, navigation, refreshing, filtering, myFunc }) => {
   }
 
   const checkViewableItems = ({ viewableItems }) => {
-    if (viewableItems[0]?.item?.weekNumber) {
+    //console.log(viewableItems[0]?.item?.weekNumber)
+    if (viewableItems[0]?.item?.weekNumber || viewableItems[0]?.item?.weekNumber === 0) {
       setShowingWeekNumber(viewableItems[0]?.item?.weekNumber)
     }
     if (viewableItems[0]?.item?.fullDate === today.format('DD.MM.YYYY')) {
@@ -173,9 +173,9 @@ const List = ({ items, navigation, refreshing, filtering, myFunc }) => {
         }
         onViewableItemsChanged={checkViewableItems}
         viewabilityConfig={{
-          waitForInteraction: true,
-          itemVisiblePercentThreshold: 50,
-          minimumViewTime: 1000,
+          //waitForInteraction: true,
+          itemVisiblePercentThreshold: 80,
+          minimumViewTime: 500,
         }}
         //overScrollMode="never"
       />

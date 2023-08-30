@@ -30,8 +30,8 @@ const useStore = create(
       nextWeekNumber: 0,
       prevWeekNumber: 0,
       showingWeekNumber: 0,
-      setShowingWeekNumber: (weekNumber) => {
-        set({ showingWeekNumber: weekNumber })
+      setShowingWeekNumber: (number) => {
+        set({ showingWeekNumber: number })
       },
       updateSchedule: async () => {
         set({ refreshing: true })

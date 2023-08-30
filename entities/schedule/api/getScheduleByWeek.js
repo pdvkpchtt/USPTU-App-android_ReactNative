@@ -7,10 +7,6 @@ export default async function getScheduleByWeek(weekNumber = null) {
     weekNumber = await getNow()
   }
 
-  if (weekNumber <= 0) {
-    weekNumber = 1
-  }
-
   const scheduleData = await apiClient.post('', `format=json&cat=s&uchweek_b=${weekNumber}&uchweek_e=${weekNumber}`, {
     params: {
       obj: 'GetRasp',

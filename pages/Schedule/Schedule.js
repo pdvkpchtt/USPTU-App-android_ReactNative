@@ -113,8 +113,9 @@ const Schedule = ({ route, navigation }) => {
   }
 
   useEffect(() => {
+    const week = showingWeekNumber
     navigation.setOptions({
-      title: `${showingWeekNumber > 52 ? showingWeekNumber - 52 : showingWeekNumber} неделя`,
+      title: `${week > 52 ? week - 52 : week} неделя`,
       headerRight: () => (
         <Pressable
           onPress={() => {
@@ -138,7 +139,7 @@ const Schedule = ({ route, navigation }) => {
         </Pressable>
       ),
     })
-  }, [navigation, isTheme, showingWeekNumber])
+  }, [showingWeekNumber])
 
   const widthborder = PixelRatio.roundToNearestPixel(0.5)
 

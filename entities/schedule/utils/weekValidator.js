@@ -35,6 +35,10 @@ export const weekValidator = (week, weekNumber) => {
     if (day.lessons.length) {
       const lessons = []
       const filteredLessonsForGroup = day.lessons.filter((item) => item.gruppa === group)
+      if (filteredLessonsForGroup.length === 0) {
+        day.lessons = []
+        continue
+      }
       const filteredDayLessons = filteredLessonsForGroup.sort((a, b) => b.paraclockid - a.paraclockid)
       const lastLessonNumber = filteredDayLessons[0].paraclockid
 
