@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "lk-android_new",
-    "slug": "lk-android_new",
-    "version": "1.0.0",
+    "name": "USPTU App",
+    "slug": "lk-usptu",
+    "version": "2.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon2.png",
     "userInterfaceStyle": "automatic",
@@ -26,7 +26,8 @@
         "foregroundImage": "./assets/adaptive-icon2.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "net.rusoil"
+      "package": "net.rusoil",
+      "versionCode": 21
     },
     "web": {
       "web": {
@@ -35,7 +36,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "32c8af37-842b-4132-8c60-e28043ab3de8"
+        "projectId": "71fc8cb6-b921-4a69-89d9-57494881cb45"
       }
     }
   }

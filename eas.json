@@ -13,9 +13,6 @@
       "preview3": {
       },
       "production": {
-         "android": {
-          "buildType": "apk"
-        }
       }
     }
   }
