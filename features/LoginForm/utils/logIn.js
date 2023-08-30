@@ -12,22 +12,12 @@ export const logIn = async (savePar, deviceId, validateAccessToken) => {
   //dispatch(savePar({ par: par }));
 
   par += '|' + getRandomString(16) + '|' + moment(new Date()).format('YYYY-MM-DD HH:mm:ss')
-  par +=
-    '|' +
-    deviceId +
-    ' ' +
-    Device.osName +
-    ' ' +
-    Device.osVersion +
-    ' ' +
-    Device.brand +
-    ' ' +
-    Device.modelName +
-    ' ' +
-    Device.deviceName
+  par += '|' + deviceId + ' ' + Device.deviceName
+  console.warn(par)
+  par = par.replace('/', '').replace('.', '').replace(':', '')
 
   par = await encrypt(par, CONSTANTS.API_KEY)
-  ////console.log(CONSTANTS.OAUTH_URL + '&par=' + par)
+  console.warn(CONSTANTS.OAUTH_URL + '&par=' + par)
   // const isAvailableServer = await axios.get('https://ams.rusoil.net/pcs/')
   // if (isAvailableServer?.status === 200) {
   //   const result = await WebBrowser.openAuthSessionAsync(CONSTANTS.OAUTH_URL + '&par=' + par)
