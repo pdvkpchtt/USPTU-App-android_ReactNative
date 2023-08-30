@@ -1,12 +1,20 @@
 import { useEffect } from 'react'
-import { Alert, Text, View } from 'react-native'
+import { Alert, Pressable, Text, View } from 'react-native'
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated'
 import { useUserStore } from '../../../entities/user'
+import useTokenStore from '../../../shared/apiClient/store/store'
 import useThemeStore from '../../../shared/theme/store/store'
 import SwitchTheme from '../../../shared/theme/SwitchTheme'
 import RoundedButton from '../../../shared/ui/roundedButton'
+import TextBody from '../../../shared/ui/Text/TextBody'
+import useDemoStore from '../../../demoControl/store'
 
 const Form = ({ logIn }) => {
+  const { demo, setDemo } = useDemoStore((state) => ({
+    demo: state.demo,
+    setDemo: state.setDemo,
+  }))
+
   const isTheme = useThemeStore((state) => state.theme)
   const { savePar, deviceId, validateAccessToken } = useUserStore((state) => ({
     savePar: state.savePar,
@@ -24,7 +32,7 @@ const Form = ({ logIn }) => {
   useEffect(() => {
     opacity.value = withTiming(1)
     // validateAccessToken(
-    //   '8040D03C6B88B747C97C12E7D83445E90B6061ED9F97884AFA2BAAE10990E4B493816258E7A7D31E22971697FEEC3DEF'
+    //   'BC928BB7027CA57244E75FEC136A3BAFC4A5852A788EC6FF7E4017CE705B255AF3A8D10ECF1A4B0392E074985277F79A'
     // )
   }, [])
 
@@ -103,6 +111,33 @@ const Form = ({ logIn }) => {
           >
             личный кабинет УГНТУ
           </Text>
+        </Animated.View>
+        <Animated.View style={[animatedStyle, { top: 20 }]}>
+          <Pressable
+            onPress={() => {
+              setDemo(true)
+              useTokenStore.setState({ isAuth: true })
+            }}
+          >
+            {({ pressed }) => {
+              return (
+                <TextBody
+                  fontSize={17}
+                  letterSpacing={-0.41}
+                  textAlign="center"
+                  color={
+                    pressed
+                      ? isTheme.includes('theme_usual')
+                        ? SwitchTheme(isTheme).hoverBlue
+                        : SwitchTheme(isTheme).hoverEffect
+                      : SwitchTheme(isTheme).checkIcon
+                  }
+                >
+                  Demo
+                </TextBody>
+              )
+            }}
+          </Pressable>
         </Animated.View>
         {/* <Pressable onPress={demoLogIn}>
           {({ isPressed }) => {
