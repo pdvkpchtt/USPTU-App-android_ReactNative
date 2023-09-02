@@ -37,7 +37,16 @@ const Form = ({ logIn }) => {
   }, [])
 
   return (
-    <View style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, paddingHorizontal: 16 }}>
+    <View
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        flexGrow: 1,
+        paddingHorizontal: 16,
+
+        backgroundColor: '#fff',
+      }}
+    >
       <View
         style={{
           display: 'flex',
