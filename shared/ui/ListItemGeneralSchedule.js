@@ -183,6 +183,7 @@ const ListItemGeneralSchedule = ({ item }) => {
       return (
         <>
           {/* Добавить время */}
+
           {item[0].discipline_name.length > 2 ? <TextMain secondary>{item[0].discipline_name}</TextMain> : null}
           {item[0].podgruppa ? (
             <View style={styles.rows1}>
