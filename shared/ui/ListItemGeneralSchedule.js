@@ -146,7 +146,7 @@ const ListItemGeneralSchedule = ({ item }) => {
           {/* Добавить время */}
           {timer ? (
             <View>
-              <TextMain>{timer}</TextMain>
+              <TextMain color={SwitchTheme(isTheme).textSec}>{timer}</TextMain>
             </View>
           ) : null}
           {item[0].discipline_name.length > 2 ? <TextMain secondary>{item[0].discipline_name}</TextMain> : null}
@@ -185,7 +185,7 @@ const ListItemGeneralSchedule = ({ item }) => {
           {/* Добавить время */}
           {timer ? (
             <View>
-              <TextMain>{timer}</TextMain>
+              <TextMain color={SwitchTheme(isTheme).textSec}>{timer}</TextMain>
             </View>
           ) : null}
           {item[0].discipline_name.length > 2 ? <TextMain secondary>{item[0].discipline_name}</TextMain> : null}
@@ -256,7 +256,7 @@ const ListItemGeneralSchedule = ({ item }) => {
           {/* Добавить время */}
           {timer ? (
             <View>
-              <TextMain>{timer}</TextMain>
+              <TextMain color={SwitchTheme(isTheme).textSec}>{timer}</TextMain>
             </View>
           ) : null}
           {item[0].discipline_name.length > 2 ? <TextMain secondary>{item[0].discipline_name}</TextMain> : null}
@@ -323,9 +323,9 @@ const ListItemGeneralSchedule = ({ item }) => {
     if (item.length > 2 || (item.length === 2 && item[0].type !== item[1].type)) {
       return item.map((lesson, index) => (
         <>
-        {timer ? (
+          {timer ? (
             <View>
-              <TextMain>{timer}</TextMain>
+              <TextMain color={SwitchTheme(isTheme).textSec}>{timer}</TextMain>
             </View>
           ) : null}
           {lesson.discipline_name.length > 2 ? <TextMain secondary>{lesson.discipline_name}</TextMain> : null}

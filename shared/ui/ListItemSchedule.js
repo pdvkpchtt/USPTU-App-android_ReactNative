@@ -154,7 +154,7 @@ const ListItemSchedule = ({ item, index }) => {
           {/* Добавить время */}
           {timer ? (
             <View>
-              <TextMain>{timer}</TextMain>
+              <TextMain color={SwitchTheme(isTheme).textSec}>{timer}</TextMain>
             </View>
           ) : null}
           {item[0].discipline_name.length > 2 ? <TextMain secondary>{item[0].discipline_name}</TextMain> : null}
@@ -227,7 +227,7 @@ const ListItemSchedule = ({ item, index }) => {
           {/* Добавить время */}
           {timer ? (
             <View>
-              <TextMain>{timer}</TextMain>
+              <TextMain color={SwitchTheme(isTheme).textSec}>{timer}</TextMain>
             </View>
           ) : null}
           {item[0].discipline_name.length > 2 ? <TextMain secondary>{item[0].discipline_name}</TextMain> : null}
@@ -365,7 +365,7 @@ const ListItemSchedule = ({ item, index }) => {
           {/* Добавить время */}
           {timer ? (
             <View>
-              <TextMain>{timer}</TextMain>
+              <TextMain color={SwitchTheme(isTheme).textSec}>{timer}</TextMain>
             </View>
           ) : null}
           {item[0].discipline_name.length > 2 ? <TextMain secondary>{item[0].discipline_name}</TextMain> : null}
@@ -501,7 +501,7 @@ const ListItemSchedule = ({ item, index }) => {
         <>
           {timer ? (
             <View>
-              <TextMain>{timer}</TextMain>
+              <TextMain color={SwitchTheme(isTheme).textSec}>{timer}</TextMain>
             </View>
           ) : null}
           {lesson.discipline_name.length > 2 ? <TextMain secondary>{lesson.discipline_name}</TextMain> : null}
