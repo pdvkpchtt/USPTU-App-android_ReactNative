@@ -145,13 +145,15 @@ const ListItemGeneralSchedule = ({ item }) => {
         <>
           {/* Добавить время */}
           {timer ? (
-            <View>
-              <TextMain color={SwitchTheme(isTheme).textSec} lineHeight={19} secondary>
-                {timer}
-              </TextMain>
-            </View>
+            <>
+              <View>
+                <TextMain color={SwitchTheme(isTheme).textSec} lineHeight={19} secondary>
+                  {timer}
+                </TextMain>
+              </View>
+              <Divider ml={-12} mv={12} />
+            </>
           ) : null}
-          <Divider ml={-12} mv={12} />
           {item[0].discipline_name.length > 2 ? <TextMain secondary>{item[0].discipline_name}</TextMain> : null}
           {item[0].podgruppa ? (
             <View style={styles.rows1}>
@@ -187,13 +189,15 @@ const ListItemGeneralSchedule = ({ item }) => {
         <>
           {/* Добавить время */}
           {timer ? (
-            <View>
-              <TextMain color={SwitchTheme(isTheme).textSec} lineHeight={19} secondary>
-                {timer}
-              </TextMain>
-            </View>
+            <>
+              <View>
+                <TextMain color={SwitchTheme(isTheme).textSec} lineHeight={19} secondary>
+                  {timer}
+                </TextMain>
+              </View>
+              <Divider ml={-12} mv={12} />
+            </>
           ) : null}
-          <Divider ml={-12} mv={12} />
           {item[0].discipline_name.length > 2 ? <TextMain secondary>{item[0].discipline_name}</TextMain> : null}
           {item[0].podgruppa ? (
             <View style={styles.rows1}>
@@ -261,13 +265,15 @@ const ListItemGeneralSchedule = ({ item }) => {
         <>
           {/* Добавить время */}
           {timer ? (
-            <View>
-              <TextMain color={SwitchTheme(isTheme).textSec} lineHeight={19} secondary>
-                {timer}
-              </TextMain>
-            </View>
+            <>
+              <View>
+                <TextMain color={SwitchTheme(isTheme).textSec} lineHeight={19} secondary>
+                  {timer}
+                </TextMain>
+              </View>
+              <Divider ml={-12} mv={12} />
+            </>
           ) : null}
-          <Divider ml={-12} mv={12} />
           {item[0].discipline_name.length > 2 ? <TextMain secondary>{item[0].discipline_name}</TextMain> : null}
           {item[0].podgruppa ? (
             <View style={styles.rows1}>
@@ -333,13 +339,15 @@ const ListItemGeneralSchedule = ({ item }) => {
       return item.map((lesson, index) => (
         <>
           {timer ? (
-            <View>
-              <TextMain color={SwitchTheme(isTheme).textSec} lineHeight={19} secondary>
-                {timer}
-              </TextMain>
-            </View>
+            <>
+              <View>
+                <TextMain color={SwitchTheme(isTheme).textSec} lineHeight={19} secondary>
+                  {timer}
+                </TextMain>
+              </View>
+              <Divider ml={-12} mv={12} />
+            </>
           ) : null}
-          <Divider ml={-12} mv={12} />
           {lesson.discipline_name.length > 2 ? <TextMain secondary>{lesson.discipline_name}</TextMain> : null}
           {lesson.podgruppa ? (
             <View style={styles.rows1}>

@@ -10,7 +10,11 @@ import StudyHostelIcon from '../../../shared/ui/Icons/StudyHostelIcon'
 import PaymentsIcon from '../../../shared/ui/Icons/PaymentsIcon'
 import ResourcesIcon from '../../../shared/ui/Icons/ResourcesIcon'
 import AboutIcon from '../../../shared/ui/Icons/AboutIcon'
+import DevIcon from '../../../shared/ui/Icons/DevIcon'
+import DevChatIcon from '../../../shared/ui/Icons/DevChatIcon'
+import * as Linking from 'expo-linking'
 import DecorationIcon from '../../../shared/ui/Icons/DecorationIcon'
+import MailIcon from '../../../shared/ui/Icons/MailIcon'
 
 const navListConfig = (navigation) => {
   return [
@@ -120,5 +124,29 @@ const navListConfig = (navigation) => {
     ],
   ]
 }
+
+export const aboutConfig = [
+  {
+    name: 'USPTU Dev Chat',
+    icon: <DevChatIcon />,
+    onPress: () => {
+      Linking.openURL('https://t.me/usptudevchat')
+    },
+  },
+  {
+    name: 'USPTU Dev',
+    icon: <DevIcon />,
+    onPress: () => {
+      Linking.openURL('https://t.me/usptudev')
+    },
+  },
+  {
+    name: 'Почта rusoil',
+    icon: <MailIcon />,
+    onPress: () => {
+      Linking.openURL('mailto:oau@rusoil.net?subject=Личный кабинет студента. Мобильное приложение&body=')
+    },
+  },
+]
 
 export default navListConfig
