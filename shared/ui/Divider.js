@@ -12,7 +12,7 @@ const Divider = (props) => {
         height: width,
         marginLeft: props.ml || 0,
         marginRight: -16 || 0,
-        marginVertical: 0.1,
+        marginVertical: props.mv || 0,
       }}
     ></View>
   )

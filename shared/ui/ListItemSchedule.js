@@ -41,26 +41,28 @@ const ListItemSchedule = ({ item, index }) => {
         'true'
       )
       // console.log(diffEnd, diffStart)
-      if (diffStart < 8 && diffStart > 1) {
+      // if (diffStart < 8 && diffStart > 1) {
+      if (true) {
         setTimer('до начала ' + moment.utc(durationStart).format('HH:mm:ss'))
-      } else if (diffStart < 1 && diffStart > 0) {
-        setTimer('до начала ' + moment.utc(durationStart).format('mm:ss'))
       }
-      if (diffEnd > 50 && diffEnd < 95) {
-        const duration = moment.duration(timeEnd.clone().subtract(50, 'minutes').diff(moment()), 'seconds').asSeconds()
-        setTimer('до перерыва ' + moment.utc(duration).format('mm:ss'))
-      }
-      if (diffEnd > 45 && diffEnd < 50) {
-        const duration = moment.duration(timeEnd.clone().subtract(45, 'minutes').diff(moment()), 'seconds').asSeconds()
-        setTimer('перерыв ' + moment.utc(duration).format('mm:ss'))
-      }
-      if (diffEnd > 0 && diffEnd < 45) {
-        const duration = moment.duration(timeEnd.clone().diff(moment()), 'seconds').asSeconds()
-        setTimer('до конца ' + moment.utc(duration).format('mm:ss'))
-      }
-      if ((diffStart < 0 && diffEnd < 0) || diffStart > 8) {
-        setTimer(null)
-      }
+      //  else if (diffStart < 1 && diffStart > 0) {
+      //   setTimer('до начала ' + moment.utc(durationStart).format('mm:ss'))
+      // }
+      // if (diffEnd > 50 && diffEnd < 95) {
+      //   const duration = moment.duration(timeEnd.clone().subtract(50, 'minutes').diff(moment()), 'seconds').asSeconds()
+      //   setTimer('до перерыва ' + moment.utc(duration).format('mm:ss'))
+      // }
+      // if (diffEnd > 45 && diffEnd < 50) {
+      //   const duration = moment.duration(timeEnd.clone().subtract(45, 'minutes').diff(moment()), 'seconds').asSeconds()
+      //   setTimer('перерыв ' + moment.utc(duration).format('mm:ss'))
+      // }
+      // if (diffEnd > 0 && diffEnd < 45) {
+      //   const duration = moment.duration(timeEnd.clone().diff(moment()), 'seconds').asSeconds()
+      //   setTimer('до конца ' + moment.utc(duration).format('mm:ss'))
+      // }
+      // if ((diffStart < 0 && diffEnd < 0) || diffStart > 8) {
+      //   setTimer(null)
+      // }
     }, 1000)
 
     return () => clearInterval(intervalId) //This is important
@@ -154,9 +156,12 @@ const ListItemSchedule = ({ item, index }) => {
           {/* Добавить время */}
           {timer ? (
             <View>
-              <TextMain color={SwitchTheme(isTheme).textSec}>{timer}</TextMain>
+              <TextMain color={SwitchTheme(isTheme).textSec} lineHeight={19} secondary>
+                {timer}
+              </TextMain>
             </View>
           ) : null}
+          <Divider ml={-12} mv={12} />
           {item[0].discipline_name.length > 2 ? <TextMain secondary>{item[0].discipline_name}</TextMain> : null}
           {item[0].podgruppa ? (
             <View style={styles.rows1}>
@@ -227,9 +232,12 @@ const ListItemSchedule = ({ item, index }) => {
           {/* Добавить время */}
           {timer ? (
             <View>
-              <TextMain color={SwitchTheme(isTheme).textSec}>{timer}</TextMain>
+              <TextMain color={SwitchTheme(isTheme).textSec} lineHeight={19} secondary>
+                {timer}
+              </TextMain>
             </View>
           ) : null}
+          <Divider ml={-12} mv={12} />
           {item[0].discipline_name.length > 2 ? <TextMain secondary>{item[0].discipline_name}</TextMain> : null}
           {item[0].podgruppa ? (
             <View style={styles.rows1}>
@@ -365,9 +373,12 @@ const ListItemSchedule = ({ item, index }) => {
           {/* Добавить время */}
           {timer ? (
             <View>
-              <TextMain color={SwitchTheme(isTheme).textSec}>{timer}</TextMain>
+              <TextMain color={SwitchTheme(isTheme).textSec} lineHeight={19} secondary>
+                {timer}
+              </TextMain>
             </View>
           ) : null}
+          <Divider ml={-12} mv={12} />
           {item[0].discipline_name.length > 2 ? <TextMain secondary>{item[0].discipline_name}</TextMain> : null}
           {item[0].podgruppa ? (
             <View style={styles.rows1}>
@@ -501,9 +512,12 @@ const ListItemSchedule = ({ item, index }) => {
         <>
           {timer ? (
             <View>
-              <TextMain color={SwitchTheme(isTheme).textSec}>{timer}</TextMain>
+              <TextMain color={SwitchTheme(isTheme).textSec} lineHeight={19} secondary>
+                {timer}
+              </TextMain>
             </View>
           ) : null}
+          <Divider ml={-12} mv={12} />
           {lesson.discipline_name.length > 2 ? <TextMain secondary>{lesson.discipline_name}</TextMain> : null}
           {lesson.podgruppa ? (
             <View style={styles.rows1}>
