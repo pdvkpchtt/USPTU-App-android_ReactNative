@@ -183,7 +183,11 @@ const ListItemGeneralSchedule = ({ item }) => {
       return (
         <>
           {/* Добавить время */}
-
+          {timer ? (
+            <View>
+              <TextMain>{timer}</TextMain>
+            </View>
+          ) : null}
           {item[0].discipline_name.length > 2 ? <TextMain secondary>{item[0].discipline_name}</TextMain> : null}
           {item[0].podgruppa ? (
             <View style={styles.rows1}>
@@ -250,6 +254,11 @@ const ListItemGeneralSchedule = ({ item }) => {
       return (
         <>
           {/* Добавить время */}
+          {timer ? (
+            <View>
+              <TextMain>{timer}</TextMain>
+            </View>
+          ) : null}
           {item[0].discipline_name.length > 2 ? <TextMain secondary>{item[0].discipline_name}</TextMain> : null}
           {item[0].podgruppa ? (
             <View style={styles.rows1}>
@@ -314,6 +323,11 @@ const ListItemGeneralSchedule = ({ item }) => {
     if (item.length > 2 || (item.length === 2 && item[0].type !== item[1].type)) {
       return item.map((lesson, index) => (
         <>
+        {timer ? (
+            <View>
+              <TextMain>{timer}</TextMain>
+            </View>
+          ) : null}
           {lesson.discipline_name.length > 2 ? <TextMain secondary>{lesson.discipline_name}</TextMain> : null}
           {lesson.podgruppa ? (
             <View style={styles.rows1}>
