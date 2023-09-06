@@ -127,17 +127,17 @@ const navListConfig = (navigation) => {
 
 export const aboutConfig = [
   {
-    name: 'USPTU Dev Chat',
-    icon: <DevChatIcon />,
-    onPress: () => {
-      Linking.openURL('https://t.me/usptudevchat')
-    },
-  },
-  {
-    name: 'USPTU Dev',
+    name: 'USPTU Dev Telegram',
     icon: <DevIcon />,
     onPress: () => {
       Linking.openURL('https://t.me/usptudev')
+    },
+  },
+  {
+    name: 'USPTU Dev Chat Telegram',
+    icon: <DevChatIcon />,
+    onPress: () => {
+      Linking.openURL('https://t.me/usptudevchat')
     },
   },
   {
