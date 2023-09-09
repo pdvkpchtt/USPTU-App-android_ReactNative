@@ -27,14 +27,8 @@ const List = ({ items, navigation, refreshing, filtering, myFunc }) => {
   let myDate = moment(new Date()).format('YYYY-MM-DD')
 
   const today = moment()
-  const scheme = useColorScheme()
-  const [schemeState, setSchemeState] = useState(scheme)
   const [HIDE_STATE, setHIDE_STATE] = useState(true)
   const [ARROW_DIRECTION, setARROW_DIRECTION] = useState('chevron-down')
-
-  useEffect(() => {
-    updateSchedule()
-  }, [scheme])
 
   const isTheme = useThemeStore((state) => state.theme)
   const stickyHeaderIndices = items
@@ -153,7 +147,7 @@ const List = ({ items, navigation, refreshing, filtering, myFunc }) => {
             }}
           />
         }
-        onEndReached={!refreshing ? loadNextWeek : null}
+        onEndReached={loadNextWeek}
         onEndReachedThreshold={0.5}
         ListFooterComponent={() =>
           items.length > 2 ? (
