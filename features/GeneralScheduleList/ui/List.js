@@ -16,16 +16,10 @@ import TextMain from '../../../shared/ui/Text/TextMain'
 moment.locale('ru')
 
 const List = ({ items, navigation, refreshing, filtering, myFunc }) => {
-  const scheme = useColorScheme()
-  const [schemeState, setSchemeState] = useState(scheme)
   const [HIDE_STATE, setHIDE_STATE] = useState(true)
   const [ARROW_DIRECTION, setARROW_DIRECTION] = useState('chevron-down')
 
   let myDate = moment(new Date()).format('YYYY-MM-DD')
-
-  useEffect(() => {
-    updateSchedule()
-  }, [scheme])
 
   const today = moment()
 
@@ -146,7 +140,7 @@ const List = ({ items, navigation, refreshing, filtering, myFunc }) => {
             }}
           />
         }
-        onEndReached={!refreshing ? loadNextWeek : null}
+        onEndReached={loadNextWeek}
         onEndReachedThreshold={0.5}
         ListFooterComponent={() =>
           items.length > 2 ? (
