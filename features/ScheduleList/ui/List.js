@@ -15,6 +15,7 @@ import moment from 'moment/moment'
 import FABSearch from '../../../shared/ui/FABSearch'
 import TextMain from '../../../shared/ui/Text/TextMain'
 import NoteCard from '../../../shared/ui/NoteCard'
+import NothinFound from '../../../shared/ui/NothinFound'
 moment.locale('ru')
 
 const List = ({ items, navigation, refreshing, filtering, myFunc }) => {
@@ -100,26 +101,7 @@ const List = ({ items, navigation, refreshing, filtering, myFunc }) => {
     }
   }
   const getListEmptyComponent = () => {
-    return (
-      <>
-        {refreshing ? (
-          <LoadingBox />
-        ) : (
-          <View
-            style={{
-              marginTop: 12,
-              marginHorizontal: 12,
-              backgroundColor: SwitchTheme(isTheme).bgItem,
-              borderRadius: 20,
-              paddingHorizontal: 16,
-              paddingVertical: 12,
-            }}
-          >
-            <TextMain textAlign="left">Ничего не найдено</TextMain>
-          </View>
-        )}
-      </>
-    )
+    return <>{refreshing ? <LoadingBox /> : <NothinFound bg={SwitchTheme(isTheme).bgItem} />}</>
   }
 
   return (
@@ -147,7 +129,7 @@ const List = ({ items, navigation, refreshing, filtering, myFunc }) => {
             }}
           />
         }
-        onEndReached={!refreshing ? null : loadNextWeek}
+        onEndReached={!refreshing ? loadNextWeek : null}
         onEndReachedThreshold={0.5}
         ListFooterComponent={() =>
           items.length > 2 ? (

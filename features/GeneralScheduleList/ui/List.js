@@ -13,6 +13,7 @@ import { useEffect, useState } from 'react'
 import FAB from '../../../shared/ui/FAB'
 import moment from 'moment/moment'
 import TextMain from '../../../shared/ui/Text/TextMain'
+import NothinFound from '../../../shared/ui/NothinFound'
 moment.locale('ru')
 
 const List = ({ items, navigation, refreshing, filtering, myFunc }) => {
@@ -56,16 +57,7 @@ const List = ({ items, navigation, refreshing, filtering, myFunc }) => {
         {item.lessons.length ? (
           <LessonCard item={item.lessons} isGeneral={true}></LessonCard>
         ) : (
-          <View
-            style={{
-              backgroundColor: SwitchTheme(isTheme).bgItem,
-              borderRadius: 20,
-              paddingHorizontal: 12,
-              paddingVertical: 12,
-            }}
-          >
-            <TextMain textAlign="left">Нет занятий</TextMain>
-          </View>
+          <NothinFound bg={SwitchTheme(isTheme).bgItem} />
         )}
       </View>
     )
@@ -140,7 +132,7 @@ const List = ({ items, navigation, refreshing, filtering, myFunc }) => {
             }}
           />
         }
-        onEndReached={!refreshing ? null : loadNextWeek}
+        onEndReached={!refreshing ? loadNextWeek : null}
         onEndReachedThreshold={0.5}
         ListFooterComponent={() =>
           items.length > 2 ? (
