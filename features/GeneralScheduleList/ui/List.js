@@ -140,7 +140,7 @@ const List = ({ items, navigation, refreshing, filtering, myFunc }) => {
             }}
           />
         }
-        onEndReached={loadNextWeek}
+        onEndReached={!refreshing ? null : loadNextWeek}
         onEndReachedThreshold={0.5}
         ListFooterComponent={() =>
           items.length > 2 ? (
